@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   --primary-color: #FF6600;
   --primary-dark: #E65C00;
@@ -67,6 +66,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s ease;
+  padding-left: 150%;
 }
 
 .logo h2:hover {
