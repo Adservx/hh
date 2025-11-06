@@ -253,15 +253,6 @@ body {
   animation: float 7s infinite ease-in-out 0.5s;
 }
 
-.card-4 {
-  width: 180px;
-  height: 160px;
-  top: 280px;
-  right: 20px;
-  background: linear-gradient(135deg, #FF8533, #FF6600);
-  animation: float 9s infinite ease-in-out 1.5s;
-}
-
 .scroll-indicator {
   position: absolute;
   bottom: 30px;
@@ -918,41 +909,7 @@ body {
   }
 
   .hero-image {
-    height: 300px;
-    display: block;
-    position: relative;
-  }
-
-  .floating-card {
-    transform: scale(0.7);
-  }
-
-  .card-1 {
-    width: 180px;
-    height: 120px;
-    top: 20px;
-    left: 10px;
-  }
-
-  .card-2 {
-    width: 150px;
-    height: 110px;
-    top: 80px;
-    right: 20px;
-  }
-
-  .card-3 {
-    width: 140px;
-    height: 100px;
-    bottom: 40px;
-    left: 40px;
-  }
-
-  .card-4 {
-    width: 130px;
-    height: 110px;
-    top: 160px;
-    right: 10px;
+    display: none;
   }
 
   .scroll-indicator {
