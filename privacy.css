@@ -1,21 +1,136 @@
-body {
-  background-color: white;
-  margin: 0% 0% 0% 0%;
-  padding: 0% 0% 0% 0%;
+/* Policy Section Styles */
+.policy-section {
+  padding: 120px 20px 80px;
+  background: var(--white);
+  margin-top: 80px;
 }
-h1{
-  color: #ff6600;
+
+.policy-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
-.privacy{
-  background: linear-gradient(225deg, #FFF5EE 0%, #ffffff 100%);
-  margin: 0% 5% 0% 5%;
-  
-  
+
+.policy-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 700;
 }
-.container{
-  box-shadow:  0 5px 5px rgba(0, 0, 0, 0.1);
-  
-  max-width: 1200px;
+
+.policy-subtitle {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.policy-content {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+}
+
+.policy-item {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #E9ECEF;
+}
+
+.policy-item:last-child {
+  border-bottom: none;
+}
+
+.policy-item h2 {
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.policy-item p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.policy-list li {
+  color: var(--text-light);
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.policy-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.note {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, rgba(255, 102, 0, 0.05) 100%);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  margin: 20px 0;
+}
+
+.contact-info {
+  background: var(--gray-light);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .policy-section {
+    padding: 80px 20px 60px;
+    margin-top: 70px;
+  }
+
+  .policy-title {
+    font-size: 36px;
+  }
+
+  .policy-item h2 {
+    font-size: 24px;
+  }
+
+  .policy-item p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .policy-section {
+    padding: 60px 20px 40px;
+    margin-top: 65px;
+  }
+
+  .policy-title {
+    font-size: 28px;
+  }
+
+  .policy-item h2 {
+    font-size: 20px;
+  }
+
+  .policy-item p {
+    font-size: 14px;
+  }
+
+  .policy-list li {
+    padding-left: 25px;
+    margin-bottom: 12px;
+  }
 }
