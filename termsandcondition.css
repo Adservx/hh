@@ -46,7 +46,8 @@
   font-weight: 600;
 }
 
-.policy-item p {
+.policy-item li {
+  content: '✓';
   color: var(--text-light);
   line-height: 1.8;
   margin-bottom: 15px;

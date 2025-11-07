@@ -75,6 +75,9 @@
   font-weight: bold;
   font-size: 18px;
 }
+.change-list{
+  content: '✓';
+}
 
 .note {
   background: linear-gradient(135deg, var(--secondary-color) 0%, rgba(255, 102, 0, 0.05) 100%);
