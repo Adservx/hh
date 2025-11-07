@@ -265,18 +265,18 @@
             </div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/manlrpdj" method="POST">
           <div class="form-group">
-            <input type="text" placeholder="Enter Your Name" required>
+            <input type="text" name="name" placeholder="Enter Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Enter Your Email Address" required>
+            <input type="email" name="email" placeholder="Enter Your Email Address" required>
           </div>
           <div class="form-group">
-            <input type="text" placeholder="Subject" required>
+            <input type="text" name="subject" placeholder="Subject" required>
           </div>
           <div class="form-group">
-            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
