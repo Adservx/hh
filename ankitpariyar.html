@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Pariyar - Full Stack Developer | Portfolio</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="logo">
+          <a href="index.html" style="text-decoration: none;">
+            <h2 id="brand">Prajkit</h2>
+          </a>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="#project" class="nav-link">Portfolio</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 10px;">Ankit Pariyar</h1>
+        <h2 class="hero-subtitle" style="font-size: 24px; color: var(--primary-color); margin-bottom: 20px;">Full Stack Developer | AI Vibe Coding</h2>
+        <p class="hero-subtitle">Crafting exceptional digital experiences with modern technologies and creative problem-solving. Passionate about building scalable, secure, and user-friendly applications that make a difference.</p>
+        <div class="hero-buttons">
+          <a href="#project" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="floating-card card-1"></div>
+        <div class="floating-card card-2"></div>
+        <div class="floating-card card-3"></div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Building the future, one line of code at a time</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Hi, I'm Ankit Pariyar, a Full Stack Developer with a passion for creating innovative web solutions that blend functionality with aesthetics. My coding philosophy is simple: write clean, maintainable code while delivering experiences that users love.</p>
+          <p>With expertise spanning both frontend and backend development, I specialize in building complete, end-to-end applications. My "AI vibe coding" approach means I leverage artificial intelligence and modern tools to write smarter code—creating digital experiences that resonate with users and solve real-world problems efficiently.</p>
+          <p>I thrive on challenges and continuously explore new technologies to stay ahead in the ever-evolving tech landscape. Whether it's architecting robust APIs, designing intuitive interfaces, or optimizing database performance, I bring dedication and creativity to every project.</p>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <div class="tech-badge badge-1">React</div>
+            <div class="tech-badge badge-2">AI Tools</div>
+            <div class="tech-badge badge-3">Supabase</div>
+            <div class="tech-badge badge-4">Node.js</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Technologies I work with to bring ideas to life</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3>Frontend Development</h3>
+          <p>Creating responsive and interactive user interfaces with modern frameworks and libraries</p>
+          <ul class="service-features">
+            <li>HTML5, CSS3, JavaScript (ES6+)</li>
+            <li>React.js & Vue.js</li>
+            <li>Responsive Design & Animation</li>
+            <li>State Management (Redux, Vuex)</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Backend Development</h3>
+          <p>Building robust server-side applications and RESTful APIs with scalable architecture</p>
+          <ul class="service-features">
+            <li>Node.js & Express.js</li>
+            <li>RESTful API Design</li>
+            <li>Authentication & Authorization</li>
+            <li>Server Optimization</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+          </div>
+          <h3>Database Management</h3>
+          <p>Designing and optimizing database schemas for efficient data storage and retrieval</p>
+          <ul class="service-features">
+            <li>Supabase (PostgreSQL)</li>
+            <li>MySQL & MongoDB</li>
+            <li>Database Optimization</li>
+            <li>Data Modeling & Migration</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <h3>AI & Intelligent Coding</h3>
+          <p>Leveraging AI-powered tools and intelligent coding practices for enhanced productivity</p>
+          <ul class="service-features">
+            <li>AI-Assisted Code Generation</li>
+            <li>Cursor IDE & AI Copilots</li>
+            <li>Smart Code Refactoring</li>
+            <li>Automated Testing & Optimization</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3>Cloud & Deployment</h3>
+          <p>Deploying and managing applications on modern cloud platforms</p>
+          <ul class="service-features">
+            <li>Vercel & Netlify</li>
+            <li>Cloud Hosting Solutions</li>
+            <li>CI/CD Pipelines</li>
+            <li>Performance Monitoring</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3>Security & Best Practices</h3>
+          <p>Implementing security measures and following industry best practices</p>
+          <ul class="service-features">
+            <li>Secure Authentication</li>
+            <li>Data Encryption</li>
+            <li>Code Quality & Standards</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="project" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">Recent projects I've built with passion and precision</p>
+      </div>
+      <div class="services-grid">
+        <!-- Project 1: SecureDoc Manager -->
+        <div class="service-card">
+          <div class="service-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+              <polyline points="13 2 13 9 20 9"></polyline>
+              <line x1="10" y1="13" x2="14" y2="13"></line>
+              <line x1="10" y1="17" x2="14" y2="17"></line>
+            </svg>
+          </div>
+          <h3>SecureDoc Manager</h3>
+          <p>A professional document storage and management system with enterprise-grade security and intuitive interface</p>
+          <ul class="service-features">
+            <li>Secure document encryption</li>
+            <li>File organization & categorization</li>
+            <li>User authentication & access control</li>
+            <li>Real-time document management</li>
+          </ul>
+          <div style="margin-top: 20px;">
+            <p style="font-size: 14px; color: var(--text-light); margin-bottom: 15px;"><strong>Tech Stack:</strong> React.js, Supabase, PostgreSQL, Vercel</p>
+            <a href="https://manikant.com.np" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">View Live Project</a>
+          </div>
+        </div>
+
+        <!-- Project 2: School/College Website -->
+        <div class="service-card">
+          <div class="service-icon" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <h3>School/College Website</h3>
+          <p>Modern education website with clean design, responsive layout, and user-friendly navigation for students and faculty</p>
+          <ul class="service-features">
+            <li>Responsive design for all devices</li>
+            <li>Clean & modern interface</li>
+            <li>Easy content management</li>
+            <li>Fast loading & optimized</li>
+          </ul>
+          <div style="margin-top: 20px;">
+            <p style="font-size: 14px; color: var(--text-light); margin-bottom: 15px;"><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Vercel</p>
+            <a href="https://demoy.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">View Live Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Have a project in mind? Let's bring it to life</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4>Get In Touch</h4>
+              <p>Available for freelance projects and collaborations</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </div>
+            <div>
+              <h4>Response Time</h4>
+              <p>I typically respond within 24 hours</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4>Let's Discuss</h4>
+              <p>Open to new opportunities and exciting projects</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/manlrpdj" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="5" name="message" placeholder="Tell me about your project" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Ankit Pariyar</h3>
+          <p>Full Stack Developer | AI Vibe Coding</p>
+          <p style="margin-top: 15px; font-size: 14px;">Crafting exceptional digital experiences with passion and precision.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Main Site</h4>
+          <ul>
+            <li><a href="index.html">Prajkit Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="termsandcondition.html">Terms and Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ankit Pariyar. All rights reserved. | Powered by Prajkit</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
