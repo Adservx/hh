@@ -23,3 +23,19 @@ if (contactForm) {
     submitBtn.disabled = true;
   });
 }
+
+function showPricing(category) {
+  // Remove active class from all buttons
+  const buttons = document.querySelectorAll('.tab-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+
+  // Add active class to clicked button
+  event.currentTarget.classList.add('active');
+
+  // Hide all pricing content
+  const contents = document.querySelectorAll('.pricing-content');
+  contents.forEach(content => content.classList.remove('active'));
+
+  // Show selected pricing content
+  document.getElementById(category).classList.add('active');
+}

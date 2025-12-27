@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Pricing - Prajkit Company</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        .pricing-details-page { padding: 120px 0 60px; background: var(--gray-light); }
+        .pricing-section { margin-bottom: 80px; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow-dark); overflow: hidden; }
+        .pricing-section h2 { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); display: inline-block; margin-bottom: 30px; padding-bottom: 10px; font-size: 24px; }
+        
+        /* Table Responsiveness */
+        .table-container { width: 100%; overflow-x: auto; margin-bottom: 30px; -webkit-overflow-scrolling: touch; }
+        .price-table { width: 100%; border-collapse: collapse; min-width: 600px; font-size: 14px; }
+        .price-table th, .price-table td { border: 1px solid #eee; padding: 15px; text-align: left; vertical-align: top; word-break: break-word; }
+        .price-table th { background: var(--secondary-color); color: var(--text-dark); font-weight: 700; white-space: nowrap; }
+        
+        .package-name { font-weight: 700; color: var(--primary-color); }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 5px; position: relative; padding-left: 20px; }
+        .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-color); font-weight: bold; }
+        
+        .sidebar-nav { position: sticky; top: 100px; max-height: 80vh; overflow-y: auto; padding: 20px; background: var(--white); border-radius: 15px; box-shadow: 0 5px 20px var(--shadow-dark); }
+        .sidebar-nav a { display: block; padding: 10px 0; color: var(--text-dark); text-decoration: none; border-bottom: 1px solid #eee; transition: 0.3s; font-size: 14px; }
+        .sidebar-nav a:hover { color: var(--primary-color); padding-left: 5px; }
+        
+        .notes { background: #fff9f5; padding: 20px; border-left: 5px solid var(--primary-color); margin-top: 20px; border-radius: 0 10px 10px 0; }
+        .notes h4 { margin-bottom: 10px; color: var(--primary-dark); }
+        .back-home { margin-bottom: 30px; display: inline-block; color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        
+        .pricing-grid-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+        .main-content { min-width: 0; } /* Important for grid item content fitting */
+
+        @media (max-width: 968px) { 
+            .pricing-grid-layout { grid-template-columns: 1fr; gap: 20px; } 
+            .sidebar-nav { position: static; max-height: none; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; padding: 15px; }
+            .sidebar-nav h4 { width: 100%; margin-top: 15px !important; margin-bottom: 5px !important; }
+            .sidebar-nav a { border: 1px solid #eee; padding: 8px 15px; border-radius: 20px; background: var(--gray-light); border-bottom: none; }
+            .sidebar-nav a:hover { padding-left: 15px; background: var(--secondary-color); }
+        }
+        
+        @media (max-width: 600px) {
+            .pricing-details-page { padding: 80px 0 30px; }
+            .pricing-section { padding: 15px 10px; margin-bottom: 30px; border-radius: 10px; }
+            .pricing-section h2 { font-size: 18px; margin-bottom: 15px; }
+            .price-table { font-size: 12px; min-width: 450px; }
+            .price-table th, .price-table td { padding: 8px 5px; }
+            .sidebar-nav { padding: 10px; gap: 5px; }
+            .sidebar-nav a { font-size: 11px; padding: 5px 10px; }
+            .back-home { margin-bottom: 15px; font-size: 13px; }
+            .section-title { font-size: 22px; }
+            .section-subtitle { font-size: 13px; }
+            .container { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none;">
+                        <h2 id="brand">Prajkit</h2>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pricing-details-page">
+        <div class="container">
+            <a href="index.html" class="back-home">← Back to Home</a>
+            <div class="section-header" style="text-align: left;">
+                <h1 class="section-title">Full Service Pricing Details</h1>
+                <p class="section-subtitle">Comprehensive breakdown of all our packages, maintenance, and domain/hosting services.</p>
+            </div>
+
+            <div class="pricing-grid-layout">
+                <div class="sidebar-nav">
+                    <h4 style="margin-bottom: 15px; color: var(--primary-color);">Websites</h4>
+                    <a href="#biz-web">Business & Company</a>
+                    <a href="#ecom-web">E-Commerce & Sales</a>
+                    <a href="#media-web">Media & Content</a>
+                    <a href="#portfolio-web">Personal & Portfolio</a>
+                    <a href="#gov-web">Government & NGO</a>
+                    <a href="#health-web">HealthCare</a>
+                    <a href="#realestate-web">Real Estate</a>
+                    <a href="#finance-web">Finance & Legal</a>
+                    <a href="#community-web">Community & Social</a>
+                    <a href="#tech-web">Tech & Software</a>
+                    <a href="#ondemand-web">On-Demand Services</a>
+                    <a href="#religious-web">Religious & Cultural</a>
+                    <a href="#education-web">Education</a>
+                    <a href="#travel-web">Travel & Tourism</a>
+                    
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; color: var(--primary-color);">Apps & Software</h4>
+                    <a href="#mobile-app">Mobile App Dev</a>
+                    <a href="#web-app">Web App Dev</a>
+                    <a href="#enterprise-sys">Business & Enterprise</a>
+                    <a href="#ecom-app">E-Commerce Apps</a>
+                    <a href="#industry-app">Industry Specific</a>
+                    <a href="#admin-dash">Admin Dashboards</a>
+                    <a href="#emerging-tech">Emerging Tech</a>
+                    
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; color: var(--primary-color);">AI Solutions</h4>
+                    <a href="#ai-agents">AI-Agent Packages</a>
+                </div>
+
+                <div class="main-content">
+                    <!-- Business & Company Website -->
+                    <section id="biz-web" class="pricing-section">
+                        <h2>Business & Company Website</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Suitable For</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>Company Profile, One-page biz, Small service biz</td>
+                                    <td>25,000 - 35,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Up to 5 pages, Responsive, Basic UI/UX, Contact Form, Google Maps, Social Media, Basic SEO, Domain & Hosting, Guidance.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>Corporate Website, Service-based, Startup</td>
+                                    <td>45,000 - 65,000</td>
+                                    <td>12-18 Days</td>
+                                    <td>Up to 10 pages, Professional UI/UX, Admin panel, Image Gallery, WhatsApp Integration, On-Page SEO, Analytics, Speed Opt, Basic Security.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>Large Corporate, Fund-ready Startup</td>
+                                    <td>80,000 - 120,000</td>
+                                    <td>20-30 Days</td>
+                                    <td>Unlimited Pages, Custom UI/UX, Advanced Admin, Blogs/News/Career, Multi-Service Mgmt, Lead Mgmt, Advanced SEO, High-Level Security, Priority Support.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                        <div class="notes">
+                            <h4>Maintenance & Hosting</h4>
+                            <p>Basic: NPR 15,000-20,000/yr | Standard: NPR 30,000-40,000/yr | Premium: NPR 60,000-80,000/yr</p>
+                            <p>Domain & Hosting: Basic NPR 5,500 | Standard NPR 7,500 | Premium NPR 12,000</p>
+                        </div>
+                    </section>
+
+                    <!-- E-Commerce & Sales Website -->
+                    <section id="ecom-web" class="pricing-section">
+                        <h2>E-Commerce & Sales Website</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Suitable For</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>Local E-com, Small Store, Digital Products</td>
+                                    <td>45,000 - 70,000</td>
+                                    <td>10-15 Days</td>
+                                    <td>Unlimited Products, Basic Cart/Checkout, COD System, Admin Panel, Basic SEO, WhatsApp Integration.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>Professional Store, Dropshipping, Marketplace-Style</td>
+                                    <td>80,000 - 1,20,000</td>
+                                    <td>18-25 Days</td>
+                                    <td>User Registration, Order Tracking, Discount/Coupon, Inventory Mgmt, Payment Gateway (eSewa/Khalti), Speed Opt.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>Full Marketplace, Large-Scale Dropshipping, Brand-Level E-com</td>
+                                    <td>1,50,000 - 3,50,000+</td>
+                                    <td>30-45 Days</td>
+                                    <td>Multi-Vendor System, Advanced Filters, Auto Email/SMS, Digital Product Delivery, Sales Analytics, High-Performance Hosting.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                        <div class="notes">
+                            <h4>Important Note</h4>
+                            <p>Hosting, domain, SMS charges, and third-party services are charged separately. Online payment gateways require valid business registration in Nepal.</p>
+                        </div>
+                    </section>
+
+                    <!-- Media & Content -->
+                    <section id="media-web" class="pricing-section">
+                        <h2>Media & Content</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Suitable For</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>Small Blogs, Personal News, Beginner Podcast</td>
+                                    <td>25,000 - 35,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Home + 3 Pages, Basic Blog Section, Simple CMS, Social Media links.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>Professional Blogs, Local News, Magazines</td>
+                                    <td>50,000 - 70,000</td>
+                                    <td>15-20 Days</td>
+                                    <td>5-10 Pages, Category-Based Content, Newsletter, Podcast/Audio Embedding, Video Integration, Comments.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>Large News Portals, Online Magazines, Video Platforms</td>
+                                    <td>90,000 - 1,20,000</td>
+                                    <td>25-35 Days</td>
+                                    <td>Unlimited Pages, Advanced CMS with Analytics, Multi-Author Support, Monetization (Ads/Subs), Auto-Post to Social.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Personal & Portfolio -->
+                    <section id="portfolio-web" class="pricing-section">
+                        <h2>Personal & Portfolio</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>15,000 - 25,000</td>
+                                    <td>5-7 Days</td>
+                                    <td>3-4 pages, Responsive Design, Basic UI/UX, Social Media Links.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>25,000 - 30,000</td>
+                                    <td>10-12 Days</td>
+                                    <td>5-7 pages, Custom UI/UX, Portfolio Section, Email Integration, SEO-Friendly.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>40,000 - 50,000</td>
+                                    <td>15-20 Days</td>
+                                    <td>8-10 Pages, Advanced UI/UX, Showcase Filters, Testimonials, Performance Opt, CMS for Updates.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Government & NGO -->
+                    <section id="gov-web" class="pricing-section">
+                        <h2>Government & NGO</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Simple Home Page, News/Events, Social Media Links.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>50,000 - 75,000</td>
+                                    <td>15-20 Days</td>
+                                    <td>Custom UI/UX, Document Downloads, Event Calendar, Newsletter, Admin Panel.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>1,00,000 - 1,50,000</td>
+                                    <td>25-35 Days</td>
+                                    <td>User Login/Portal, Online Forms, Multi-Language (Nepal/English), Data Dashboard, Feedback System.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- HealthCare -->
+                    <section id="health-web" class="pricing-section">
+                        <h2>HealthCare</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Informational pages, Appointment request form, Google Maps, WhatsApp button.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>50,000 - 80,000</td>
+                                    <td>15-20 Days</td>
+                                    <td>Online Appointment with Date/Time, Doctor Profiles, Patient Inquiry Mgmt, Speed Opt.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>1,00,000 - 1,80,000+</td>
+                                    <td>25-35 Days</td>
+                                    <td>Advanced Appointment with Reminders, Patient Dashboard, Availability Scheduling, Role-Based Access.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Real Estate -->
+                    <section id="realestate-web" class="pricing-section">
+                        <h2>Real Estate</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>5-7 Pages, Basic Property Listing, Google Maps.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>45,000 - 70,000</td>
+                                    <td>12-18 Days</td>
+                                    <td>Dynamic Listing, Search/Filter, Admin Panel for properties, Gallery & Slider.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>80,00,000 - 1,30,000</td>
+                                    <td>20-30 Days</td>
+                                    <td>Agent Profiles, User Login, Booking/Site Visit Request, Advanced Analytics.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Finance & Legal -->
+                    <section id="finance-web" class="pricing-section">
+                        <h2>Finance & Legal</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 55,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Static 5-7 pages, Loan/Policy listing, Basic security.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>55,000 - 90,000</td>
+                                    <td>12-18 Days</td>
+                                    <td>Dynamic 8-12 pages, EMI Calculator, Consultation request, SEO-ready.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>1,10,000 - 2,00,000+</td>
+                                    <td>20-30 Days</td>
+                                    <td>Fully Dynamic, Online Loan App, Client Login/Tracking, High-level Security.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Community & Social -->
+                    <section id="community-web" class="pricing-section">
+                        <h2>Community & Social</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Static/Semi-dynamic, User login, Post/Event listing.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>45,000 - 75,000</td>
+                                    <td>12-18 Days</td>
+                                    <td>Advanced User Profiles, Discussion Forum, Membership system (Free/Paid).</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>90,000 - 1,50,000+</td>
+                                    <td>20-30 Days</td>
+                                    <td>Full Social Networking, Private Groups, Messaging, Scalability Support.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Tech & Software -->
+                    <section id="tech-web" class="pricing-section">
+                        <h2>Technology & Software Company</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>60,000 - 90,000</td>
+                                    <td>10-14 Days</td>
+                                    <td>SaaS-style landing, Services section, App promotion.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>1,20,000 - 1,80,000</td>
+                                    <td>18-25 Days</td>
+                                    <td>SaaS pricing flows, Case studies, Blog, Analytics.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>2,50,000 - 4,00,000</td>
+                                    <td>30-45 Days</td>
+                                    <td>Advanced animations, Multilingual, Lead Mgmt, Advanced SEO.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Education -->
+                    <section id="education-web" class="pricing-section">
+                        <h2>Education</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Responsive 5-7 pages, Enquiry System, Course listing.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>50,000 - 70,000</td>
+                                    <td>15-20 Days</td>
+                                    <td>Student/Teacher Login, Course Catalog, Event Calendar.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>1,00,000 - 1,50,000</td>
+                                    <td>25-35 Days</td>
+                                    <td>Full LMS Integration, Quizzes, Payment for Enrollment, Forum.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Mobile Application Development -->
+                    <section id="mobile-app" class="pricing-section">
+                        <h2>Mobile Application Development</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>80,000 - 1,50,000</td>
+                                    <td>2-4 Weeks</td>
+                                    <td>Android (Single), Basic UI/UX, Local/Firebase DB, APK Delivery.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>2,00,000 - 4,00,000</td>
+                                    <td>4-8 Weeks</td>
+                                    <td>Scalable Android, Backend API, Web Admin, Push Notifications, Play Store.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>5,00,000 - 10,00,000+</td>
+                                    <td>8-16 Weeks</td>
+                                    <td>Android + iOS, Advanced UI/UX, Real-Time Chat/Tracking, Secure Payments, Full Support.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Web Application Development -->
+                    <section id="web-app" class="pricing-section">
+                        <h2>Web Application Development</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>1,00,000 - 2,00,000</td>
+                                    <td>3-5 Weeks</td>
+                                    <td>Internal Tools, Staff Mgmt, CRUD Functionality, Simple Admin Dashboard.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>3,00,000 - 6,00,000</td>
+                                    <td>6-10 Weeks</td>
+                                    <td>E-com Web App, Booking System, ERP Lite, Cloud Hosting Deployment.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>7,00,000 - 15,00,000+</td>
+                                    <td>10-20 Weeks</td>
+                                    <td>Enterprise Platform, Real-Time Chat, Advanced Security, Scaling Support.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Business & Enterprise System -->
+                    <section id="enterprise-sys" class="pricing-section">
+                        <h2>Business & Enterprise System</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>2,00,000 - 4,00,000</td>
+                                    <td>4-6 Weeks</td>
+                                    <td>Inventory & Billing, Office Automation, Core Modules, PDF/Excel Reports.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>5,00,000 - 9,00,000</td>
+                                    <td>8-12 Weeks</td>
+                                    <td>ERP Lite, Manufacturing & Distribution, Multi-Branch System, Tax & Invoice Mgmt.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>10,00,000 - 25,00,000+</td>
+                                    <td>12-24 Weeks</td>
+                                    <td>Enterprise ERP, Corporate Platform, Large-Scale Manufacturing, Workflow Automation.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Admin Dashboards -->
+                    <section id="admin-dash" class="pricing-section">
+                        <h2>Admin Dashboards & Internal System</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>70,000 - 90,000</td>
+                                    <td>2-3 Weeks</td>
+                                    <td>User login & roles, Basic analytics, Data export (CSV/Excel), Mobile-friendly.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>1,20,000 - 1,50,000</td>
+                                    <td>4-6 Weeks</td>
+                                    <td>Advanced charts, Multi-level permissions, Notifications & alerts, Audit logs.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>2,00,000 - 2,50,000</td>
+                                    <td>6-8 Weeks</td>
+                                    <td>Role-based access (RBAC), Customizable dashboards, Multi-department mgmt, Cloud hosting.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Emerging Tech -->
+                    <section id="emerging-tech" class="pricing-section">
+                        <h2>Advanced & Emerging Solutions (AI/ML/IoT)</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>70,000 - 90,000</td>
+                                    <td>3-4 Weeks</td>
+                                    <td>Core Feature Set (1-2 features), Basic Analytics, Simple Authentication.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>1,20,000 - 1,50,000</td>
+                                    <td>5-6 Weeks</td>
+                                    <td>Advanced Features (3-5 features), 3rd Party API Integration, Multi-platform support.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>2,00,000 - 2,50,000</td>
+                                    <td>7-9 Weeks</td>
+                                    <td>AI/ML or Advanced Analytics, Real-time Data Sync, Advanced Security (OAuth).</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- AI-Agent Packages -->
+                    <section id="ai-agents" class="pricing-section">
+                        <h2>AI-Agent Packages</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Platforms</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 30,000</td>
+                                    <td>3-5 Days</td>
+                                    <td>FB, Insta</td>
+                                    <td>Automated Template Replies, Simple Scheduling, Basic Analytics.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>45,000 - 50,000</td>
+                                    <td>5-7 Days</td>
+                                    <td>FB, Insta, WA, X</td>
+                                    <td>AI-Generated Replies, Content Automation, Engagement Dashboard.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>70,000 - 80,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>FB, IG, WA, X, LI, TT</td>
+                                    <td>Context-Aware (NLP), CRM Integration, Website Chat, Monthly Reports.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                        <div class="notes">
+                            <h4>Maintenance</h4>
+                            <p>Basic: NPR 5,000/mo | Standard: NPR 10,000/mo | Premium: NPR 18,000/mo</p>
+                            <p>Regular monitoring ensures AI replies remain accurate and engaging.</p>
+                        </div>
+                    </section>
+
+                    <!-- On-Demand Services -->
+                    <section id="ondemand-web" class="pricing-section">
+                        <h2>On-Demand Services</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>15,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>Simple booking form, Service listing, Basic admin panel.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>25,000</td>
+                                    <td>10-15 Days</td>
+                                    <td>Service catalog, Online booking, Payment gateway integration.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>40,000</td>
+                                    <td>15-25 Days</td>
+                                    <td>Advanced listing, Tracking system, User dashboard, Push notifications.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Religious & Cultural -->
+                    <section id="religious-web" class="pricing-section">
+                        <h2>Religious & Cultural</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>20,000</td>
+                                    <td>7 Days</td>
+                                    <td>Simple Homepage, Donation button, Event info.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>40,000</td>
+                                    <td>14 Days</td>
+                                    <td>Multiple pages, Event calendar, Enhanced donation system.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>70,000</td>
+                                    <td>21 Days</td>
+                                    <td>User registration, Online donations with gateway, Multimedia integration.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Travel & Tourism -->
+                    <section id="travel-web" class="pricing-section">
+                        <h2>Travel & Tourism</h2>
+                        <div class="table-container">
+                            <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price (NPR)</th>
+                                    <th>Duration</th>
+                                    <th>Key Features</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="package-name">Basic</td>
+                                    <td>25,000 - 40,000</td>
+                                    <td>7-10 Days</td>
+                                    <td>5-7 Static Pages, Room/Tour Listing, Social Media Integration.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Standard</td>
+                                    <td>45,000 - 70,000</td>
+                                    <td>12-18 Days</td>
+                                    <td>Listing System with Filters, Inquiry/Booking Request, WhatsApp Call.</td>
+                                </tr>
+                                <tr>
+                                    <td class="package-name">Premium</td>
+                                    <td>80,00,000 - 1,20,000+</td>
+                                    <td>20-30 Days</td>
+                                    <td>Online Booking, Availability Calendar, Customer Dashboard, Reviews.</td>
+                                </tr>
+                            </tbody>
+                                                    </table>
+                                                </div>                    </section>
+
+                    <!-- Important Terms & Notes -->
+                    <section id="terms" class="pricing-section">
+                        <h2>Important Terms & General Notes</h2>
+                        <div class="notes">
+                            <h4>General Terms</h4>
+                            <ul class="feature-list">
+                                <li>Client may choose monthly or yearly payment (not both).</li>
+                                <li>Yearly payment is cost-effective and preferred (often includes 1 month free).</li>
+                                <li>Major redesigns, new modules, or feature development are not included in maintenance packages.</li>
+                                <li>Hosting & domain renewal cost is separate unless specified.</li>
+                                <li>Online payment gateways require valid business registration in Nepal.</li>
+                                <li>Pricing may vary based on customization, content volume, and client feedback timeline.</li>
+                            </ul>
+                        </div>
+                        <div class="notes" style="margin-top: 20px;">
+                            <h4>Service Level Agreement (SLA)</h4>
+                            <ul class="feature-list">
+                                <li>SLA response time improves significantly with higher packages (Premium: 2-6 hours).</li>
+                                <li>Maintenance covers existing system architecture, performance, and security.</li>
+                                <li>Emergency or priority fixes are primarily included in Premium packages.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <div style="text-align: center; padding: 40px;">
+                        <h2 style="border: none;">Need a Custom Quote?</h2>
+                        <p>Our pricing can be customized for specific requirements and deeper integrations.</p>
+                        <br>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prajkit Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth scroll for sidebar links
+        document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

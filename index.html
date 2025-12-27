@@ -22,6 +22,7 @@
         <ul class="nav-menu" id="navMenu">
           <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="ankitpariyar.html" class="nav-link">Portfolio</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -39,7 +40,7 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 style="font-family: Cursive;">Nebu DevOps</h1>
+        <h1 class="hero-title" style="font-family: Cursive;">Nebu DevOps</h1>
         <br>
         <h1 class="hero-title">Transform Your Digital Presence</h1>
         <p class="hero-subtitle">We craft stunning websites and powerful applications that drive your business forward</p>
@@ -167,6 +168,188 @@
     </div>
   </section>
 
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Service Pricing Plans</h2>
+        <p class="section-subtitle">Choose the perfect plan for your business needs. All details extracted from our official pricing guides.</p>
+      </div>
+
+      <div class="pricing-tabs">
+        <button class="tab-btn active" onclick="showPricing('websites')">Websites</button>
+        <button class="tab-btn" onclick="showPricing('apps')">Mobile Apps</button>
+        <button class="tab-btn" onclick="showPricing('ai')">AI Agents</button>
+      </div>
+
+      <!-- Website Pricing -->
+      <div id="websites" class="pricing-content active">
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Basic Website</h3>
+              <div class="price">NPR 25,000 - 35,000</div>
+              <p class="duration">Build: 7-10 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>Responsive Design</li>
+              <li>Basic UI/UX Design</li>
+              <li>Contact Form Integration</li>
+              <li>Domain & Hosting</li>
+              <li>Guidance/Training</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-header">
+              <h3>Standard Website</h3>
+              <div class="price">NPR 45,000 - 65,000</div>
+              <p class="duration">Build: 12-18 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Up to 10 pages</li>
+              <li>Professional UI/UX Designs</li>
+              <li>Admin Panel (Content Edit)</li>
+              <li>WhatsApp/Messenger Integration</li>
+              <li>Google Analytics & Speed Opt</li>
+              <li>Basic Security Setup</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Most Popular</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Premium Website</h3>
+              <div class="price">NPR 80,000 - 120,000</div>
+              <p class="duration">Build: 20-30 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Unlimited Pages</li>
+              <li>Custom UI/UX (Brand-Focused)</li>
+              <li>Advanced Admin Dashboard</li>
+              <li>Blogs/News/Career Section</li>
+              <li>Lead Management System</li>
+              <li>Priority Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Pricing -->
+      <div id="apps" class="pricing-content">
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Basic App</h3>
+              <div class="price">NPR 80,000 - 150,000</div>
+              <p class="duration">Build: 2-4 Weeks</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Single Platform (Android)</li>
+              <li>Basic UI/UX Design</li>
+              <li>Static/Limited Dynamic Screens</li>
+              <li>Local / Firebase Database</li>
+              <li>App Build & APK Delivery</li>
+              <li>Basic Testing</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-header">
+              <h3>Standard App</h3>
+              <div class="price">NPR 200,000 - 400,000</div>
+              <p class="duration">Build: 4-8 Weeks</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Scalable Architecture</li>
+              <li>Custom UI/UX Design</li>
+              <li>Backend API Integration</li>
+              <li>Admin Dashboard (Web-based)</li>
+              <li>Push Notifications</li>
+              <li>Play Store Submission</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Premium App</h3>
+              <div class="price">NPR 500,000 - 1M+</div>
+              <p class="duration">Build: 8-16 Weeks</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Android + iOS Apps</li>
+              <li>Advanced Custom UI/UX</li>
+              <li>Real-Time Chat/Tracking</li>
+              <li>Advanced Admin & Analytics</li>
+              <li>App Store & Play Store</li>
+              <li>Post-Launch Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Agent Pricing -->
+      <div id="ai" class="pricing-content">
+        <div class="pricing-grid">
+          <!-- ... existing cards ... -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Basic AI Agent</h3>
+              <div class="price">NPR 25,000 - 30,000</div>
+              <p class="duration">Build: 3-5 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Facebook & Instagram</li>
+              <li>Automated Template Replies</li>
+              <li>Social Media Post Scheduling</li>
+              <li>Basic Analytics</li>
+              <li>Minor Bug Fixes</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-header">
+              <h3>Standard AI Agent</h3>
+              <div class="price">NPR 45,000 - 50,000</div>
+              <p class="duration">Build: 5-7 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>FB, Insta, WhatsApp, X</li>
+              <li>AI-Generated Personalized Replies</li>
+              <li>Content Scheduling Automation</li>
+              <li>Analytics Dashboard</li>
+              <li>Performance Reports</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Premium AI Agent</h3>
+              <div class="price">NPR 70,000 - 80,000</div>
+              <p class="duration">Build: 7-10 Days</p>
+            </div>
+            <ul class="pricing-features">
+              <li>All Major Social Platforms</li>
+              <li>LinkedIn & TikTok Integration</li>
+              <li>Context-Aware AI (NLP)</li>
+              <li>Integration with CRM</li>
+              <li>24/7 Monitoring & Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <p style="margin-bottom: 20px; color: var(--text-light);">Looking for more categories (Education, Real Estate, HealthCare, etc.)?</p>
+        <a href="pricing-details.html" class="btn btn-secondary" style="padding: 16px 40px;">View All 20+ Service Pricing Packages</a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
@@ -209,11 +392,11 @@
         <h2 class="section-title">Our Portfolio</h2>
         <p class="section-subtitle">Explore our recent projects and developer showcase</p>
       </div>
-      <div style="text-align: center; padding: 40px 0;">
-        <p style="font-size: 18px; color: var(--text-light); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Discover our latest work featuring innovative web solutions, full-stack development projects, and cutting-edge applications.</p>
-        <a href="ankitpariyar.html" class="btn btn-primary" style="font-size: 18px; padding: 16px 40px; display: inline-flex; align-items: center; gap: 10px;">
+      <div class="portfolio-cta" style="text-align: center; padding: 40px 0;">
+        <p class="section-subtitle" style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Discover our latest work featuring innovative web solutions, full-stack development projects, and cutting-edge applications.</p>
+        <a href="ankitpariyar.html" class="btn btn-primary">
           View Full Portfolio
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-left: 10px;">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
