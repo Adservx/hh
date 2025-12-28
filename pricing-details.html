@@ -49,6 +49,35 @@
         .price-table tr:last-child td { border-bottom: none; }
         .price-table tr:hover td { background-color: #fcfdfe; }
         
+        /* Professional Row Highlights */
+        tr.standard-row td { background-color: #fffcf9; }
+        tr.premium-row td { background-color: #fbf9ff; }
+        
+        tr.standard-row .package-name { color: #e67e22; }
+        tr.premium-row .package-name { color: #8e44ad; }
+        
+        .best-value-tag {
+            background: #f39c12;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+        .premium-tag {
+            background: #8e44ad;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+        
         .package-name { 
             font-weight: 700; 
             color: var(--primary-color); 
@@ -236,15 +265,15 @@
                                     <td>7-10 Days</td>
                                     <td>Up to 5 pages, Responsive, Basic UI/UX, Contact Form, Google Maps, Social Media, Basic SEO, Domain & Hosting, Guidance.</td>
                                 </tr>
-                                <tr>
-                                    <td class="package-name standard">Standard</td>
+                                <tr class="standard-row">
+                                    <td class="package-name standard">Standard <span class="best-value-tag">Popular</span></td>
                                     <td>Corporate Website, Service-based, Startup</td>
                                     <td>45,000 - 65,000</td>
                                     <td>12-18 Days</td>
                                     <td>Up to 10 pages, Professional UI/UX, Admin panel, Image Gallery, WhatsApp Integration, On-Page SEO, Analytics, Speed Opt, Basic Security.</td>
                                 </tr>
-                                <tr>
-                                    <td class="package-name premium">Premium</td>
+                                <tr class="premium-row">
+                                    <td class="package-name premium">Premium <span class="premium-tag">Advanced</span></td>
                                     <td>Large Corporate, Fund-ready Startup</td>
                                     <td>80,000 - 120,000</td>
                                     <td>20-30 Days</td>
@@ -275,21 +304,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="package-name">Basic</td>
+                                    <td class="package-name basic">Basic</td>
                                     <td>Local E-com, Small Store, Digital Products</td>
                                     <td>45,000 - 70,000</td>
                                     <td>10-15 Days</td>
                                     <td>Unlimited Products, Basic Cart/Checkout, COD System, Admin Panel, Basic SEO, WhatsApp Integration.</td>
                                 </tr>
-                                <tr>
-                                    <td class="package-name">Standard</td>
+                                <tr class="standard-row">
+                                    <td class="package-name standard">Standard <span class="best-value-tag">Recommended</span></td>
                                     <td>Professional Store, Dropshipping, Marketplace-Style</td>
                                     <td>80,000 - 1,20,000</td>
                                     <td>18-25 Days</td>
                                     <td>User Registration, Order Tracking, Discount/Coupon, Inventory Mgmt, Payment Gateway (eSewa/Khalti), Speed Opt.</td>
                                 </tr>
-                                <tr>
-                                    <td class="package-name">Premium</td>
+                                <tr class="premium-row">
+                                    <td class="package-name premium">Premium <span class="premium-tag">Full-Scale</span></td>
                                     <td>Full Marketplace, Large-Scale Dropshipping, Brand-Level E-com</td>
                                     <td>1,50,000 - 3,50,000+</td>
                                     <td>30-45 Days</td>
