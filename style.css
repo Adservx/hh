@@ -22,25 +22,61 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none !important;
+}
+
+html,
+body {
+    cursor: none !important;
+}
+
+
+html {
+    background-color: var(--bg-black);
 }
 
 body {
-    background-color: var(--bg-black);
+    background-color: transparent;
     color: var(--text);
     font-family: var(--font-main);
     overflow-x: hidden;
     line-height: 1.6;
 }
 
-/* Particles Canvas */
+/* Background Canvases */
 #particles-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -2;
+    /* Deepest layer */
     pointer-events: none;
+}
+
+#blackhole-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    /* Float over UI as a primary cursor entity */
+    pointer-events: none;
+}
+
+#grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: overlay;
 }
 
 /* Typography */
@@ -219,6 +255,14 @@ h3,
 .btn-secondary:hover {
     background: var(--glass);
     border-color: var(--primary);
+}
+
+/* Custom Cursor Interactivity */
+#custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(2.5);
+    background: transparent;
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 0 20px #FF6600;
 }
 
 /* Sections */
