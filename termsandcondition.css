@@ -102,11 +102,21 @@
   .policy-item p {
     font-size: 15px;
   }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 600px) {
   .policy-section {
-    padding: 60px 20px 40px;
+    padding: 60px 16px 40px;
     margin-top: 65px;
   }
 
@@ -125,5 +135,14 @@
   .policy-list li {
     padding-left: 25px;
     margin-bottom: 12px;
+  }
+
+  .policy-item {
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+  }
+
+  .contact-info {
+    padding: 16px;
   }
 }

@@ -4,17 +4,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Prajkit: Initializing Cyber-Luxe Components...");
-    initParticles();
-    initBlackhole();
-    // initCustomCursor(); // Merged into initBlackhole
-    // initTilt();
+
+    // Detect touch devices for performance
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    if (!isTouchDevice) {
+        initParticles();
+        initBlackhole();
+    }
+
     initScramble();
     initReveals();
     initStats();
     initNavbar();
-
-    // Physics-Based Gravitational Lensing for UI removed as requested
-    // requestAnimationFrame(phyisicLensingLoop);
+    initMobileMenu();
 });
 
 let globalMouse = { x: 0, y: 0 };
@@ -43,6 +46,7 @@ function initBlackhole() {
             uniform vec2 u_resolution;
             uniform vec2 u_mouse;
             uniform float u_time;
+            uniform float u_hover; // Hover state (0.0 to 1.0)
 
             #define PI 3.14159265359
 
@@ -99,8 +103,8 @@ function initBlackhole() {
                 float r = length(p);
                 float phi = atan(p.y, p.x);
 
-                float Rs = 0.025; 
-                float photonSphere = 1.5 * Rs;
+                float Rs = 0.025 + u_hover * 0.015; // Expand on hover
+                float photonSphere = 1.6 * Rs;
                 
                 // 1. Gravitational Lensing Vector
                 float lensing = 1.0 - (Rs / max(r, 0.0001));
@@ -173,8 +177,9 @@ function initBlackhole() {
                 finalColor += vec3(0.98, 0.98, 1.0) * stars * (1.0 - hole);
                 
                 // Volumetric Glow (preventing banding with dither)
-                float glow = 0.01 / (r - Rs + 0.004);
-                finalColor += vec3(1.0, 0.4, 0.05) * glow * 0.6 * (1.0 - hole);
+                float glowStrength = 0.6 + u_hover * 0.4;
+                float glow = (0.01 + u_hover * 0.005) / (r - Rs + 0.004);
+                finalColor += vec3(1.0, 0.4, 0.05) * glow * glowStrength * (1.0 - hole);
                 finalColor += dither(gl_FragCoord.xy);
 
                 float alpha = clamp(length(finalColor) * 1.8 + hole, 0.0, 1.0);
@@ -207,17 +212,28 @@ function initBlackhole() {
     const resLoc = gl.getUniformLocation(program, 'u_resolution');
     const mouseLoc = gl.getUniformLocation(program, 'u_mouse');
     const timeLoc = gl.getUniformLocation(program, 'u_time');
+    const hoverLoc = gl.getUniformLocation(program, 'u_hover');
 
     const buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
 
-    let mousePosition = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let lerpMouse = { x: mousePosition.x, y: mousePosition.y };
+    let lerpMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let hoverState = 0;
+    let targetHover = 0;
 
-    window.addEventListener('mousemove', (e) => {
-        mousePosition.x = e.clientX;
-        mousePosition.y = e.clientY;
+    const interactiveElements = 'a, button, .service-card, .btn, .nav-link, input, textarea';
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactiveElements)) {
+            targetHover = 1;
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (!e.target.closest(interactiveElements)) {
+            targetHover = 0;
+        }
     });
 
     function resize() {
@@ -236,6 +252,9 @@ function initBlackhole() {
         lerpMouse.x += (globalMouse.x - lerpMouse.x) * 0.25;
         lerpMouse.y += (globalMouse.y - lerpMouse.y) * 0.25;
 
+        // Smooth hover transition
+        hoverState += (targetHover - hoverState) * 0.15;
+
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
@@ -246,6 +265,7 @@ function initBlackhole() {
         gl.uniform2f(resLoc, canvas.width, canvas.height);
         gl.uniform2f(mouseLoc, lerpMouse.x * dpr, canvas.height - lerpMouse.y * dpr);
         gl.uniform1f(timeLoc, time);
+        gl.uniform1f(hoverLoc, hoverState);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
         requestAnimationFrame(render);
     }
@@ -433,10 +453,7 @@ function initParticles() {
     animate();
 }
 
-// 3. 3D Tilt Effect
-// Tilt effect removed
-
-// 4. Text Scramble Effect
+// 2. Text Scramble Effect
 function initScramble() {
     class TextScramble {
         constructor(el) {
@@ -500,7 +517,7 @@ function initScramble() {
     }
 }
 
-// 5. Reveal Animations
+// 3. Reveal Animations
 function initReveals() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -516,7 +533,7 @@ function initReveals() {
     });
 }
 
-// 6. Stats Counter
+// 4. Stats Counter
 function initStats() {
     const stats = document.querySelectorAll('.stat-number');
 
@@ -546,7 +563,7 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// 7. Sticky Navbar
+// 5. Sticky Navbar
 function initNavbar() {
     const nav = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -554,6 +571,38 @@ function initNavbar() {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
+        }
+    });
+}
+
+// 6. Mobile Hamburger Menu
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (!hamburger || !navMenu) return;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('open');
+        document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close menu when a nav link is clicked
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('open');
+            document.body.style.overflow = '';
         }
     });
 }
