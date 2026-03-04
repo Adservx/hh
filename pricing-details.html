@@ -26,9 +26,9 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .pricing-hero{padding:150px 0 60px;text-align:center}
-.pricing-nav{position:sticky;top:80px;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.1);padding:15px 0;z-index:100}
+.pricing-nav{position:sticky;top:80px;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.1);padding:15px 0;z-index:100;overflow-x:auto;overflow-y:hidden}
 .pricing-nav-inner{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:1200px;margin:0 auto;padding:0 20px}
-.pricing-nav a{padding:8px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:all 0.3s}
+.pricing-nav a{padding:8px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:all 0.3s;white-space:nowrap}
 .pricing-nav a:hover{background:rgba(99,102,241,0.1);border-color:var(--primary);color:var(--primary)}
 .pricing-section{margin:60px 0;scroll-margin-top:150px}
 .section-header{text-align:center;margin-bottom:40px}
@@ -47,7 +47,7 @@
 .features-list li::before{content:"✓";color:var(--primary);font-weight:bold;flex-shrink:0}
 .cta-btn{display:inline-block;margin-top:15px;padding:10px 20px;background:var(--primary);color:white;text-decoration:none;border-radius:8px;font-size:0.9rem;transition:all 0.3s}
 .cta-btn:hover{background:var(--secondary);transform:scale(1.05)}
-@media (max-width:768px){.pricing-grid{grid-template-columns:1fr}.pricing-nav-inner{gap:6px}.pricing-nav a{font-size:0.75rem;padding:6px 10px}}
+@media (max-width:768px){.pricing-grid{grid-template-columns:1fr}.pricing-nav{top:70px;padding:12px 0}.pricing-nav-inner{padding:0 15px;gap:8px;justify-content:flex-start;flex-wrap:nowrap;min-width:max-content}.pricing-nav a{font-size:0.8rem;padding:8px 12px}.section-title{font-size:1.8rem}.subsection-title{font-size:1.3rem}}
 </style>
 </head>
 <body>
