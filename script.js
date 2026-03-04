@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isTouchDevice && hasMousePointer) {
         document.body.classList.add('custom-cursor-enabled');
 
-        // Initialize effects based on performance quality
+        // Initialize blackhole cursor only on desktop
         if (performanceQuality === 'high' || performanceQuality === 'medium') {
-            initParticles();
             initBlackhole();
         }
+    }
+
+    // Initialize particle background on all devices (with performance optimization)
+    if (performanceQuality !== 'low') {
+        initParticles(isTouchDevice);
     }
 
     initScramble();
@@ -323,7 +327,7 @@ function initBlackhole() {
 }
 
 // 1. Stars and Space Background
-function initParticles() {
+function initParticles(isMobile = false) {
     const canvas = document.createElement('canvas');
     canvas.id = 'particles-canvas';
     document.body.prepend(canvas); // Put it behind everything properly
@@ -332,6 +336,10 @@ function initParticles() {
     let stars = [];
     let movingStars = [];
     let width, height;
+
+    // Reduce particle count on mobile for better performance
+    const particleDensity = isMobile ? 6000 : 4000;
+    const movingStarCount = isMobile ? 80 : 150;
 
     function resize() {
         width = canvas.width = window.innerWidth;
@@ -351,20 +359,23 @@ function initParticles() {
             this.opacity += this.speed;
             if (this.opacity > 1 || this.opacity < 0) this.speed *= -1;
 
-            const dx = this.x - globalMouse.x;
-            const dy = this.y - globalMouse.y;
-            const r = Math.sqrt(dx * dx + dy * dy);
-
-            // Gravitational lensing shift
+            // Skip lensing effect on mobile for better performance
             let px = this.x;
             let py = this.y;
             let size = this.size;
 
-            if (r < 150) {
-                const lens = 1200 / (r + 25);
-                px += (dx / r) * lens;
-                py += (dy / r) * lens;
-                size *= (1 + lens / 60);
+            if (!isMobile && globalMouse.x !== 0) {
+                const dx = this.x - globalMouse.x;
+                const dy = this.y - globalMouse.y;
+                const r = Math.sqrt(dx * dx + dy * dy);
+
+                // Gravitational lensing shift
+                if (r < 150) {
+                    const lens = 1200 / (r + 25);
+                    px += (dx / r) * lens;
+                    py += (dy / r) * lens;
+                    size *= (1 + lens / 60);
+                }
             }
 
             ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(this.opacity)})`;
@@ -394,14 +405,17 @@ function initParticles() {
             let px = this.x * scale + width / 2;
             let py = this.y * scale + height / 2;
 
-            const dx = px - globalMouse.x;
-            const dy = py - globalMouse.y;
-            const r = Math.sqrt(dx * dx + dy * dy);
+            // Skip lensing effect on mobile for better performance
+            if (!isMobile && globalMouse.x !== 0) {
+                const dx = px - globalMouse.x;
+                const dy = py - globalMouse.y;
+                const r = Math.sqrt(dx * dx + dy * dy);
 
-            if (r < 150) {
-                const lens = 1500 / (r + 30);
-                px += (dx / r) * lens;
-                py += (dy / r) * lens;
+                if (r < 150) {
+                    const lens = 1500 / (r + 30);
+                    px += (dx / r) * lens;
+                    py += (dy / r) * lens;
+                }
             }
 
             const alpha = Math.min(1, (1 - this.z / width) * 2);
@@ -413,13 +427,15 @@ function initParticles() {
             ctx.arc(px, py, this.size * scale, 0, Math.PI * 2);
             ctx.fill();
 
-            // Subtle trail (lensed)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.3})`;
-            ctx.lineWidth = this.size * scale * 0.5;
-            ctx.beginPath();
-            ctx.moveTo(px, py);
-            ctx.lineTo(px - (this.x * 0.02) * scale, py - (this.y * 0.02) * scale);
-            ctx.stroke();
+            // Subtle trail (skip on mobile for performance)
+            if (!isMobile) {
+                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.3})`;
+                ctx.lineWidth = this.size * scale * 0.5;
+                ctx.beginPath();
+                ctx.moveTo(px, py);
+                ctx.lineTo(px - (this.x * 0.02) * scale, py - (this.y * 0.02) * scale);
+                ctx.stroke();
+            }
         }
     }
 
@@ -464,9 +480,9 @@ function initParticles() {
     function initStars() {
         stars = [];
         movingStars = [];
-        const starCount = Math.floor((width * height) / 4000);
+        const starCount = Math.floor((width * height) / particleDensity);
         for (let i = 0; i < starCount; i++) stars.push(new Star());
-        for (let i = 0; i < 150; i++) movingStars.push(new MovingStar());
+        for (let i = 0; i < movingStarCount; i++) movingStars.push(new MovingStar());
     }
 
     function animate() {
