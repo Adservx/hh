@@ -664,6 +664,7 @@ function initContactForm() {
 
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
+    const pricingPlanInput = document.getElementById('pricing-plan');
     const messageInput = document.getElementById('message');
 
     const nameError = document.getElementById('name-error');
@@ -781,6 +782,7 @@ function initContactForm() {
         const sanitizedData = {
             name: nameInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 100),
             email: emailInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 254),
+            pricingPlan: pricingPlanInput.value.trim().replace(/<[^>]*>/g, ''),
             message: messageInput.value.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').substring(0, 5000)
         };
 
