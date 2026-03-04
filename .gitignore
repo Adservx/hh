@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Claude AI
+.claude/
+
+# Temporary files
+*.tmp
+*.log
+COMMIT_MESSAGE.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

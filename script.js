@@ -5,12 +5,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Prajkit: Initializing Cyber-Luxe Components...");
 
-    // Detect touch devices for performance
+    // Detect touch devices and performance capabilities
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const hasMousePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-    if (!isTouchDevice) {
-        initParticles();
-        initBlackhole();
+    // Automatic quality detection based on device performance
+    const performanceQuality = detectPerformanceQuality();
+    console.log(`Performance Quality: ${performanceQuality}`);
+
+    // Only enable custom cursor on desktop with mouse
+    if (!isTouchDevice && hasMousePointer) {
+        document.body.classList.add('custom-cursor-enabled');
+
+        // Initialize effects based on performance quality
+        if (performanceQuality === 'high' || performanceQuality === 'medium') {
+            initParticles();
+            initBlackhole();
+        } else {
+            console.log("Low performance detected - skipping heavy animations");
+        }
     }
 
     initScramble();
@@ -18,7 +31,43 @@ document.addEventListener('DOMContentLoaded', () => {
     initStats();
     initNavbar();
     initMobileMenu();
+    initContactForm();
 });
+
+/**
+ * Detect device performance quality
+ * Returns: 'high', 'medium', or 'low'
+ */
+function detectPerformanceQuality() {
+    // Check hardware concurrency (CPU cores)
+    const cores = navigator.hardwareConcurrency || 2;
+
+    // Check device memory (if available)
+    const memory = navigator.deviceMemory || 4;
+
+    // Check if GPU is available
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    const hasWebGL = !!gl;
+
+    // Performance scoring
+    let score = 0;
+
+    if (cores >= 8) score += 3;
+    else if (cores >= 4) score += 2;
+    else score += 1;
+
+    if (memory >= 8) score += 3;
+    else if (memory >= 4) score += 2;
+    else score += 1;
+
+    if (hasWebGL) score += 2;
+
+    // Determine quality level
+    if (score >= 7) return 'high';
+    if (score >= 4) return 'medium';
+    return 'low';
+}
 
 let globalMouse = { x: 0, y: 0 };
 window.addEventListener('mousemove', (e) => {
@@ -67,10 +116,13 @@ function initBlackhole() {
                 return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
             }
 
+            // Optimized FBM with adaptive quality
+            // Reduced from 8 to 5 octaves for better performance
+            // while maintaining visual quality
             float fbm(vec2 p) {
                 float v = 0.0;
                 float a = 0.5;
-                for (int i = 0; i < 8; i++) { // Increased to 8 octaves for fine detail
+                for (int i = 0; i < 5; i++) {
                     v += a * noise(p);
                     p *= 2.1;
                     a *= 0.45;
@@ -117,11 +169,12 @@ function initBlackhole() {
                 vec3 diskColor = vec3(0.0);
 
                 if (r > Rs * 0.8) {
-                    // Coordinates for multi-scale gaseous texture
+                    // Optimized gaseous texture coordinates
+                    // Reduced complexity for better performance
                     float angleForDisk = phi - u_time * 1.1 - 3.2/r;
                     vec2 gasUV = vec2(angleForDisk * 1.6, r * 22.0);
-                    
-                    // High-detail gaseous flow
+
+                    // Optimized gaseous flow with fewer FBM calls
                     float gas1 = fbm(gasUV * 0.7 + u_time * 0.15);
                     float gas2 = fbm(gasUV * 3.0 - u_time * 0.4);
                     float gas = mix(gas1, gas2, 0.35);
@@ -237,7 +290,9 @@ function initBlackhole() {
     });
 
     function resize() {
-        const dpr = window.devicePixelRatio || 1;
+        // Adaptive resolution based on device pixel ratio
+        // Limit DPR to 2 for performance on high-DPI displays
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
         canvas.width = window.innerWidth * dpr;
         canvas.height = window.innerHeight * dpr;
         gl.viewport(0, 0, canvas.width, canvas.height);
@@ -248,7 +303,7 @@ function initBlackhole() {
     function render(time) {
         time *= 0.001;
 
-        // High-precision tracking for small singularity
+        // Smooth mouse tracking with optimized lerp
         lerpMouse.x += (globalMouse.x - lerpMouse.x) * 0.25;
         lerpMouse.y += (globalMouse.y - lerpMouse.y) * 0.25;
 
@@ -261,7 +316,9 @@ function initBlackhole() {
         gl.useProgram(program);
         gl.enableVertexAttribArray(posLoc);
         gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-        const dpr = window.devicePixelRatio || 1;
+
+        // Use limited DPR for performance
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
         gl.uniform2f(resLoc, canvas.width, canvas.height);
         gl.uniform2f(mouseLoc, lerpMouse.x * dpr, canvas.height - lerpMouse.y * dpr);
         gl.uniform1f(timeLoc, time);
@@ -606,3 +663,154 @@ function initMobileMenu() {
         }
     });
 }
+
+// 7. Contact Form Validation and Submission
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const messageError = document.getElementById('message-error');
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    const successMessage = document.getElementById('form-success');
+
+    // Real-time validation
+    nameInput.addEventListener('blur', () => validateName());
+    emailInput.addEventListener('blur', () => validateEmail());
+    messageInput.addEventListener('blur', () => validateMessage());
+
+    // Clear error on input
+    nameInput.addEventListener('input', () => clearError(nameInput, nameError));
+    emailInput.addEventListener('input', () => clearError(emailInput, emailError));
+    messageInput.addEventListener('input', () => clearError(messageInput, messageError));
+
+    function validateName() {
+        const value = nameInput.value.trim();
+        if (value === '') {
+            showError(nameInput, nameError, 'Name is required');
+            return false;
+        }
+        if (value.length < 2) {
+            showError(nameInput, nameError, 'Name must be at least 2 characters');
+            return false;
+        }
+        clearError(nameInput, nameError);
+        return true;
+    }
+
+    function validateEmail() {
+        const value = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (value === '') {
+            showError(emailInput, emailError, 'Email is required');
+            return false;
+        }
+        if (!emailRegex.test(value)) {
+            showError(emailInput, emailError, 'Please enter a valid email address');
+            return false;
+        }
+        clearError(emailInput, emailError);
+        return true;
+    }
+
+    function validateMessage() {
+        const value = messageInput.value.trim();
+        if (value === '') {
+            showError(messageInput, messageError, 'Message is required');
+            return false;
+        }
+        if (value.length < 10) {
+            showError(messageInput, messageError, 'Message must be at least 10 characters');
+            return false;
+        }
+        clearError(messageInput, messageError);
+        return true;
+    }
+
+    function showError(input, errorElement, message) {
+        input.classList.add('error');
+        errorElement.textContent = message;
+        input.setAttribute('aria-invalid', 'true');
+    }
+
+    function clearError(input, errorElement) {
+        input.classList.remove('error');
+        errorElement.textContent = '';
+        input.setAttribute('aria-invalid', 'false');
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate all fields
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isMessageValid = validateMessage();
+
+        if (!isNameValid || !isEmailValid || !isMessageValid) {
+            // Focus first invalid field
+            if (!isNameValid) nameInput.focus();
+            else if (!isEmailValid) emailInput.focus();
+            else if (!isMessageValid) messageInput.focus();
+            return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline-flex';
+        successMessage.style.display = 'none';
+
+        // Simulate form submission (replace with actual API call)
+        try {
+            await simulateFormSubmission({
+                name: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                message: messageInput.value.trim()
+            });
+
+            // Show success message
+            successMessage.style.display = 'flex';
+            form.reset();
+
+            // Reset button state
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error sending your message. Please try again or contact us directly.');
+
+            // Reset button state
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+        }
+    });
+
+    // Simulate form submission (replace with actual backend integration)
+    function simulateFormSubmission(data) {
+        return new Promise((resolve) => {
+            console.log('Form data:', data);
+            // In production, replace this with actual API call:
+            // fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
+            setTimeout(resolve, 2000);
+        });
+    }
+}
+

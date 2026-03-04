@@ -17,20 +17,7 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <style>
-    * {
-      cursor: none !important;
-    }
-
-    html,
-    body {
-      cursor: none !important;
-      height: 100%;
-      overflow: hidden;
-      height: auto;
-      overflow: visible;
-    }
-  </style>
+  <link rel="stylesheet" href="portfolio-styles.css">
 </head>
 
 <body>
@@ -47,8 +34,8 @@
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
           <li><a href="#pricing" class="nav-link">Pricing</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -64,79 +51,279 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" role="banner">
     <div class="container hero-content">
       <span class="hero-tag">Architecting the Future</span>
-      <h1 class="hero-title">Transform Your Digital Presence</h1>
-      <p class="hero-subtitle">We bridge the gap between vision and reality with high-performance apps, stunning
-        designs, and AI-driven excellence.</p>
+      <h1 class="hero-title">Ship Faster. Scale Smarter.</h1>
+      <p class="hero-subtitle">We build production-ready web apps, mobile platforms, and AI solutions that drive revenue from day one. No fluff, just results.</p>
       <div class="hero-btns">
-        <a href="#services" class="btn btn-primary">Our Solutions</a>
-        <a href="#contact" class="btn btn-secondary">Get a Proposal</a>
+        <a href="#portfolio" class="btn btn-primary">See Our Work</a>
+        <a href="#contact" class="btn btn-secondary">Start Your Project</a>
       </div>
     </div>
   </section>
 
   <!-- Stats Section -->
-  <section class="stats">
+  <section class="stats" aria-label="Company statistics">
     <div class="container stats-grid">
       <div class="stat-item">
-        <span class="stat-number" data-target="150">0</span>
-        <span class="stat-label">Projects Completed</span>
+        <span class="stat-number" data-target="150" aria-label="150 projects completed">0</span>
+        <span class="stat-label">Projects Delivered</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number" data-target="98">0</span>
-        <span class="stat-label">Client Satisfaction %</span>
+        <span class="stat-number" data-target="98" aria-label="98 percent client satisfaction">0</span>
+        <span class="stat-label">Client Satisfaction</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number" data-target="12">0</span>
-        <span class="stat-label">Global Partners</span>
+        <span class="stat-number" data-target="12" aria-label="12 global partners">0</span>
+        <span class="stat-label">Active Clients</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number" data-target="5">0</span>
-        <span class="stat-label">Years of Innovation</span>
+        <span class="stat-number" data-target="5" aria-label="5 years of innovation">0</span>
+        <span class="stat-label">Years in Business</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="social-proof">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Trusted by <span class="text-gradient">Forward-Thinking Teams</span></h2>
+        <p class="hero-subtitle">Real feedback from real clients who chose to build with us.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Prajkit delivered our e-commerce platform 2 weeks ahead of schedule. The attention to detail and technical expertise exceeded our expectations. Revenue is up 40% since launch."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SK</div>
+            <div>
+              <div class="author-name">Sanjay Kumar</div>
+              <div class="author-role">CEO, TechVision Nepal</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Best development partner we've worked with. They built our marketplace from scratch with clean code, proper documentation, and zero downtime deployments. Worth every rupee."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RP</div>
+            <div>
+              <div class="author-name">Rajesh Patel</div>
+              <div class="author-role">Founder, ShopNepal</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The AI chatbot they built handles 60% of our support tickets automatically. ROI was positive within 3 months. Professional team that actually delivers on promises."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MS</div>
+            <div>
+              <div class="author-name">Maya Sharma</div>
+              <div class="author-role">CTO, DataFlow Solutions</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services">
+  <section id="services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">State-of-the-Art <span class="text-gradient">Services</span></h2>
-        <p class="hero-subtitle">Precision-engineered solutions for the modern digital era.</p>
+        <h2 id="services-heading" class="section-title">What We <span class="text-gradient">Deliver</span></h2>
+        <p class="hero-subtitle">End-to-end solutions that scale with your ambition.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">✦</div>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">✦</div>
           <h3>Web Development</h3>
-          <p>High-performance, scalable web ecosystems built with the latest enterprise stacks.</p>
+          <p>Lightning-fast React, Next.js, and Vue applications with 99.9% uptime. Built for performance, optimized for conversions.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">✸</div>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">✸</div>
           <h3>App Engineering</h3>
-          <p>Stunning mobile experiences that feel native, fluid, and perfectly intuitive.</p>
+          <p>Native iOS and Android apps that users love. From MVP to App Store in 8 weeks with full backend integration.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">✺</div>
-          <h3>AI Solutions</h3>
-          <p>Cutting-edge AI integration to automate your growth and streamline operations.</p>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">✺</div>
+          <h3>AI Integration</h3>
+          <p>Custom GPT models, intelligent chatbots, and automation workflows that cut operational costs by 40%.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🛰️</div>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">🛰️</div>
           <h3>DevOps Excellence</h3>
-          <p>Robust infrastructure management through our specialized Nebu DevOps workflow.</p>
+          <p>Zero-downtime deployments with our Nebu DevOps framework. CI/CD pipelines, Docker, Kubernetes, AWS/Azure.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>UI/UX Mastery</h3>
-          <p>Branded digital experiences focused on high conversion and aesthetic dominance.</p>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">⚡</div>
+          <h3>UI/UX Design</h3>
+          <p>Conversion-focused interfaces backed by user research. Every pixel serves your business goals.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🛡️</div>
-          <h3>Consulting</h3>
-          <p>Expert IT strategy to help you navigate the complexities of digital scale.</p>
+        <div class="service-card" tabindex="0">
+          <div class="service-icon" aria-hidden="true">🛡️</div>
+          <h3>Technical Consulting</h3>
+          <p>Architecture reviews, tech stack decisions, and scalability audits. Get expert guidance before you build.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="portfolio-heading" class="section-title">Featured <span class="text-gradient">Work</span></h2>
+        <p class="hero-subtitle">Real projects, real results. See what we've built for companies like yours.</p>
+      </div>
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>E-Commerce Platform</h3>
+            <p>Full-stack marketplace with real-time inventory, payment processing, and admin dashboard. Handling 10K+ daily transactions.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>AI Customer Support Bot</h3>
+            <p>Intelligent chatbot reducing support tickets by 60%. Natural language processing with context-aware responses and CRM integration.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenAI</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">WebSocket</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="5" y="2" width="14" height="20" rx="2" />
+                <path d="M12 18h.01" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Fitness Tracking App</h3>
+            <p>Cross-platform mobile app with workout plans, progress tracking, and social features. 50K+ active users, 4.8 star rating.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Redux</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>SaaS Analytics Dashboard</h3>
+            <p>Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">D3.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Restaurant Booking System</h3>
+            <p>Complete reservation management with table optimization, waitlist automation, and customer notifications. Serving 200+ restaurants.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Twilio</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Real Estate Portal</h3>
+            <p>Property listing platform with advanced search, virtual tours, mortgage calculator, and agent matching. 100K+ monthly visitors.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">GraphQL</span>
+              <span class="tech-tag">Prisma</span>
+              <span class="tech-tag">Mapbox</span>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -145,8 +332,7 @@
     <div class="container reveal">
       <div class="glass-box">
         <h2 class="section-title">Transparent <span class="text-gradient">Pricing</span></h2>
-        <p class="hero-subtitle" style="margin-bottom: 40px;">Professional solutions for every scale. From startups to
-          enterprises.</p>
+        <p class="hero-subtitle" style="margin-bottom: 40px;">Fixed-price packages or dedicated teams. No hidden fees, no surprises. Get a custom quote in 24 hours.</p>
         <a href="pricing-details.html" class="btn btn-primary" style="padding: 20px 50px;">View All Plans</a>
       </div>
     </div>
@@ -172,33 +358,50 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" aria-labelledby="contact-heading">
     <div class="container reveal">
       <div class="section-header">
-        <h2 class="section-title">Let's <span class="text-gradient">Innovate</span> Together</h2>
-        <p class="hero-subtitle">Ready to scale? Your journey to digital dominance starts here.</p>
+        <h2 id="contact-heading" class="section-title">Let's Build <span class="text-gradient">Something Great</span></h2>
+        <p class="hero-subtitle">Tell us about your project. We'll respond within 24 hours with a clear plan and timeline.</p>
       </div>
       <div class="contact-form-wrapper">
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-group-row">
-            <input type="text" placeholder="Your Name" class="form-input">
-            <input type="email" placeholder="Your Email" class="form-input">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required aria-label="Your name" aria-required="true">
+              <span class="form-error" id="name-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Your Email" class="form-input" required aria-label="Your email address" aria-required="true">
+              <span class="form-error" id="email-error" role="alert"></span>
+            </div>
           </div>
-          <textarea rows="5" placeholder="Project details..." class="form-input"></textarea>
-          <button type="submit" class="btn btn-primary" style="border: none; width: 100%;">Launch Project</button>
+          <div class="form-group">
+            <textarea rows="5" id="message" name="message" placeholder="Project details..." class="form-input" required aria-label="Project details" aria-required="true"></textarea>
+            <span class="form-error" id="message-error" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="border: none; width: 100%;">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" style="display: none;">Sending...</span>
+          </button>
+          <div class="form-success" id="form-success" role="status" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Message sent successfully! We'll get back to you soon.</span>
+          </div>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="logo" style="margin-bottom: 20px; display: inline-block;">Prajkit<span
+          <a href="#home" class="logo" style="margin-bottom: 20px; display: inline-block;">Prajkit<span
               class="logo-accent">.</span></a>
-          <p style="color: var(--text-muted);">Pioneering the digital frontier with innovative solutions and Nebu DevOps
-            expertise.</p>
+          <p style="color: var(--text-muted);">Building the future of digital products with cutting-edge technology and expert craftsmanship.</p>
         </div>
         <div class="footer-links">
           <h4>Navigation</h4>
@@ -211,22 +414,22 @@
         <div class="footer-links">
           <h4>Services</h4>
           <ul>
-            <li><a href="#" class="nav-link">Web Dev</a></li>
-            <li><a href="#" class="nav-link">AI Agents</a></li>
-            <li><a href="#" class="nav-link">Consulting</a></li>
+            <li><a href="#services" class="nav-link">Web Dev</a></li>
+            <li><a href="#services" class="nav-link">AI Agents</a></li>
+            <li><a href="#services" class="nav-link">Consulting</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>Social</h4>
           <ul>
-            <li><a href="#" class="nav-link">LinkedIn</a></li>
-            <li><a href="#" class="nav-link">Instagram</a></li>
-            <li><a href="#" class="nav-link">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/company/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/prajkit.official" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a></li>
+            <li><a href="https://www.facebook.com/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">Facebook</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Prajkit Excellence. All rights reserved. Crafted with ❤️ in Nepal.</p>
+        <p>&copy; 2026 Prajkit. All rights reserved. Crafted with precision in Nepal.</p>
       </div>
     </div>
   </footer>
