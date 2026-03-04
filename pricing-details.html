@@ -1,1133 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing Excellence - Prajkit Detailed Breakdown</title>
-    <meta name="description"
-        content="Explore detailed pricing plans for web development, mobile apps, AI agents, and enterprise systems at Prajkit. Transparent pricing for businesses in Nepal.">
-    <link rel="icon" type="image/png" href="logo.png">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Pricing Excellence - Prajkit">
-    <meta property="og:description" content="Transparent pricing for web development, mobile apps, AI agents, and enterprise systems. Fixed-price packages or dedicated teams.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://prajkit.onrender.com/pricing-details.html">
-    <meta property="og:image" content="https://prajkit.onrender.com/logo.png">
-
-    <!-- Additional SEO -->
-    <meta name="keywords" content="web development pricing Nepal, app development cost, AI solutions pricing, DevOps pricing, Prajkit pricing">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://prajkit.onrender.com/pricing-details.html">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        :root {
-            --sidebar-width: 300px;
-        }
-
-        .pricing-details-page {
-            padding: 160px 0 100px;
-            position: relative;
-        }
-
-        /* Side Navigation Styling */
-        .pricing-grid-layout {
-            display: grid;
-            grid-template-columns: var(--sidebar-width) 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .sidebar-wrapper {
-            position: sticky;
-            top: 120px;
-        }
-
-        .sidebar-nav {
-            padding: 40px;
-            background: var(--glass);
-            border-radius: 32px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(30px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .sidebar-nav h4 {
-            color: var(--primary);
-            margin: 30px 0 15px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-weight: 800;
-        }
-
-        .sidebar-nav h4:first-child {
-            margin-top: 0;
-        }
-
-        .sidebar-nav a {
-            display: block;
-            padding: 12px 16px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 12px;
-            margin-bottom: 4px;
-            border-left: 2px solid transparent;
-        }
-
-        .sidebar-nav a:hover {
-            color: var(--primary);
-            background: rgba(255, 102, 0, 0.05);
-            transform: translateX(8px);
-            border-left-color: var(--primary);
-        }
-
-        .sidebar-nav a.active {
-            color: var(--primary);
-            background: rgba(255, 102, 0, 0.1);
-            border-left-color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Section & Header */
-        .pricing-section {
-            margin-bottom: 100px;
-            scroll-margin-top: 140px;
-        }
-
-        .section-intro {
-            margin-bottom: 40px;
-        }
-
-        .section-intro h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-intro h2::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: var(--primary);
-            display: block;
-        }
-
-        .section-intro p {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 700px;
-        }
-
-        /* Modern Pricing Cards */
-        .pricing-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .pricing-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 40px;
-            backdrop-filter: blur(40px);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .card-header {
-            margin-bottom: 25px;
-        }
-
-        .card-title {
-            font-family: var(--font-heading);
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-
-        .card-price-box {
-            margin-bottom: 25px;
-        }
-
-        .card-price {
-            font-family: var(--font-heading);
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .card-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .card-features li {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card-features li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: 900;
-        }
-
-        .card-tag {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
-            color: white;
-            background: var(--primary);
-            padding: 4px 12px;
-            border-radius: 100px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .price-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .price-table tr:hover td {
-            background: rgba(255, 102, 0, 0.02);
-        }
-
-        .package-cell {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .package-name {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--text);
-            font-size: 20px;
-        }
-
-        .package-description {
-            font-size: 12px;
-            color: var(--text-muted);
-            max-width: 250px;
-            line-height: 1.4;
-        }
-
-        .price-cell {
-            font-family: var(--font-heading);
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 24px;
-            display: block;
-        }
-
-        .price-sub {
-            font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .duration-cell {
-            font-weight: 500;
-            color: var(--text);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .duration-cell span {
-            color: var(--text-muted);
-            font-size: 11px;
-            text-transform: uppercase;
-        }
-
-        .features-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            font-size: 13px;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-muted);
-        }
-
-        .features-list li::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: 900;
-        }
-
-        /* Tags */
-        .tag {
-            font-size: 9px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        .tag-popular {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px var(--primary-glow);
-        }
-
-        .tag-advanced {
-            background: #8e44ad;
-            color: white;
-            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
-        }
-
-        /* Info Note */
-        .info-note {
-            margin-top: 30px;
-            padding: 30px;
-            background: rgba(255, 102, 0, 0.03);
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-            border-left: 4px solid var(--primary);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .info-note .icon {
-            font-size: 24px;
-            background: rgba(255, 102, 0, 0.1);
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: var(--primary);
-        }
-
-        .info-note h4 {
-            color: var(--text);
-            margin-bottom: 5px;
-            font-size: 16px;
-            font-family: var(--font-heading);
-        }
-
-        .info-note p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Scroll Progress */
-        #scroll-progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            z-index: 2000;
-        }
-
-        #scroll-progress {
-            width: 0%;
-            height: 100%;
-            background: var(--primary);
-            box-shadow: 0 0 15px var(--primary-glow);
-            transition: width 0.1s ease-out;
-        }
-
-        /* Highlights */
-        .highlight-text {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        @media (max-width: 1200px) {
-            .pricing-grid-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar-wrapper {
-                position: static;
-                margin-bottom: 50px;
-            }
-
-            .sidebar-nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                padding: 30px;
-            }
-
-            .sidebar-nav h4 {
-                width: 100%;
-                margin: 20px 0 10px;
-            }
-
-            .sidebar-nav a {
-                margin-bottom: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .features-list {
-                grid-template-columns: 1fr;
-            }
-
-            .section-intro h2 {
-                font-size: 32px;
-            }
-
-            .pricing-details-page {
-                padding-top: 120px;
-            }
-
-            .pricing-card {
-                padding: 30px;
-                border-radius: 24px;
-            }
-
-            .card-price {
-                font-size: 26px;
-            }
-
-            .info-note {
-                flex-direction: column;
-                padding: 24px;
-                border-radius: 20px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .pricing-details-page {
-                padding-top: 100px;
-                padding-bottom: 60px;
-            }
-
-            .pricing-cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-intro h2 {
-                font-size: 26px;
-                gap: 10px;
-            }
-
-            .section-intro h2::before {
-                width: 24px;
-            }
-
-            .section-intro p {
-                font-size: 15px;
-            }
-
-            .pricing-section {
-                margin-bottom: 60px;
-            }
-
-            .pricing-card {
-                padding: 24px;
-                border-radius: 20px;
-            }
-
-            .card-title {
-                font-size: 20px;
-            }
-
-            .card-price {
-                font-size: 22px;
-            }
-
-            .sidebar-nav {
-                padding: 20px;
-                border-radius: 20px;
-            }
-
-            .sidebar-nav a {
-                font-size: 13px;
-                padding: 10px 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pricing-details-page {
-                padding-top: 90px;
-            }
-
-            .section-intro h2 {
-                font-size: 22px;
-                flex-wrap: wrap;
-            }
-
-            .pricing-card {
-                padding: 20px;
-            }
-
-            .card-price {
-                font-size: 20px;
-            }
-
-            .info-note {
-                padding: 20px;
-                gap: 15px;
-            }
-
-            .info-note .icon {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-                border-radius: 10px;
-            }
-        }
-
-        /* Accessibility: Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Pricing - Prajkit</title>
+<meta name="description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance services. Business websites from NPR 25,000, mobile apps from NPR 80,000, AI solutions from NPR 25,000.">
+<link rel="icon" type="image/png" href="logo.png">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Complete Pricing Plans - Prajkit">
+<meta property="og:description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance. All prices in NPR with no hidden fees.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prajkit.onrender.com/pricing-details.html">
+<meta property="og:image" content="https://prajkit.onrender.com/logo.png">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Complete Pricing Plans - Prajkit">
+<meta name="twitter:description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance services.">
+<meta name="twitter:image" content="https://prajkit.onrender.com/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.pricing-hero{padding:150px 0 60px;text-align:center}
+.pricing-nav{position:sticky;top:80px;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.1);padding:15px 0;z-index:100}
+.pricing-nav-inner{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:1200px;margin:0 auto;padding:0 20px}
+.pricing-nav a{padding:8px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:all 0.3s}
+.pricing-nav a:hover{background:rgba(99,102,241,0.1);border-color:var(--primary);color:var(--primary)}
+.pricing-section{margin:60px 0;scroll-margin-top:150px}
+.section-header{text-align:center;margin-bottom:40px}
+.section-title{font-size:2.2rem;font-weight:700;margin-bottom:12px}
+.section-subtitle{color:var(--text-muted);font-size:1rem}
+.subsection{margin:50px 0}
+.subsection-title{font-size:1.6rem;font-weight:600;margin-bottom:25px;color:var(--primary);text-align:center}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:25px}
+.pricing-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:25px 20px;transition:all 0.3s}
+.pricing-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 12px 35px rgba(99,102,241,0.15)}
+.package-name{font-size:1.4rem;font-weight:700;margin-bottom:6px;color:var(--text-primary)}
+.package-price{font-size:1.6rem;font-weight:800;color:var(--primary);margin-bottom:6px}
+.package-timeline{font-size:0.85rem;color:var(--text-muted);margin-bottom:12px}
+.features-list{list-style:none;padding:0;margin:15px 0}
+.features-list li{padding:6px 0;color:var(--text-secondary);font-size:0.9rem;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.features-list li::before{content:"✓";color:var(--primary);font-weight:bold;flex-shrink:0}
+.cta-btn{display:inline-block;margin-top:15px;padding:10px 20px;background:var(--primary);color:white;text-decoration:none;border-radius:8px;font-size:0.9rem;transition:all 0.3s}
+.cta-btn:hover{background:var(--secondary);transform:scale(1.05)}
+@media (max-width:768px){.pricing-grid{grid-template-columns:1fr}.pricing-nav-inner{gap:6px}.pricing-nav a{font-size:0.75rem;padding:6px 10px}}
+</style>
 </head>
-
 <body>
-    <!-- Background and Cursor handled by script.js -->
+<nav class="navbar">
+<div class="container">
+<div class="nav-wrapper">
+<a href="index.html" class="logo"><img src="logo.png" alt="Prajkit Logo">Prajkit<span class="logo-accent">.</span></a>
+<ul class="nav-menu">
+<li><a href="index.html#home" class="nav-link">Home</a></li>
+<li><a href="index.html#services" class="nav-link">Services</a></li>
+<li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+<li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+<li><a href="index.html#contact" class="nav-link">Contact</a></li>
+</ul>
+<div class="nav-actions"><a href="index.html#contact" class="btn btn-secondary">Direct Reach</a></div>
+<button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
 
-    <nav class="navbar scrolled">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="index.html" class="logo">
-                    <img src="logo.png" alt="Prajkit Logo">
-                    Prajkit<span class="logo-accent">.</span>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="index.html#contact" class="btn btn-primary" style="padding: 12px 24px;">Start Project</a>
-                </div>
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+<section class="pricing-hero">
+<div class="container">
+<span class="hero-tag">Complete Pricing Guide</span>
+<h1 class="hero-title">All Our <span class="text-gradient">Services & Pricing</span></h1>
+<p class="hero-subtitle">Comprehensive pricing for websites, mobile apps, AI solutions, and maintenance. All prices in NPR.</p>
+</div>
+</section>
 
-    <div class="pricing-details-page">
-        <div class="container">
-            <div style="margin-top: 40px; margin-bottom: 60px;">
-                <a href="index.html" class="btn btn-secondary">← Back to Home</a>
-            </div>
+<div class="pricing-nav">
+<div class="pricing-nav-inner">
+<a href="#business">Business</a>
+<a href="#ecommerce">E-Commerce</a>
+<a href="#realestate">Real Estate</a>
+<a href="#travel">Travel</a>
+<a href="#mobile">Mobile Apps</a>
+<a href="#ai">AI Agents</a>
+<a href="#maintenance">Maintenance</a>
+<a href="#hosting">Hosting</a>
+</div>
+</div>
 
-            <div class="pricing-grid-layout">
-                <!-- Sticky Sidebar -->
-                <aside class="sidebar-wrapper">
-                    <div class="sidebar-nav reveal">
-                        <h4>Digital Presence</h4>
-                        <a href="#biz-web">Business Solutions</a>
-                        <a href="#ecom-web">E-Commerce</a>
-                        <a href="#media-web">Media Portals</a>
-                        <a href="#portfolio-web">Premium Portfolios</a>
+<div class="container">
 
-                        <h4>Specialized Systems</h4>
-                        <a href="#health-web">Healthcare Tech</a>
-                        <a href="#realestate-web">Real Estate</a>
-                        <a href="#education-web">Edu Systems</a>
+<!-- BUSINESS & COMPANY WEBSITE -->
+<section id="business" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Business & Company <span class="text-gradient">Website</span></h2>
+<p class="section-subtitle">Professional websites for businesses and companies</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 25,000-35,000</div>
+<div class="package-timeline">7-10 days</div>
+<ul class="features-list">
+<li>Up to 5 pages (Home, About, Services, Contact, Gallery)</li>
+<li>Responsive Design (Mobile-friendly)</li>
+<li>Basic UI/UX Design</li>
+<li>Contact Form (Email Integration)</li>
+<li>Google Maps</li>
+<li>Social Media Links</li>
+<li>Basic SEO setup</li>
+<li>Domain & hosting guidance</li>
+<li>Training</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 45,000-65,000</div>
+<div class="package-timeline">12-18 days</div>
+<ul class="features-list">
+<li>Up to 10 pages</li>
+<li>Professional UI/UX Designs</li>
+<li>Service pages with inquiry forms</li>
+<li>Admin panel (content edit)</li>
+<li>Image Gallery/Portfolio</li>
+<li>WhatsApp/Messenger Integration</li>
+<li>On-Page SEO Optimization</li>
+<li>Google Analytics setup</li>
+<li>Speed Optimization</li>
+<li>Basic Security Setup</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 80,000-120,000</div>
+<div class="package-timeline">20-30 days</div>
+<ul class="features-list">
+<li>Unlimited Pages</li>
+<li>Custom UI/UX (Brand-Focused)</li>
+<li>Advanced Admin Dashboard</li>
+<li>Blogs/News/Career Section</li>
+<li>Multi-Service Management</li>
+<li>Lead Management System</li>
+<li>Advanced SEO Setup</li>
+<li>High-Level Security</li>
+<li>Performance Optimization</li>
+<li>Priority Support</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                        <h4>High-End Engineering</h4>
-                        <a href="#mobile-app">Mobile Applications</a>
-                        <a href="#enterprise-sys">Enterprise ERP/CRM</a>
-                        <a href="#ai-agents">AI Solutions</a>
-                    </div>
-                </aside>
+<!-- E-COMMERCE -->
+<section id="ecommerce" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">E-Commerce & Sales <span class="text-gradient">Website</span></h2>
+<p class="section-subtitle">Online stores with payment integration</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 45,000-70,000</div>
+<div class="package-timeline">10-15 days</div>
+<ul class="features-list">
+<li>Responsive Design (Mobile + Desktop)</li>
+<li>Unlimited Products</li>
+<li>Product Categories</li>
+<li>Basic Cart & Checkout</li>
+<li>Cash On Delivery (COD) System</li>
+<li>Admin Panel (Product Add/Edit/Delete)</li>
+<li>Basic SEO Setup</li>
+<li>Contact & WhatsApp Integration</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 80,000-120,000</div>
+<div class="package-timeline">18-25 days</div>
+<ul class="features-list">
+<li>All Basic Features</li>
+<li>User Registration & Login</li>
+<li>Order Status Management</li>
+<li>Discount & Coupon System</li>
+<li>Inventory Management</li>
+<li>Payment Gateway (E-sewa/Khalti)</li>
+<li>Product Reviews & Ratings</li>
+<li>Better UI/UX & Speed Optimization</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 150,000-350,000+</div>
+<div class="package-timeline">30-45 days</div>
+<ul class="features-list">
+<li>All Standard Features</li>
+<li>Multi-Vendor System (Seller Dashboard)</li>
+<li>Advanced Filters & Search</li>
+<li>Automated Email/SMS Notifications</li>
+<li>Digital Product Delivery</li>
+<li>Advanced Security & Backups</li>
+<li>Sales Analytics & Reports</li>
+<li>Custom Features</li>
+<li>High-Performance Hosting Setup</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                <!-- Content Area -->
-                <main class="main-content">
+<!-- REAL ESTATE -->
+<section id="realestate" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Real Estate <span class="text-gradient">Website</span></h2>
+<p class="section-subtitle">Property listing and management systems</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 25,000-40,000</div>
+<div class="package-timeline">7-10 days</div>
+<ul class="features-list">
+<li>5-7 Static Pages</li>
+<li>Responsive Design</li>
+<li>Basic Property Listing</li>
+<li>Google Maps Integration</li>
+<li>Inquiry/Contact Form</li>
+<li>Basic SEO Setup</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 45,000-70,000</div>
+<div class="package-timeline">12-18 days</div>
+<ul class="features-list">
+<li>All Basic Features</li>
+<li>Dynamic Property Listing System</li>
+<li>Property Categories</li>
+<li>Search & Filter</li>
+<li>Admin Panel</li>
+<li>Image Gallery & Slider</li>
+<li>Lead Inquiry Management</li>
+<li>WhatsApp Integration</li>
+<li>SEO-Friendly</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 80,000-130,000</div>
+<div class="package-timeline">20-30 days</div>
+<ul class="features-list">
+<li>All Standard Features</li>
+<li>Advanced Property Management</li>
+<li>Agent Profiles & Dashboards</li>
+<li>User Login</li>
+<li>Advanced Filters</li>
+<li>Booking/Site Visit System</li>
+<li>Google Maps with Pins</li>
+<li>Blog & News</li>
+<li>Performance Optimization</li>
+<li>Advanced SEO + Analytics</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                    <!-- Business Section -->
-                    <section id="biz-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Business & Company</h2>
-                            <p>Optimized for professional firms, startups, and corporate entities requiring a strong
-                                digital identity.</p>
-                        </div>
+<!-- TRAVEL -->
+<section id="travel" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Travel & Tourism <span class="text-gradient">Website</span></h2>
+<p class="section-subtitle">Hotels, tours, and travel booking</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 25,000-40,000</div>
+<div class="package-timeline">7-10 days</div>
+<ul class="features-list">
+<li>5-7 Static Pages</li>
+<li>Responsive Design</li>
+<li>Basic Room/Tour Listing</li>
+<li>Google Maps</li>
+<li>Contact Form</li>
+<li>Basic SEO</li>
+<li>Social Media Integration</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 45,000-70,000</div>
+<div class="package-timeline">12-18 days</div>
+<ul class="features-list">
+<li>All Basic Features</li>
+<li>Tour & Listing System with Filters</li>
+<li>Advanced UI/UX</li>
+<li>Booking Request System</li>
+<li>Dynamic Admin Panel</li>
+<li>Image Gallery & Slider</li>
+<li>WhatsApp & Call Integration</li>
+<li>SEO-Friendly</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 80,000-120,000+</div>
+<div class="package-timeline">20-30 days</div>
+<ul class="features-list">
+<li>Custom UI/UX Design</li>
+<li>Online Booking System</li>
+<li>Payment Gateway</li>
+<li>Advanced Tour & Room Management</li>
+<li>Availability Calendar</li>
+<li>Customer Dashboard</li>
+<li>Review & Rating System</li>
+<li>Multi-Language Support</li>
+<li>Advanced SEO & Speed</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                        <div class="pricing-cards-grid">
-                            <!-- Essential -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Essential</h3>
-                                    <p class="card-desc">Perfect for small businesses starting their digital journey.
-                                    </p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">25K - 35K <small>NPR</small></div>
-                                    <div class="card-timeline">7 - 10 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>5 HD Pages</li>
-                                    <li>Mobile UI</li>
-                                    <li>Contact Sync</li>
-                                    <li>SEO Ready</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Get Started</a>
-                                </div>
-                            </div>
+<!-- MOBILE APPS -->
+<section id="mobile" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Mobile Application <span class="text-gradient">Development</span></h2>
+<p class="section-subtitle">Android and iOS applications</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 80,000-150,000</div>
+<div class="package-timeline">2-4 weeks</div>
+<ul class="features-list">
+<li>Android App (Single Platform)</li>
+<li>Basic UI/UX Design</li>
+<li>Static or Limited Dynamic Screens</li>
+<li>Basic Form & Data Capture</li>
+<li>Local/Firebase Database</li>
+<li>Basic Admin Panel</li>
+<li>App Build & APK Delivery</li>
+<li>Basic Testing</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 200,000-400,000</div>
+<div class="package-timeline">4-8 weeks</div>
+<ul class="features-list">
+<li>Android App (Scalable)</li>
+<li>Custom UI/UX Design</li>
+<li>User Login/Registration</li>
+<li>Backend API Integration</li>
+<li>Firebase/Cloud Database</li>
+<li>Admin Dashboard (Web-based)</li>
+<li>Push Notifications</li>
+<li>Payment Gateway</li>
+<li>Play Store Submission</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 500,000-1,000,000+</div>
+<div class="package-timeline">8-16 weeks</div>
+<ul class="features-list">
+<li>Android + iOS App</li>
+<li>Advanced Custom UI/UX</li>
+<li>Role-Based User System</li>
+<li>Real-Time Features</li>
+<li>Secure Payment Integration</li>
+<li>Advanced Admin & Analytics</li>
+<li>Third-Party API Integrations</li>
+<li>App Optimization & Security</li>
+<li>Store Deployment</li>
+<li>Post-Launch Support</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                            <!-- Professional -->
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Most Selected</span>
-                                    <h3 class="card-title">Professional</h3>
-                                    <p class="card-desc">Enhanced features for growing market leaders needing scale.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">45K - 65K <small>NPR</small></div>
-                                    <div class="card-timeline">12 - 18 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>10+ Pages</li>
-                                    <li>Admin CMS</li>
-                                    <li>WhatsApp API</li>
-                                    <li>Speed Boost</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Select Professional</a>
-                                </div>
-                            </div>
+<!-- AI AGENTS -->
+<section id="ai" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">AI Agent <span class="text-gradient">Solutions</span></h2>
+<p class="section-subtitle">Intelligent automation for social media</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 25,000-30,000</div>
+<div class="package-timeline">3-5 days</div>
+<ul class="features-list">
+<li>Platforms: Facebook, Instagram</li>
+<li>Automated Replies (Predefined Templates)</li>
+<li>Simple Post Scheduling</li>
+<li>Basic Analytics</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 45,000-50,000</div>
+<div class="package-timeline">5-7 days</div>
+<ul class="features-list">
+<li>Platforms: Facebook, Instagram, WhatsApp, Twitter/X</li>
+<li>AI-Generated Personalized Replies</li>
+<li>Content Scheduling & Posting Automation</li>
+<li>Analytics Dashboard</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 70,000-80,000</div>
+<div class="package-timeline">7-10 days</div>
+<ul class="features-list">
+<li>Platforms: Facebook, Instagram, WhatsApp, Twitter/X, LinkedIn, TikTok</li>
+<li>Context-Aware AI Replies With NLP</li>
+<li>Advanced Content Creating & Posting</li>
+<li>Sentiment Analysis & Engagement Optimization</li>
+<li>CRM Integration</li>
+<li>Website Chat Integration</li>
+<li>Monthly Performance Report</li>
+</ul>
+<a href="index.html#contact" class="cta-btn">Get Started</a>
+</div>
+</div>
+</section>
 
-                            <!-- Elite Luxe -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Elite Luxe</h3>
-                                    <p class="card-desc">Custom engineered for unmatched digital dominance.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">80K - 120K <small>NPR</small></div>
-                                    <div class="card-timeline">20 - 30 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Unlimited Ops</li>
-                                    <li>Custom UI/UX</li>
-                                    <li>Lead Engine</li>
-                                    <li>Adv. Analytics</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Go Elite</a>
-                                </div>
-                            </div>
-                        </div>
+<!-- MAINTENANCE -->
+<section id="maintenance" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Maintenance <span class="text-gradient">Services</span></h2>
+<p class="section-subtitle">Keep your digital assets running smoothly</p>
+</div>
+<div class="subsection">
+<h3 class="subsection-title">Website Maintenance</h3>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 15,000-20,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 1,500-2,000/month</p>
+<ul class="features-list">
+<li>Hosting monitoring</li>
+<li>Website uptime check</li>
+<li>Minor text & image updates (2-3 times/month)</li>
+<li>Basic security check</li>
+<li>Monthly backup</li>
+<li>Technical support (business hours)</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 30,000-40,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 3,000-4,000/month</p>
+<ul class="features-list">
+<li>All Basic services</li>
+<li>Regular content updates</li>
+<li>Security monitoring</li>
+<li>Weekly backups</li>
+<li>Performance optimization</li>
+<li>Bug fixing & compatibility support</li>
+<li>Priority support</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 60,000-80,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 6,000-8,000/month</p>
+<ul class="features-list">
+<li>All Standard services</li>
+<li>Unlimited content updates</li>
+<li>Advanced security & firewall</li>
+<li>Daily backups</li>
+<li>Database optimization</li>
+<li>Advanced performance tuning</li>
+<li>SEO monitoring & improvements</li>
+<li>24/7 uptime monitoring</li>
+<li>Emergency issue handling</li>
+<li>Dedicated support</li>
+</ul>
+</div>
+</div>
+</div>
 
+<div class="subsection">
+<h3 class="subsection-title">Mobile App Maintenance</h3>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 10,000-15,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 900-1,250/month</p>
+<ul class="features-list">
+<li>Bug fixes & minor updates</li>
+<li>Security patches</li>
+<li>Basic support via email</li>
+<li>Performance monitoring</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 20,000-25,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 1,700-2,100/month</p>
+<ul class="features-list">
+<li>All Basic services</li>
+<li>Regular feature updates</li>
+<li>Push notification management</li>
+<li>App store submission & update support</li>
+<li>Analytics reporting</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 35,000-50,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 3,000-4,500/month</p>
+<ul class="features-list">
+<li>All Standard services</li>
+<li>Advanced feature updates</li>
+<li>Custom integrations</li>
+<li>Priority support (chat + call)</li>
+<li>Performance optimization</li>
+<li>UI/UX improvements</li>
+<li>Cloud services monitoring</li>
+</ul>
+</div>
+</div>
+</div>
 
-                    </section>
+<div class="subsection">
+<h3 class="subsection-title">AI Agent Maintenance</h3>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic</h4>
+<div class="package-price">NPR 55,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 5,000/month</p>
+<ul class="features-list">
+<li>Update Response Templates</li>
+<li>Monitor Basic Performance</li>
+<li>Minor Bug Fixes</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard</h4>
+<div class="package-price">NPR 110,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 10,000/month</p>
+<ul class="features-list">
+<li>Update Templates & AI Responses</li>
+<li>Performance & Engagement Monitoring</li>
+<li>Integration Check</li>
+<li>Minor Improvements</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium</h4>
+<div class="package-price">NPR 198,000/year</div>
+<p style="color:var(--text-muted);font-size:0.9rem;margin:10px 0">or NPR 18,000/month</p>
+<ul class="features-list">
+<li>Full AI Training & Optimization</li>
+<li>Detailed Performance Analytics</li>
+<li>Content Strategy Recommendations</li>
+<li>Social Media Integration Updates</li>
+<li>24/7 Monitoring & Troubleshoot</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
-                    <!-- E-Commerce Section -->
-                    <section id="ecom-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>E-Commerce Ecosystems</h2>
-                            <p>Revenue-driven platforms built for high conversion and seamless merchant operations.</p>
-                        </div>
+<!-- HOSTING & DOMAIN -->
+<section id="hosting" class="pricing-section">
+<div class="section-header">
+<h2 class="section-title">Domain & Hosting <span class="text-gradient">Services</span></h2>
+<p class="section-subtitle">Reliable hosting and domain registration</p>
+</div>
+<div class="pricing-grid">
+<div class="pricing-card">
+<h4 class="package-name">Basic Package</h4>
+<div class="package-price">NPR 5,500/year</div>
+<ul class="features-list">
+<li>Domain Registration: NPR 1,500</li>
+<li>Web Hosting: NPR 4,000</li>
+<li>Suitable for small websites</li>
+<li>Basic support</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Standard Package</h4>
+<div class="package-price">NPR 7,500/year</div>
+<ul class="features-list">
+<li>Domain Registration: NPR 1,500</li>
+<li>Web Hosting: NPR 6,000</li>
+<li>Suitable for medium websites</li>
+<li>Better performance</li>
+<li>Priority support</li>
+</ul>
+</div>
+<div class="pricing-card">
+<h4 class="package-name">Premium Package</h4>
+<div class="package-price">NPR 12,000/year</div>
+<ul class="features-list">
+<li>Domain Registration: NPR 2,000</li>
+<li>Web Hosting: NPR 10,000</li>
+<li>Suitable for large websites</li>
+<li>High performance</li>
+<li>Dedicated support</li>
+<li>Advanced features</li>
+</ul>
+</div>
+</div>
+</section>
 
-                        <div class="pricing-cards-grid">
-                            <!-- Starter Store -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Starter Store</h3>
-                                    <p class="card-desc">Basic retail functionality for individuals and small shops.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">45K - 70K <small>NPR</small></div>
-                                    <div class="card-timeline">10 - 15 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Product Mgmt</li>
-                                    <li>Cart Logic</li>
-                                    <li>COD System</li>
-                                    <li>Mobile Ready</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Select Starter</a>
-                                </div>
-                            </div>
+<!-- CTA -->
+<section style="text-align:center;padding:80px 0">
+<div style="background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(168,85,247,0.1));border:1px solid rgba(99,102,241,0.3);border-radius:20px;padding:60px 40px;max-width:800px;margin:0 auto">
+<h2 class="section-title">Ready to Get Started?</h2>
+<p class="hero-subtitle" style="margin:20px 0 40px">Contact us today for a free consultation and custom quote tailored to your needs.</p>
+<a href="index.html#contact" class="btn btn-primary" style="padding:20px 50px">Start Your Project</a>
+</div>
+</section>
 
-                            <!-- Dynamic Store -->
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Professional</span>
-                                    <h3 class="card-title">Dynamic Store</h3>
-                                    <p class="card-desc">Full digital shop with advanced inventory and payment scales.
-                                    </p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">80K - 120K <small>NPR</small></div>
-                                    <div class="card-timeline">18 - 25 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Payment Gate</li>
-                                    <li>Inventory API</li>
-                                    <li>Order Sync</li>
-                                    <li>Auto Invoicing</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Select Dynamic</a>
-                                </div>
-                            </div>
+</div>
 
-                            <!-- SaaS Marketplace -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Marketplace</h3>
-                                    <p class="card-desc">Complex multi-vendor scaling solutions for big enterprises.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">150K - 350K+ <small>NPR</small></div>
-                                    <div class="card-timeline">30 - 45 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Vendor Panel</li>
-                                    <li>Auto Comms</li>
-                                    <li>Scale Infra</li>
-                                    <li>Multi-Admin</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Quote Marketplace</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="index.html" class="logo" style="margin-bottom:20px;display:inline-block">Prajkit<span class="logo-accent">.</span></a>
+<p style="color:var(--text-muted)">Building the future of digital products with cutting-edge technology.</p>
+</div>
+<div class="footer-links">
+<h4>Navigation</h4>
+<ul>
+<li><a href="index.html#home" class="nav-link">Home</a></li>
+<li><a href="index.html#services" class="nav-link">Services</a></li>
+<li><a href="index.html#contact" class="nav-link">Connect</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Services</h4>
+<ul>
+<li><a href="index.html#services" class="nav-link">Web Dev</a></li>
+<li><a href="index.html#services" class="nav-link">AI Agents</a></li>
+<li><a href="index.html#services" class="nav-link">Consulting</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Social</h4>
+<ul>
+<li><a href="https://www.linkedin.com/company/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a></li>
+<li><a href="https://www.instagram.com/prajkit.official" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a></li>
+<li><a href="https://www.facebook.com/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">Facebook</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Prajkit. All rights reserved. Crafted with precision in Nepal.</p>
+</div>
+</div>
+</footer>
 
-                    <!-- Mobile App Section -->
-                    <section id="mobile-app" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Mobile App Engineering</h2>
-                            <p>Native and Cross-platform experiences designed for high performance and user retention.
-                            </p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <!-- Lite App -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Lite App</h3>
-                                    <p class="card-desc">Efficient mobile experience for essential business services.
-                                    </p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">80K - 150K <small>NPR</small></div>
-                                    <div class="card-timeline">2 - 4 WEEKS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Flutter / RN Base</li>
-                                    <li>Firebase Auth</li>
-                                    <li>Push Alerts</li>
-                                    <li>Store Launch</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Select Lite</a>
-                                </div>
-                            </div>
-
-                            <!-- Dynamic App -->
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Enterprise Ready</span>
-                                    <h3 class="card-title">Dynamic App</h3>
-                                    <p class="card-desc">Feature-rich applications with real-time data and high
-                                        performance.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">200K - 400K <small>NPR</small></div>
-                                    <div class="card-timeline">4 - 8 WEEKS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Custom API</li>
-                                    <li>Real-time Sync</li>
-                                    <li>Payment Sync</li>
-                                    <li>Adv. UI/UX</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Select Dynamic</a>
-                                </div>
-                            </div>
-
-                            <!-- Enterprise App -->
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Enterprise App</h3>
-                                    <p class="card-desc">Scalable mobile ecosystems for large scale user bases.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">500K - 1M+ <small>NPR</small></div>
-                                    <div class="card-timeline">8 - 16 WEEKS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Microservices</li>
-                                    <li>High Security</li>
-                                    <li>Offline Mode</li>
-                                    <li>Cloud Infra</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Get Enterprise</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Media Section -->
-                    <section id="media-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Media & Content Portals</h2>
-                            <p>High-traffic news portals, magazines, and dynamic content delivery systems.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">News Portal</h3>
-                                    <p class="card-desc">High-traffic CMS for digital magazines and news agencies.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">65K - 95K <small>NPR</small></div>
-                                    <div class="card-timeline">15 - 20 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Smart CMS</li>
-                                    <li>Ad-Management</li>
-                                    <li>SEO Engine</li>
-                                    <li>Author Panel</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Launch Portal</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Portfolio Section -->
-                    <section id="portfolio-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Premium Portfolios</h2>
-                            <p>Highly aesthetic, animation-rich personal or clinical portfolios for professionals.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Aesthetic Choice</span>
-                                    <h3 class="card-title">Artist/Pro Portfolio</h3>
-                                    <p class="card-desc">High-end visual showcase for creators and professionals.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">15K - 25K <small>NPR</small></div>
-                                    <div class="card-timeline">5 - 7 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>3D Animations</li>
-                                    <li>Mobile Smooth</li>
-                                    <li>Gallery Sync</li>
-                                    <li>Contact Form</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Build Portfolio</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Specialized Systems -->
-                    <section id="health-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Healthcare & Medical</h2>
-                            <p>Appointment booking, patient records, and pharmacy management systems.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Clinical System</h3>
-                                    <p class="card-desc">Comprehensive medical management for clinics and labs.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">60K - 120K <small>NPR</small></div>
-                                    <div class="card-timeline">20 - 30 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>OPD Mgmt</li>
-                                    <li>Lab Reports</li>
-                                    <li>Billing Sync</li>
-                                    <li>Patient Portal</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Secure System</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="realestate-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Real Estate Portals</h2>
-                            <p>Property listings, map integration, and lead management for agencies.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Property Hub</h3>
-                                    <p class="card-desc">Advanced real estate platform with map search and listings.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">85K - 150K <small>NPR</small></div>
-                                    <div class="card-timeline">25 - 35 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Map Search</li>
-                                    <li>Virtual Tours</li>
-                                    <li>CRM Connect</li>
-                                    <li>Lead Tracking</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Launch Hub</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="education-web" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Education & LMS</h2>
-                            <p>School management, online courses, and digital learning environments.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">E-Learning Path</h3>
-                                    <p class="card-desc">Modern LMS for schools, colleges, and training centers.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">120K - 250K+ <small>NPR</small></div>
-                                    <div class="card-timeline">30 - 50 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Live Classes</li>
-                                    <li>Exam Portal</li>
-                                    <li>Quiz Logic</li>
-                                    <li>Video Courses</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Start Learning</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Enterprise Section -->
-                    <section id="enterprise-sys" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Enterprise ERP / CRM</h2>
-                            <p>End-to-end automation for complex organizational workflows and data scaling.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Full Suite</span>
-                                    <h3 class="card-title">Custom ERP</h3>
-                                    <p class="card-desc">Engineered for large-scale enterprise automation.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">300K - 2M+ <small>NPR</small></div>
-                                    <div class="card-timeline">3 - 6 MONTHS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Inventory Mgmt</li>
-                                    <li>Payroll Auto</li>
-                                    <li>Cloud Infra</li>
-                                    <li>24/7 Support</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Enterprise Query</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- AI Solutions -->
-                    <section id="ai-agents" class="pricing-section reveal">
-                        <div class="section-intro">
-                            <h2>Artificial Intelligence</h2>
-                            <p>Automated agents and RAG-based systems to revolutionize your business workflow.</p>
-                        </div>
-
-                        <div class="pricing-cards-grid">
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Support Bot</h3>
-                                    <p class="card-desc">Automated customer service for rapid response.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">25K - 30K <small>NPR</small></div>
-                                    <div class="card-timeline">3 - 5 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>NLP Replies</li>
-                                    <li>Post Schedule</li>
-                                    <li>Multi-Lang</li>
-                                    <li>API Connect</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Deploy Bot</a>
-                                </div>
-                            </div>
-
-                            <div class="pricing-card premium">
-                                <div class="card-header">
-                                    <span class="card-tag">Advanced AI</span>
-                                    <h3 class="card-title">Custom Agent</h3>
-                                    <p class="card-desc">Knowledge-based AI trained on your specific data.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">45K - 50K <small>NPR</small></div>
-                                    <div class="card-timeline">5 - 7 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>RAG Trained</li>
-                                    <li>CRM Integration</li>
-                                    <li>Deep Logic</li>
-                                    <li>Action Sync</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-primary">Train Agent</a>
-                                </div>
-                            </div>
-
-                            <div class="pricing-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Elite AI Engine</h3>
-                                    <p class="card-desc">Multimodal AI systems for complex automation flows.</p>
-                                </div>
-                                <div class="card-price-box">
-                                    <div class="card-price">70K - 80K <small>NPR</small></div>
-                                    <div class="card-timeline">7 - 10 DAYS</div>
-                                </div>
-                                <ul class="card-features">
-                                    <li>Voice/Text</li>
-                                    <li>Full Auto</li>
-                                    <li>Vision System</li>
-                                    <li>Elite Tuning</li>
-                                </ul>
-                                <div class="card-action">
-                                    <a href="#contact" class="btn btn-secondary">Get Engine</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="info-note" style="margin-top: 60px;">
-                        <div class="icon">✨</div>
-                        <div>
-                            <h4>Annual Maintenance & Infrastructure</h4>
-                            <p>Standard maintenance ranges from <span class="highlight-text">NPR 15,000 to
-                                    80,000/yr</span>. Cloud hosting and domain infrastructure start at <span
-                                    class="highlight-text">NPR 5,500/yr</span>. Custom SLA plans available for
-                                enterprise partners.</p>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page Scroll Progress -->
-    <div id="scroll-progress-container">
-        <div id="scroll-progress"></div>
-    </div>
-
-    <footer class="footer">
-        <div class="container" style="text-align: center;">
-            <div class="footer-bottom">
-                <p>&copy; 2025 Prajkit Excellence. Architecting the Digital Future.</p>
-                <div style="margin-top: 20px;">
-                    <a href="index.html#contact" class="btn btn-primary">Start a Consultation</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Progress Bar
-        window.onscroll = function () {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress").style.width = scrolled + "%";
-
-            // Sidebar Active State
-            const sections = document.querySelectorAll('.pricing-section');
-            const navLinks = document.querySelectorAll('.sidebar-nav a');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= sectionTop - 180) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        };
-    </script>
+<script src="script.js"></script>
 </body>
-
 </html>
