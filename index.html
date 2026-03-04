@@ -9,6 +9,25 @@
     content="State-of-the-art IT services in Nepal. Web development, AI solutions, and DevOps excellence by Prajkit.">
   <link rel="icon" type="image/png" href="logo.png">
 
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Prajkit - Ultra-Premium IT Solutions | Nebu DevOps">
+  <meta property="og:description" content="Ship Faster. Scale Smarter. We build production-ready web apps, mobile platforms, and AI solutions that drive revenue from day one.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://prajkit.onrender.com/">
+  <meta property="og:image" content="https://prajkit.onrender.com/logo.png">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prajkit - Ultra-Premium IT Solutions">
+  <meta name="twitter:description" content="Ship Faster. Scale Smarter. Production-ready web apps, mobile platforms, and AI solutions.">
+  <meta name="twitter:image" content="https://prajkit.onrender.com/logo.png">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="keywords" content="web development Nepal, IT solutions Nepal, DevOps, AI solutions, mobile app development, React development, Next.js, Prajkit">
+  <meta name="author" content="Prajkit">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prajkit.onrender.com/">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,14 +70,14 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero" role="banner">
+  <section id="home" class="hero" role="banner" aria-label="Hero section">
     <div class="container hero-content">
       <span class="hero-tag">Architecting the Future</span>
       <h1 class="hero-title">Ship Faster. Scale Smarter.</h1>
       <p class="hero-subtitle">We build production-ready web apps, mobile platforms, and AI solutions that drive revenue from day one. No fluff, just results.</p>
       <div class="hero-btns">
-        <a href="#portfolio" class="btn btn-primary">See Our Work</a>
-        <a href="#contact" class="btn btn-secondary">Start Your Project</a>
+        <a href="#portfolio" class="btn btn-primary" aria-label="View our portfolio of work">See Our Work</a>
+        <a href="#contact" class="btn btn-secondary" aria-label="Start your project with us">Start Your Project</a>
       </div>
     </div>
   </section>
@@ -86,46 +105,46 @@
   </section>
 
   <!-- Social Proof Section -->
-  <section class="social-proof">
+  <section class="social-proof" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Trusted by <span class="text-gradient">Forward-Thinking Teams</span></h2>
+        <h2 id="testimonials-heading" class="section-title">Trusted by <span class="text-gradient">Forward-Thinking Teams</span></h2>
         <p class="hero-subtitle">Real feedback from real clients who chose to build with us.</p>
       </div>
       <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
           <p class="testimonial-text">"Prajkit delivered our e-commerce platform 2 weeks ahead of schedule. The attention to detail and technical expertise exceeded our expectations. Revenue is up 40% since launch."</p>
           <div class="testimonial-author">
-            <div class="author-avatar">SK</div>
+            <div class="author-avatar" aria-hidden="true">SK</div>
             <div>
               <div class="author-name">Sanjay Kumar</div>
               <div class="author-role">CEO, TechVision Nepal</div>
             </div>
           </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
+        </article>
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
           <p class="testimonial-text">"Best development partner we've worked with. They built our marketplace from scratch with clean code, proper documentation, and zero downtime deployments. Worth every rupee."</p>
           <div class="testimonial-author">
-            <div class="author-avatar">RP</div>
+            <div class="author-avatar" aria-hidden="true">RP</div>
             <div>
               <div class="author-name">Rajesh Patel</div>
               <div class="author-role">Founder, ShopNepal</div>
             </div>
           </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
+        </article>
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
           <p class="testimonial-text">"The AI chatbot they built handles 60% of our support tickets automatically. ROI was positive within 3 months. Professional team that actually delivers on promises."</p>
           <div class="testimonial-author">
-            <div class="author-avatar">MS</div>
+            <div class="author-avatar" aria-hidden="true">MS</div>
             <div>
               <div class="author-name">Maya Sharma</div>
               <div class="author-role">CTO, DataFlow Solutions</div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -180,177 +199,222 @@
         <p class="hero-subtitle">Real projects, real results. See what we've built for companies like yours.</p>
       </div>
       <div class="portfolio-grid">
-        <article class="portfolio-card reveal" tabindex="0">
+        <a href="https://www.pratikpaneru.com.np/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-              </svg>
-            </div>
+            <img src="assets/portfolio/pratikpaneru.jpg" alt="Pratik Paneru Engineering Journal Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
             <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
+              <span class="portfolio-view">View Project →</span>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>E-Commerce Platform</h3>
-            <p>Full-stack marketplace with real-time inventory, payment processing, and admin dashboard. Handling 10K+ daily transactions.</p>
+            <h3>Pratik Paneru Engineering Journal</h3>
+            <p>Technical blog platform for electrical engineering research with 25K+ newsletter subscribers. Features live oscilloscope visualization and article discovery system.</p>
             <div class="portfolio-tech">
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Canvas API</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="portfolio-card reveal" tabindex="0">
+        <a href="https://noircinema.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
+            <img src="assets/portfolio/noircinema.jpg" alt="Noir Cinema Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
             <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
+              <span class="portfolio-view">View Project →</span>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>AI Customer Support Bot</h3>
-            <p>Intelligent chatbot reducing support tickets by 60%. Natural language processing with context-aware responses and CRM integration.</p>
+            <h3>Noir Cinema</h3>
+            <p>Premium film streaming platform with curated content, 4K Ultra HD streaming, and exclusive behind-the-scenes material. Features countdown timers and director spotlights.</p>
             <div class="portfolio-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">WebSocket</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Video API</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="portfolio-card reveal" tabindex="0">
+        <a href="https://alinax.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M12 18h.01" />
-              </svg>
-            </div>
+            <img src="assets/portfolio/alinax.jpg" alt="Alina Collection Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
             <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
+              <span class="portfolio-view">View Project →</span>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Fitness Tracking App</h3>
-            <p>Cross-platform mobile app with workout plans, progress tracking, and social features. 50K+ active users, 4.8 star rating.</p>
+            <h3>Alina Collection</h3>
+            <p>Luxury fashion e-commerce platform with curated seasonal collections, flash sales, and free shipping. Features upscale clothing and accessories with 70% promotional deals.</p>
             <div class="portfolio-tech">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">Firebase</span>
-              <span class="tech-tag">Redux</span>
-              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">E-commerce</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="portfolio-card reveal" tabindex="0">
+        <a href="https://manikant.com.np/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </svg>
-            </div>
+            <img src="assets/portfolio/manikant.jpg" alt="Manikant Educational Platform Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
             <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
+              <span class="portfolio-view">View Project →</span>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>SaaS Analytics Dashboard</h3>
-            <p>Real-time business intelligence platform with custom reports, data visualization, and automated insights for enterprise clients.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Vue.js</span>
-              <span class="tech-tag">D3.js</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">AWS</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card reveal" tabindex="0">
-          <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
-            </div>
-            <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Restaurant Booking System</h3>
-            <p>Complete reservation management with table optimization, waitlist automation, and customer notifications. Serving 200+ restaurants.</p>
+            <h3>Manikant Educational Platform</h3>
+            <p>Free educational hub for Nepali students offering engineering notes, PDF resources, and study materials. Features bilingual support and search functionality.</p>
             <div class="portfolio-tech">
               <span class="tech-tag">React</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Twilio</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">AdSense</span>
+              <span class="tech-tag">i18n</span>
             </div>
           </div>
-        </article>
+        </a>
 
-        <article class="portfolio-card reveal" tabindex="0">
+        <a href="https://ourpp.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
-            <div class="portfolio-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </div>
+            <img src="assets/portfolio/ourpp.jpg" alt="Hamro Pustak Pasal Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
             <div class="portfolio-overlay">
-              <span class="portfolio-view">View Project</span>
+              <span class="portfolio-view">View Project →</span>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Real Estate Portal</h3>
-            <p>Property listing platform with advanced search, virtual tours, mortgage calculator, and agent matching. 100K+ monthly visitors.</p>
+            <h3>Hamro Pustak Pasal</h3>
+            <p>Nepali online bookstore with curated collections, mood-based discovery, and fast delivery. Features bestseller tracking, wishlist, and multiple branch locations.</p>
             <div class="portfolio-tech">
               <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">GraphQL</span>
-              <span class="tech-tag">Prisma</span>
-              <span class="tech-tag">Mapbox</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Sonner</span>
             </div>
           </div>
-        </article>
+        </a>
+
+        <a href="https://demoy.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <img src="assets/portfolio/demoy.jpg" alt="Ranabir Janahit Secondary School Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project →</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Ranabir Janahit Secondary School</h3>
+            <p>Educational institution website offering Nursery-Grade 12 programs plus CTEVT-affiliated Electrical Engineering. Features scholarship info and campus facilities.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Schema.org</span>
+              <span class="tech-tag">SEO</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://bbwx.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <img src="assets/portfolio/bbwx.jpg" alt="Bekrey Bakery Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project →</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Bekrey Bakery</h3>
+            <p>Digital storefront for neighborhood bakery with online ordering, delivery tracking, and product catalog. Features admin panel and newsletter subscription.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">E-commerce</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://susbkry.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <img src="assets/portfolio/susbkry.jpg" alt="Suseli Bakery Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project →</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Suseli Bakery</h3>
+            <p>Bakery business website showcasing "Freshly Baked Goodness, Daily" with emphasis on fresh, daily-produced baked items and quality ingredients.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://sdq.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <img src="assets/portfolio/sdq.jpg" alt="SecureDoc Manager Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project →</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>SecureDoc Manager</h3>
+            <p>Professional document storage application with secure file management. Modern gradient-based interface with loading animations and JavaScript-powered functionality.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Animations</span>
+              <span class="tech-tag">Security</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://plese.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
+          <div class="portfolio-image">
+            <img src="assets/portfolio/plese.jpg" alt="Interactive Romance Page Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
+            <div class="portfolio-overlay">
+              <span class="portfolio-view">View Project →</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Interactive Romance Page</h3>
+            <p>Playful interactive webpage with romantic prompt and animated GIF. Simple, lighthearted UI for expressing affection with yes/no response buttons.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">Tenor API</span>
+              <span class="tech-tag">Interactive</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="pricing-preview">
+  <section id="pricing" class="pricing-preview" aria-labelledby="pricing-heading">
     <div class="container reveal">
       <div class="glass-box">
-        <h2 class="section-title">Transparent <span class="text-gradient">Pricing</span></h2>
+        <h2 id="pricing-heading" class="section-title">Transparent <span class="text-gradient">Pricing</span></h2>
         <p class="hero-subtitle" style="margin-bottom: 40px;">Fixed-price packages or dedicated teams. No hidden fees, no surprises. Get a custom quote in 24 hours.</p>
-        <a href="pricing-details.html" class="btn btn-primary" style="padding: 20px 50px;">View All Plans</a>
+        <a href="pricing-details.html" class="btn btn-primary" style="padding: 20px 50px;" aria-label="View all pricing plans">View All Plans</a>
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" aria-labelledby="about-heading">
     <div class="container reveal">
       <div class="about-flex">
         <div class="about-text">
           <span class="hero-tag">Who We Are</span>
-          <h2 class="section-title">Prajkit <span class="text-gradient">Excellence</span></h2>
+          <h2 id="about-heading" class="section-title">Prajkit <span class="text-gradient">Excellence</span></h2>
           <p class="hero-subtitle" style="text-align: left; margin: 30px 0;">We are a collective of developers,
             designers, and strategists dedicated to pushing the boundaries of what's possible in the digital space.
             Based in Nepal, serving the world.</p>
-          <a href="ankitpariyar.html" class="btn btn-secondary">Our Lead Developer</a>
+          <a href="ankitpariyar.html" class="btn btn-secondary" aria-label="Learn about our lead developer">Our Lead Developer</a>
         </div>
         <div class="about-image">
-          <div class="box-placeholder">
+          <div class="box-placeholder" aria-hidden="true">
             🚀
           </div>
         </div>

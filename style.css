@@ -35,9 +35,10 @@
     }
 }
 
-
 html {
     background-color: var(--bg-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -98,6 +99,7 @@ h3,
     background: linear-gradient(135deg, #FF6600 0%, #FFA366 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Ultra-thin Glass Navbar */
@@ -259,6 +261,10 @@ h3,
     box-shadow: 0 15px 40px var(--primary-glow);
 }
 
+.btn-primary:active {
+    transform: translateY(-2px);
+}
+
 .btn-primary:focus-visible {
     outline: 3px solid var(--primary);
     outline-offset: 4px;
@@ -353,6 +359,12 @@ section {
     background: var(--primary);
     color: white;
     box-shadow: 0 10px 20px var(--primary-glow);
+}
+
+@supports not (transform-style: preserve-3d) {
+    .service-card:hover .service-icon {
+        transform: scale(1.1);
+    }
 }
 
 .service-card h3 {

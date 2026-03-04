@@ -13,6 +13,9 @@
     overflow: hidden;
     transition: var(--transition);
     cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .portfolio-card:hover,
@@ -33,6 +36,21 @@
     aspect-ratio: 16 / 10;
     background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    display: block;
+}
+
+.portfolio-card:hover .portfolio-screenshot {
+    transform: scale(1.05);
 }
 
 .portfolio-placeholder {

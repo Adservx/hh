@@ -3,15 +3,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Prajkit: Initializing Cyber-Luxe Components...");
-
     // Detect touch devices and performance capabilities
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const hasMousePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     // Automatic quality detection based on device performance
     const performanceQuality = detectPerformanceQuality();
-    console.log(`Performance Quality: ${performanceQuality}`);
 
     // Only enable custom cursor on desktop with mouse
     if (!isTouchDevice && hasMousePointer) {
@@ -21,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (performanceQuality === 'high' || performanceQuality === 'medium') {
             initParticles();
             initBlackhole();
-        } else {
-            console.log("Low performance detected - skipping heavy animations");
         }
     }
 
@@ -253,10 +248,8 @@ function initBlackhole() {
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.error("Prajkit Blackhole: Shader Link Error", gl.getProgramInfoLog(program));
         return;
     }
-    console.log("Prajkit Blackhole: WebGL Shader Linked Successfully");
 
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -694,12 +687,19 @@ function initContactForm() {
 
     function validateName() {
         const value = nameInput.value.trim();
-        if (value === '') {
+        // Sanitize input - remove HTML tags and special characters
+        const sanitized = value.replace(/<[^>]*>/g, '').replace(/[<>]/g, '');
+
+        if (sanitized === '') {
             showError(nameInput, nameError, 'Name is required');
             return false;
         }
-        if (value.length < 2) {
+        if (sanitized.length < 2) {
             showError(nameInput, nameError, 'Name must be at least 2 characters');
+            return false;
+        }
+        if (sanitized.length > 100) {
+            showError(nameInput, nameError, 'Name must be less than 100 characters');
             return false;
         }
         clearError(nameInput, nameError);
@@ -708,14 +708,20 @@ function initContactForm() {
 
     function validateEmail() {
         const value = emailInput.value.trim();
+        // Sanitize email input
+        const sanitized = value.replace(/<[^>]*>/g, '').replace(/[<>]/g, '');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (value === '') {
+        if (sanitized === '') {
             showError(emailInput, emailError, 'Email is required');
             return false;
         }
-        if (!emailRegex.test(value)) {
+        if (!emailRegex.test(sanitized)) {
             showError(emailInput, emailError, 'Please enter a valid email address');
+            return false;
+        }
+        if (sanitized.length > 254) {
+            showError(emailInput, emailError, 'Email address is too long');
             return false;
         }
         clearError(emailInput, emailError);
@@ -724,12 +730,19 @@ function initContactForm() {
 
     function validateMessage() {
         const value = messageInput.value.trim();
-        if (value === '') {
+        // Sanitize message - remove script tags but allow basic formatting
+        const sanitized = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
+        if (sanitized === '') {
             showError(messageInput, messageError, 'Message is required');
             return false;
         }
-        if (value.length < 10) {
+        if (sanitized.length < 10) {
             showError(messageInput, messageError, 'Message must be at least 10 characters');
+            return false;
+        }
+        if (sanitized.length > 5000) {
+            showError(messageInput, messageError, 'Message must be less than 5000 characters');
             return false;
         }
         clearError(messageInput, messageError);
@@ -764,6 +777,13 @@ function initContactForm() {
             return;
         }
 
+        // Sanitize data before submission
+        const sanitizedData = {
+            name: nameInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 100),
+            email: emailInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 254),
+            message: messageInput.value.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').substring(0, 5000)
+        };
+
         // Show loading state
         submitBtn.disabled = true;
         btnText.style.display = 'none';
@@ -772,11 +792,7 @@ function initContactForm() {
 
         // Simulate form submission (replace with actual API call)
         try {
-            await simulateFormSubmission({
-                name: nameInput.value.trim(),
-                email: emailInput.value.trim(),
-                message: messageInput.value.trim()
-            });
+            await simulateFormSubmission(sanitizedData);
 
             // Show success message
             successMessage.style.display = 'flex';
@@ -793,8 +809,14 @@ function initContactForm() {
             }, 5000);
 
         } catch (error) {
-            console.error('Form submission error:', error);
-            alert('There was an error sending your message. Please try again or contact us directly.');
+            // Show user-friendly error message
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'form-error';
+            errorMsg.style.cssText = 'display: block; padding: 20px; background: rgba(255, 68, 68, 0.1); border: 1px solid rgba(255, 68, 68, 0.3); border-radius: 12px; color: #ff6666; margin-top: 20px;';
+            errorMsg.textContent = 'There was an error sending your message. Please try again or contact us directly at contact@prajkit.com';
+            form.appendChild(errorMsg);
+
+            setTimeout(() => errorMsg.remove(), 5000);
 
             // Reset button state
             submitBtn.disabled = false;
@@ -806,7 +828,6 @@ function initContactForm() {
     // Simulate form submission (replace with actual backend integration)
     function simulateFormSubmission(data) {
         return new Promise((resolve) => {
-            console.log('Form data:', data);
             // In production, replace this with actual API call:
             // fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
             setTimeout(resolve, 2000);
