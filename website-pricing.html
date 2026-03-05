@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Pricing - Prajkit</title>
-<meta name="description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance services. Business websites from NPR 25,000, mobile apps from NPR 80,000, AI solutions from NPR 25,000.">
+<title>Website Pricing - Prajkit</title>
+<meta name="description" content="Transparent pricing for website development. Business websites from NPR 25,000, e-commerce from NPR 45,000, custom solutions available.">
 <link rel="icon" type="image/png" href="logo.png">
 
 <!-- Open Graph Meta Tags -->
-<meta property="og:title" content="Complete Pricing Plans - Prajkit">
-<meta property="og:description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance. All prices in NPR with no hidden fees.">
+<meta property="og:title" content="Website Pricing - Prajkit">
+<meta property="og:description" content="Professional website development pricing. All prices in NPR with no hidden fees.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://prajkit.onrender.com/pricing-details.html">
+<meta property="og:url" content="https://prajkit.onrender.com/website-pricing.html">
 <meta property="og:image" content="https://prajkit.onrender.com/logo.png">
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Complete Pricing Plans - Prajkit">
-<meta name="twitter:description" content="Transparent pricing for websites, mobile apps, AI agents, and maintenance services.">
+<meta name="twitter:title" content="Website Pricing - Prajkit">
+<parameter name="twitter:description" content="Professional website development pricing.">
 <meta name="twitter:image" content="https://prajkit.onrender.com/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,13 @@
 .features-list li::before{content:"✓";color:var(--primary);font-weight:bold;flex-shrink:0}
 .cta-btn{display:inline-block;margin-top:15px;padding:10px 20px;background:var(--primary);color:white;text-decoration:none;border-radius:8px;font-size:0.9rem;transition:all 0.3s}
 .cta-btn:hover{background:var(--secondary);transform:scale(1.05)}
-@media (max-width:768px){.pricing-grid{grid-template-columns:1fr}.pricing-nav{top:70px;padding:12px 0}.pricing-nav-inner{padding:0 15px;gap:8px;justify-content:flex-start;flex-wrap:nowrap;min-width:max-content}.pricing-nav a{font-size:0.8rem;padding:8px 12px}.section-title{font-size:1.8rem}.subsection-title{font-size:1.3rem}}
+.pricing-toggle{display:flex;gap:15px;justify-content:center;margin-bottom:40px}
+.pricing-toggle a{padding:12px 30px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:var(--text-muted);text-decoration:none;font-size:1rem;transition:all 0.3s;font-weight:600}
+.pricing-toggle a.active{background:var(--primary);border-color:var(--primary);color:white}
+.pricing-toggle a:hover{border-color:var(--primary);color:var(--primary)}
+.pricing-toggle a.active:hover{color:white}
+@media (max-width:768px){.pricing-hero{padding:120px 0 40px}.pricing-grid{grid-template-columns:1fr}.pricing-nav{top:60px;padding:10px 0;position:sticky}.pricing-nav-inner{padding:0 10px;gap:6px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.pricing-nav-inner::-webkit-scrollbar{display:none}.pricing-nav a{font-size:0.75rem;padding:6px 10px;flex-shrink:0}.section-title{font-size:1.6rem}.subsection-title{font-size:1.2rem}.pricing-toggle{flex-direction:column;gap:10px;padding:0 20px}.pricing-toggle a{width:100%;text-align:center}.pricing-card{padding:20px 15px}.package-name{font-size:1.2rem}.package-price{font-size:1.4rem}.cta-btn{width:100%;text-align:center}}
+@media (max-width:480px){.pricing-hero{padding:100px 0 30px}.hero-title{font-size:1.8rem}.hero-subtitle{font-size:0.9rem}.section-title{font-size:1.4rem}.subsection-title{font-size:1.1rem}.pricing-nav a{font-size:0.7rem;padding:5px 8px}.pricing-card{padding:15px 10px}.package-name{font-size:1.1rem}.package-price{font-size:1.2rem}.features-list li{font-size:0.85rem}}
 </style>
 </head>
 <body>
@@ -70,9 +76,14 @@
 
 <section class="pricing-hero">
 <div class="container">
-<span class="hero-tag">Complete Pricing Guide</span>
-<h1 class="hero-title">All Our <span class="text-gradient">Services & Pricing</span></h1>
-<p class="hero-subtitle">Comprehensive pricing for websites, mobile apps, AI solutions, and maintenance. All prices in NPR.</p>
+<span class="hero-tag">Website Development</span>
+<h1 class="hero-title">Website <span class="text-gradient">Pricing</span></h1>
+<p class="hero-subtitle">Professional website development for businesses, organizations, and individuals. All prices in NPR.</p>
+<div class="pricing-toggle">
+<a href="website-pricing.html" class="active">🌐 Websites</a>
+<a href="app-pricing.html">📱 Applications</a>
+<a href="ai-pricing.html">🤖 AI Agents</a>
+</div>
 </div>
 </section>
 
@@ -93,14 +104,6 @@
 <a href="#religious">Religious</a>
 <a href="#custom">Custom</a>
 <a href="#education">Education</a>
-<a href="#mobile-apps">Mobile Apps</a>
-<a href="#web-apps">Web Apps</a>
-<a href="#enterprise">Enterprise</a>
-<a href="#ecommerce-app">E-Commerce App</a>
-<a href="#industry">Industry Apps</a>
-<a href="#admin">Admin Systems</a>
-<a href="#emerging">Emerging Tech</a>
-<a href="#ai">AI Agents</a>
 <a href="#maintenance">Maintenance</a>
 <a href="#hosting">Hosting</a>
 </div>
@@ -941,515 +944,6 @@
 </div>
 </section>
 
-<!-- MOBILE APPS -->
-<section id="mobile-apps" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Mobile Application <span class="text-gradient">Development</span></h2>
-<p class="section-subtitle">Android and iOS applications</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 80,000-150,000</div>
-<div class="package-timeline">2-4 weeks</div>
-<ul class="features-list">
-<li>Android App (Single Platform)</li>
-<li>Basic UI/UX Design</li>
-<li>Static or Limited Dynamic Screens</li>
-<li>Basic Form & Data Capture</li>
-<li>Local/Firebase Database</li>
-<li>Basic Admin Panel</li>
-<li>App Build & APK Delivery</li>
-<li>Basic Testing</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 200,000-400,000</div>
-<div class="package-timeline">4-8 weeks</div>
-<ul class="features-list">
-<li>Android App (Scalable)</li>
-<li>Custom UI/UX Design</li>
-<li>User Login/Registration</li>
-<li>Backend API Integration</li>
-<li>Firebase/Cloud Database</li>
-<li>Admin Dashboard (Web-based)</li>
-<li>Push Notifications</li>
-<li>Payment Gateway</li>
-<li>Play Store Submission</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 500,000-1,000,000+</div>
-<div class="package-timeline">8-16 weeks</div>
-<ul class="features-list">
-<li>Android + iOS App</li>
-<li>Advanced Custom UI/UX</li>
-<li>Role-Based User System</li>
-<li>Real-Time Features</li>
-<li>Secure Payment Integration</li>
-<li>Advanced Admin & Analytics</li>
-<li>Third-Party API Integrations</li>
-<li>App Optimization & Security</li>
-<li>Store Deployment</li>
-<li>Post-Launch Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- WEB APPS -->
-<section id="web-apps" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Web Application <span class="text-gradient">Development</span></h2>
-<p class="section-subtitle">Custom web applications and SaaS platforms</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 100,000-200,000</div>
-<div class="package-timeline">3-5 weeks</div>
-<ul class="features-list">
-<li>Responsive Web Application</li>
-<li>Basic UI/UX Design</li>
-<li>User Login/Admin Login</li>
-<li>CRUD Functionality</li>
-<li>Basic Database Integration</li>
-<li>Simple Admin Dashboard</li>
-<li>Basic Security Setup</li>
-<li>Deployment on Shared Hosting</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 300,000-600,000</div>
-<div class="package-timeline">6-10 weeks</div>
-<ul class="features-list">
-<li>Custom UI/UX Design</li>
-<li>Role-Based User Access</li>
-<li>Advanced Admin Dashboard</li>
-<li>API Development & Integration</li>
-<li>Payment Gateway Integration</li>
-<li>Email/SMS Notification System</li>
-<li>Secure Authentication</li>
-<li>Cloud Hosting Deployment</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 700,000-1,500,000+</div>
-<div class="package-timeline">10-20 weeks</div>
-<ul class="features-list">
-<li>Fully Custom Web Application</li>
-<li>Advanced UI/UX & Performance</li>
-<li>Multi-Role & Permission System</li>
-<li>Real-Time Features (Chat/Live Updates)</li>
-<li>Third-Party & Government API Integration</li>
-<li>Advanced Security & Data Encryption</li>
-<li>Analytics & Reporting System</li>
-<li>Cloud Infrastructure & Scaling</li>
-<li>Post-Launch Maintenance & Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- ENTERPRISE SYSTEMS -->
-<section id="enterprise" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Business & Enterprise <span class="text-gradient">Systems</span></h2>
-<p class="section-subtitle">ERP, CRM, and business management solutions</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 200,000-400,000</div>
-<div class="package-timeline">4-6 weeks</div>
-<ul class="features-list">
-<li>Web-Based Business System</li>
-<li>Basic UI/UX Design</li>
-<li>User Login & Admin Panel</li>
-<li>Core Modules (HR/Inventory/Billing - Any One)</li>
-<li>CRUD Operations</li>
-<li>Basic Reports (PDF/Excel)</li>
-<li>Database Setup</li>
-<li>Deployment on Shared/VPS Hosting</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 500,000-900,000</div>
-<div class="package-timeline">8-12 weeks</div>
-<ul class="features-list">
-<li>Custom UI/UX Design</li>
-<li>Multi-User & Role-Based Access</li>
-<li>Multiple Modules (HR, Inventory, Sales, Accounts)</li>
-<li>Advanced Admin Dashboard</li>
-<li>Tax & Invoice Management</li>
-<li>Email/SMS Notifications</li>
-<li>Data Backup & Security</li>
-<li>Cloud Hosting Deployment</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 1,000,000-2,500,000+</div>
-<div class="package-timeline">12-24 weeks</div>
-<ul class="features-list">
-<li>Fully Custom Enterprise System</li>
-<li>Advanced UI/UX & Performance</li>
-<li>Modular ERP (HR, Finance, CRM, Inventory, Payroll)</li>
-<li>Workflow Automation</li>
-<li>Real-Time Reports & Analytics</li>
-<li>Third-Party & Government API Integration</li>
-<li>High-Level Security & Data Encryption</li>
-<li>Cloud Infrastructure & Scalability</li>
-<li>Training, Documentation & Post-Launch Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- E-COMMERCE APP -->
-<section id="ecommerce-app" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">E-Commerce <span class="text-gradient">Application</span></h2>
-<p class="section-subtitle">Mobile e-commerce and marketplace apps</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 150,000-300,000</div>
-<div class="package-timeline">3-5 weeks</div>
-<ul class="features-list">
-<li>Android E-commerce App</li>
-<li>Basic UI/UX Design</li>
-<li>Product Listing & Categories</li>
-<li>Cart & Checkout System</li>
-<li>Cash on Delivery (COD)</li>
-<li>Basic Order Management</li>
-<li>Admin Panel (Products & Orders)</li>
-<li>Basic Testing & Deployment</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 400,000-800,000</div>
-<div class="package-timeline">6-10 weeks</div>
-<ul class="features-list">
-<li>Android App with Custom UI/UX</li>
-<li>User Login & Profile Management</li>
-<li>Advanced Product & Category Management</li>
-<li>Online Payment Gateway (eSewa/Khalti/Fonepay)</li>
-<li>Order Tracking & Notifications</li>
-<li>Offers, Coupons & Discounts</li>
-<li>Advanced Admin Dashboard</li>
-<li>Play Store Submission Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 1,000,000-2,500,000+</div>
-<div class="package-timeline">10-20 weeks</div>
-<ul class="features-list">
-<li>Android + iOS E-commerce App</li>
-<li>Advanced Custom UI/UX</li>
-<li>Multi-Vendor Marketplace System</li>
-<li>Real-Time Order & Delivery Tracking</li>
-<li>Multiple Payment Gateways</li>
-<li>Inventory & Warehouse Management</li>
-<li>Vendor & Commission Management</li>
-<li>Analytics, Reports & AI-Based Insights</li>
-<li>Cloud Hosting & Post-Launch Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- INDUSTRY-SPECIFIC APPS -->
-<section id="industry" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Industry-Specific <span class="text-gradient">Applications</span></h2>
-<p class="section-subtitle">Custom solutions for healthcare, education, hospitality, and more</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 200,000-400,000</div>
-<div class="package-timeline">4-6 weeks</div>
-<ul class="features-list">
-<li>Industry-Focused Web/Mobile App</li>
-<li>Basic Custom UI/UX</li>
-<li>User Login & Admin Panel</li>
-<li>Core Industry Module (Single)</li>
-<li>Data Entry & Management</li>
-<li>Basic Reports</li>
-<li>Database Setup</li>
-<li>Deployment & Basic Training</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 500,000-900,000</div>
-<div class="package-timeline">8-12 weeks</div>
-<ul class="features-list">
-<li>Fully Custom Industry UI/UX</li>
-<li>Multi-User & Role-Based Access</li>
-<li>Multiple Industry Modules</li>
-<li>Workflow Automation</li>
-<li>Billing, Invoice & Tax Handling</li>
-<li>Email/SMS Notification</li>
-<li>Secure Database & Backup</li>
-<li>Cloud Hosting Deployment</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 1,000,000-3,000,000+</div>
-<div class="package-timeline">12-24 weeks</div>
-<ul class="features-list">
-<li>Enterprise-Grade Industry Solution</li>
-<li>Advanced UI/UX & Performance</li>
-<li>Modular & Scalable Architecture</li>
-<li>Real-Time Monitoring & Analytics</li>
-<li>Third-Party & Government API Integration</li>
-<li>High-Level Security & Data Encryption</li>
-<li>Cloud Infrastructure & Scalability</li>
-<li>Training, Documentation & Post-Launch Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- ADMIN DASHBOARDS -->
-<section id="admin" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Admin Dashboards & <span class="text-gradient">Internal Systems</span></h2>
-<p class="section-subtitle">Custom admin panels and management systems</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 70,000-90,000</div>
-<div class="package-timeline">2-3 weeks</div>
-<ul class="features-list">
-<li>User login & roles</li>
-<li>Basic dashboard with analytics</li>
-<li>Simple CRUD operations</li>
-<li>Data export (CSV/Excel)</li>
-<li>Mobile-friendly interface</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 120,000-150,000</div>
-<div class="package-timeline">4-6 weeks</div>
-<ul class="features-list">
-<li>All Basic features</li>
-<li>Advanced reporting & charts</li>
-<li>Multi-level user permissions</li>
-<li>Notifications & alerts</li>
-<li>Third-party API integration</li>
-<li>Audit logs & activity tracking</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 200,000-250,000</div>
-<div class="package-timeline">6-8 weeks</div>
-<ul class="features-list">
-<li>All Standard features</li>
-<li>Role-based access control (RBAC)</li>
-<li>Customizable dashboards</li>
-<li>Interactive data visualization</li>
-<li>Multi-department management</li>
-<li>Cloud hosting setup & deployment</li>
-<li>Security hardening & backup system</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- EMERGING TECH -->
-<section id="emerging" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Advanced & Emerging <span class="text-gradient">Solutions</span></h2>
-<p class="section-subtitle">AI/ML, IoT, blockchain, and cutting-edge technology</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 70,000-90,000</div>
-<div class="package-timeline">3-4 weeks</div>
-<ul class="features-list">
-<li>Responsive UI (Mobile & Desktop)</li>
-<li>Core Feature Set (1-2 primary features)</li>
-<li>Basic Analytics Dashboard</li>
-<li>Simple User Authentication</li>
-<li>Push Notifications</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 120,000-150,000</div>
-<div class="package-timeline">5-6 weeks</div>
-<ul class="features-list">
-<li>Everything in Basic</li>
-<li>Advanced Features (3-5 main features)</li>
-<li>Integration with 3rd Party APIs</li>
-<li>Interactive Dashboard with Reports</li>
-<li>Multi-platform Support (Android & iOS)</li>
-<li>Cloud Database & Storage</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 200,000-250,000</div>
-<div class="package-timeline">7-9 weeks</div>
-<ul class="features-list">
-<li>Everything in Standard</li>
-<li>AI/ML or Advanced Analytics Integration</li>
-<li>Real-time Data Sync & Updates</li>
-<li>Admin Panel with Role-based Access</li>
-<li>Advanced Security Features (OAuth, Encryption)</li>
-<li>Scalable Architecture for Future Growth</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- AI AGENTS -->
-<section id="ai" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">Mobile Application <span class="text-gradient">Development</span></h2>
-<p class="section-subtitle">Android and iOS applications</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 80,000-150,000</div>
-<div class="package-timeline">2-4 weeks</div>
-<ul class="features-list">
-<li>Android App (Single Platform)</li>
-<li>Basic UI/UX Design</li>
-<li>Static or Limited Dynamic Screens</li>
-<li>Basic Form & Data Capture</li>
-<li>Local/Firebase Database</li>
-<li>Basic Admin Panel</li>
-<li>App Build & APK Delivery</li>
-<li>Basic Testing</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 200,000-400,000</div>
-<div class="package-timeline">4-8 weeks</div>
-<ul class="features-list">
-<li>Android App (Scalable)</li>
-<li>Custom UI/UX Design</li>
-<li>User Login/Registration</li>
-<li>Backend API Integration</li>
-<li>Firebase/Cloud Database</li>
-<li>Admin Dashboard (Web-based)</li>
-<li>Push Notifications</li>
-<li>Payment Gateway</li>
-<li>Play Store Submission</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 500,000-1,000,000+</div>
-<div class="package-timeline">8-16 weeks</div>
-<ul class="features-list">
-<li>Android + iOS App</li>
-<li>Advanced Custom UI/UX</li>
-<li>Role-Based User System</li>
-<li>Real-Time Features</li>
-<li>Secure Payment Integration</li>
-<li>Advanced Admin & Analytics</li>
-<li>Third-Party API Integrations</li>
-<li>App Optimization & Security</li>
-<li>Store Deployment</li>
-<li>Post-Launch Support</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
-<!-- AI AGENTS -->
-<section id="ai" class="pricing-section">
-<div class="section-header">
-<h2 class="section-title">AI Agent <span class="text-gradient">Solutions</span></h2>
-<p class="section-subtitle">Intelligent automation for social media</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<h4 class="package-name">Basic</h4>
-<div class="package-price">NPR 25,000-30,000</div>
-<div class="package-timeline">3-5 days</div>
-<ul class="features-list">
-<li>Platforms: Facebook, Instagram</li>
-<li>Automated Replies (Predefined Templates)</li>
-<li>Simple Post Scheduling</li>
-<li>Basic Analytics</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Standard</h4>
-<div class="package-price">NPR 45,000-50,000</div>
-<div class="package-timeline">5-7 days</div>
-<ul class="features-list">
-<li>Platforms: Facebook, Instagram, WhatsApp, Twitter/X</li>
-<li>AI-Generated Personalized Replies</li>
-<li>Content Scheduling & Posting Automation</li>
-<li>Analytics Dashboard</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-<div class="pricing-card">
-<h4 class="package-name">Premium</h4>
-<div class="package-price">NPR 70,000-80,000</div>
-<div class="package-timeline">7-10 days</div>
-<ul class="features-list">
-<li>Platforms: Facebook, Instagram, WhatsApp, Twitter/X, LinkedIn, TikTok</li>
-<li>Context-Aware AI Replies With NLP</li>
-<li>Advanced Content Creating & Posting</li>
-<li>Sentiment Analysis & Engagement Optimization</li>
-<li>CRM Integration</li>
-<li>Website Chat Integration</li>
-<li>Monthly Performance Report</li>
-</ul>
-<a href="index.html#contact" class="cta-btn">Get Started</a>
-</div>
-</div>
-</section>
-
 <!-- MAINTENANCE -->
 <section id="maintenance" class="pricing-section">
 <div class="section-header">
@@ -2216,9 +1710,6 @@
 <a href="index.html#contact" class="btn btn-primary" style="padding:20px 50px">Start Your Project</a>
 </div>
 </section>
-
-</div>
-
 <footer class="footer">
 <div class="container">
 <div class="footer-grid">
@@ -2237,8 +1728,9 @@
 <div class="footer-links">
 <h4>Services</h4>
 <ul>
-<li><a href="index.html#services" class="nav-link">Web Dev</a></li>
-<li><a href="index.html#services" class="nav-link">AI Agents</a></li>
+<li><a href="website-pricing.html" class="nav-link">Websites</a></li>
+<li><a href="app-pricing.html" class="nav-link">Applications</a></li>
+<li><a href="ai-pricing.html" class="nav-link">AI Agents</a></li>
 <li><a href="index.html#services" class="nav-link">Consulting</a></li>
 </ul>
 </div>

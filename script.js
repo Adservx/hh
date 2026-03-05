@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initMobileMenu();
     initContactForm();
+    initPricingButtons();
 });
 
 /**
@@ -692,6 +693,88 @@ function initContactForm() {
     const btnLoader = submitBtn.querySelector('.btn-loader');
     const successMessage = document.getElementById('form-success');
 
+    // Auto-select pricing plan from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    if (planParam && pricingPlanInput) {
+        // Decode the plan
+        const decodedPlan = decodeURIComponent(planParam);
+
+        // Try to find exact match first
+        let matched = false;
+        for (let option of pricingPlanInput.options) {
+            if (option.value === decodedPlan) {
+                pricingPlanInput.value = decodedPlan;
+                matched = true;
+                break;
+            }
+        }
+
+        // If no exact match, try smart matching (category + level + price)
+        if (!matched) {
+            const planLower = decodedPlan.toLowerCase();
+
+            // Extract plan level (Basic, Standard, Premium)
+            let planLevel = '';
+            if (planLower.includes('basic')) planLevel = 'Basic';
+            else if (planLower.includes('standard')) planLevel = 'Standard';
+            else if (planLower.includes('premium')) planLevel = 'Premium';
+
+            // Extract category (first part before " - ")
+            const planCategory = decodedPlan.split(' - ')[0].trim();
+
+            // Find exact match on category + level
+            for (let option of pricingPlanInput.options) {
+                if (!option.value || option.disabled) continue;
+
+                // Split option value: "Category - Level (Price)"
+                const optionParts = option.value.split(' - ');
+                if (optionParts.length < 2) continue;
+
+                const optionCategory = optionParts[0].trim();
+                const optionLevel = optionParts[1].split('(')[0].trim(); // Extract "Basic", "Standard", or "Premium"
+
+                // Must match BOTH category AND level exactly (case-insensitive comparison)
+                if (optionCategory.toLowerCase() === planCategory.toLowerCase() &&
+                    optionLevel.toLowerCase() === planLevel.toLowerCase()) {
+                    pricingPlanInput.value = option.value;
+                    matched = true;
+                    break;
+                }
+            }
+        }
+
+        // If still no match, set as custom value (for display purposes)
+        if (!matched && decodedPlan) {
+            // Add the plan as a temporary option
+            const tempOption = document.createElement('option');
+            tempOption.value = decodedPlan;
+            tempOption.textContent = decodedPlan;
+            tempOption.selected = true;
+            pricingPlanInput.appendChild(tempOption);
+        }
+
+        // Scroll to contact form smoothly after page loads
+        setTimeout(() => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const yOffset = -80; // Offset for fixed navbar
+                const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }, 300);
+    } else if (window.location.hash === '#contact') {
+        // Also handle direct #contact hash
+        setTimeout(() => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const yOffset = -80;
+                const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }, 300);
+    }
+
     // Real-time validation
     nameInput.addEventListener('blur', () => validateName());
     emailInput.addEventListener('blur', () => validateEmail());
@@ -798,7 +881,7 @@ function initContactForm() {
         const sanitizedData = {
             name: nameInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 100),
             email: emailInput.value.trim().replace(/<[^>]*>/g, '').substring(0, 254),
-            pricingPlan: pricingPlanInput.value.trim().replace(/<[^>]*>/g, ''),
+            'pricing-plan': pricingPlanInput.value.trim().replace(/<[^>]*>/g, ''),
             message: messageInput.value.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').substring(0, 5000)
         };
 
@@ -808,23 +891,34 @@ function initContactForm() {
         btnLoader.style.display = 'inline-flex';
         successMessage.style.display = 'none';
 
-        // Simulate form submission (replace with actual API call)
+        // Submit to Formspree
         try {
-            await simulateFormSubmission(sanitizedData);
+            const response = await fetch('https://formspree.io/f/manlrpdj', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(sanitizedData)
+            });
 
-            // Show success message
-            successMessage.style.display = 'flex';
-            form.reset();
+            if (response.ok) {
+                // Show success message
+                successMessage.style.display = 'flex';
+                form.reset();
 
-            // Reset button state
-            submitBtn.disabled = false;
-            btnText.style.display = 'inline';
-            btnLoader.style.display = 'none';
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoader.style.display = 'none';
 
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
 
         } catch (error) {
             // Show user-friendly error message
@@ -842,14 +936,97 @@ function initContactForm() {
             btnLoader.style.display = 'none';
         }
     });
+}
 
-    // Simulate form submission (replace with actual backend integration)
-    function simulateFormSubmission(data) {
-        return new Promise((resolve) => {
-            // In production, replace this with actual API call:
-            // fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-            setTimeout(resolve, 2000);
-        });
-    }
+/**
+ * Initialize pricing buttons to auto-select plan on contact form
+ */
+function initPricingButtons() {
+    // Find all pricing cards
+    const pricingCards = document.querySelectorAll('.pricing-card');
+
+    // Mapping of section titles to dropdown format
+    const sectionMapping = {
+        'Business & Company Website': 'Business Website',
+        'E-Commerce & Sales Website': 'E-Commerce Website',
+        'Media & Content Website': 'Media & Content Website',
+        'Personal & Portfolio Website': 'Personal & Portfolio Website',
+        'Government & NGO Website': 'Government & NGO Website',
+        'Healthcare Website': 'Healthcare Website',
+        'Real Estate Website': 'Real Estate Website',
+        'Travel & Tourism Website': 'Travel & Tourism Website',
+        'Finance & Legal Website': 'Finance & Legal Website',
+        'Community & Social Platform': 'Community & Social Platform',
+        'Technology & Software Company': 'Technology & Software Company',
+        'On Demand Services': 'On Demand Services',
+        'Religious & Cultural Website': 'Religious & Cultural Website',
+        'Custom & Advanced Solutions': 'Custom & Advanced Solutions',
+        'Education Website': 'Education Website',
+        'Mobile Application Development': 'Mobile Application',
+        'Web Application Development': 'Web Application',
+        'Business & Enterprise Systems': 'Enterprise System',
+        'E-Commerce Application': 'E-Commerce App',
+        'Industry-Specific Applications': 'Industry-Specific App',
+        'Admin Dashboards & Internal Systems': 'Admin Dashboard',
+        'Advanced & Emerging Solutions': 'Emerging Tech',
+        'AI Agent Solutions': 'AI Agent Solutions'
+    };
+
+    pricingCards.forEach(card => {
+        const ctaBtn = card.querySelector('.cta-btn');
+        if (!ctaBtn) return;
+
+        // Get plan details from the card
+        const packageName = card.querySelector('.package-name')?.textContent.trim();
+        const packagePrice = card.querySelector('.package-price')?.textContent.trim();
+        const sectionTitleElement = card.closest('.pricing-section')?.querySelector('.section-title');
+
+        if (packageName && packagePrice && sectionTitleElement) {
+            // Get full text content (including text inside span tags)
+            const fullTitle = sectionTitleElement.textContent.replace(/\s+/g, ' ').trim();
+
+            // Map to dropdown format
+            const mappedTitle = sectionMapping[fullTitle] || fullTitle;
+
+            // Normalize price format to match dropdown (convert to K/M format)
+            const normalizedPrice = packagePrice
+                .replace(/NPR\s+(\d+),(\d+),(\d+)-(\d+),(\d+),(\d+)\+?/g, (match, h1, t1, o1, h2, t2, o2) => {
+                    // Format: NPR 200,000-400,000 -> NPR 200K-400K
+                    return `NPR ${h1}${t1}K-${h2}${t2}K${match.includes('+') ? '+' : ''}`;
+                })
+                .replace(/NPR\s+(\d+),(\d+),(\d+)\+?/g, (match, h, t, o) => {
+                    // Format: NPR 500,000+ -> NPR 500K+
+                    return `NPR ${h}${t}K${match.includes('+') ? '+' : ''}`;
+                })
+                .replace(/NPR\s+(\d+),(\d+)-(\d+),(\d+)/g, 'NPR $1$2K-$3$4K')
+                .replace(/NPR\s+(\d+),(\d+)/g, 'NPR $1$2K');
+
+            // Create plan string matching dropdown format
+            const planString = `${mappedTitle} - ${packageName} (${normalizedPrice})`;
+
+            // Debug logging
+            console.log('=== PRICING BUTTON DEBUG ===');
+            console.log('Full Title:', fullTitle);
+            console.log('Mapped Title:', mappedTitle);
+            console.log('Package Name:', packageName);
+            console.log('Original Price:', packagePrice);
+            console.log('Normalized Price:', normalizedPrice);
+            console.log('Final Plan String:', planString);
+            console.log('===========================');
+
+            // Update the button href to include plan parameter
+            const encodedPlan = encodeURIComponent(planString);
+
+            // Add click handler for proper navigation
+            ctaBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                console.log('CLICKED! Redirecting with plan:', planString);
+
+                // Navigate to index.html with plan parameter
+                window.location.href = `index.html?plan=${encodedPlan}#contact`;
+            });
+        }
+    });
 }
 
