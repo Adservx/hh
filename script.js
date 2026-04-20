@@ -1030,3 +1030,52 @@ function initPricingButtons() {
     });
 }
 
+
+/* =============================================================
+   WR Redesign — tilt + mouse-tracked card glow (lightweight)
+   ============================================================= */
+(function initWRRedesign() {
+    'use strict';
+
+    const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 3D tilt on portfolio cards (desktop + non-reduced only)
+    if (!isTouch && !reduced) {
+        document.querySelectorAll('[data-wr-tilt] .portfolio-card').forEach((card) => {
+            let rafId = null;
+            const onMove = (e) => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width;
+                const y = (e.clientY - r.top) / r.height;
+                const rx = (y - 0.5) * -8;
+                const ry = (x - 0.5) * 10;
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(() => {
+                    card.style.transform = `translateY(-10px) perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+                });
+            };
+            const onLeave = () => {
+                if (rafId) cancelAnimationFrame(rafId);
+                card.style.transform = '';
+            };
+            card.addEventListener('mousemove', onMove);
+            card.addEventListener('mouseleave', onLeave);
+        });
+    }
+
+    // Mouse-tracked spotlight on bento / price / stat / process cards
+    const track = (selector) => {
+        document.querySelectorAll(selector).forEach((el) => {
+            el.addEventListener('mousemove', (e) => {
+                const r = el.getBoundingClientRect();
+                el.style.setProperty('--x', `${((e.clientX - r.left) / r.width) * 100}%`);
+                el.style.setProperty('--y', `${((e.clientY - r.top) / r.height) * 100}%`);
+            });
+        });
+    };
+    track('.wr-card');
+    track('.wr-price-card');
+    track('.wr-process-step');
+    track('.wr-stat-item');
+})();

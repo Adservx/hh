@@ -37,6 +37,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="portfolio-styles.css">
+  <link rel="stylesheet" href="wr-redesign.css">
 </head>
 
 <body>
@@ -70,36 +71,176 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero" role="banner" aria-label="Hero section">
-    <div class="container hero-content">
-      <span class="hero-tag">Architecting the Future</span>
-      <h1 class="hero-title">Ship Faster. Scale Smarter.</h1>
-      <p class="hero-subtitle">We build production-ready web apps, mobile platforms, and AI solutions that drive revenue from day one. No fluff, just results.</p>
-      <div class="hero-btns">
-        <a href="#portfolio" class="btn btn-primary" aria-label="View our portfolio of work">See Our Work</a>
-        <a href="#contact" class="btn btn-secondary" aria-label="Start your project with us">Start Your Project</a>
+  <section id="home" class="hero wr-hero" role="banner" aria-label="Hero section">
+    <div class="wr-aurora" aria-hidden="true">
+      <span class="wr-orb wr-orb--a"></span>
+      <span class="wr-orb wr-orb--b"></span>
+      <span class="wr-orb wr-orb--c"></span>
+      <div class="wr-grid-overlay"></div>
+    </div>
+    <div class="container hero-content wr-hero-layout">
+      <div class="wr-hero-left">
+        <span class="hero-tag wr-hero-tag">
+          <span class="wr-pulse" aria-hidden="true"></span>
+          Available for new projects · 2026
+        </span>
+        <h1 class="hero-title wr-hero-title">
+          Ship <span class="text-gradient">Faster.</span><br>
+          Scale <span class="text-gradient">Smarter.</span>
+        </h1>
+        <p class="hero-subtitle wr-hero-subtitle">We architect production-ready web platforms, mobile apps, and AI systems engineered to drive revenue from day one. No fluff — just measurable outcomes.</p>
+        <div class="hero-btns wr-hero-btns">
+          <a href="#portfolio" class="btn btn-primary wr-btn-primary" aria-label="View our portfolio of work">
+            <span>See Our Work</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary wr-btn-secondary" aria-label="Start your project with us">Start Your Project</a>
+        </div>
+        <div class="wr-trust-strip" aria-label="Trusted by teams across industries">
+          <span class="wr-trust-label">Trusted by 150+ teams</span>
+          <div class="wr-trust-avatars" aria-hidden="true">
+            <span class="wr-trust-avatar" style="background:linear-gradient(135deg,#ff6600,#ffa366);">SK</span>
+            <span class="wr-trust-avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">RP</span>
+            <span class="wr-trust-avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">MS</span>
+            <span class="wr-trust-avatar" style="background:linear-gradient(135deg,#f43f5e,#f97316);">AK</span>
+            <span class="wr-trust-avatar wr-trust-avatar--more">+146</span>
+          </div>
+          <div class="wr-trust-rating">
+            <span class="wr-trust-stars" aria-hidden="true">★★★★★</span>
+            <span>4.96 avg · 120+ reviews</span>
+          </div>
+        </div>
+      </div>
+      <div class="wr-hero-right" aria-hidden="true">
+        <div class="wr-orbit">
+          <span class="wr-orbit-ring wr-orbit-ring--1"></span>
+          <span class="wr-orbit-ring wr-orbit-ring--2"></span>
+          <span class="wr-orbit-ring wr-orbit-ring--3"></span>
+          <span class="wr-orbit-dot wr-orbit-dot--a"></span>
+          <span class="wr-orbit-dot wr-orbit-dot--b"></span>
+          <span class="wr-orbit-dot wr-orbit-dot--c"></span>
+        </div>
+        <div class="wr-float wr-float--code">
+          <div class="wr-float-head">
+            <span class="wr-dot wr-dot--red"></span>
+            <span class="wr-dot wr-dot--yellow"></span>
+            <span class="wr-dot wr-dot--green"></span>
+            <span class="wr-float-title">deploy.ts</span>
+          </div>
+          <pre class="wr-float-code"><span class="wr-c-kw">const</span> <span class="wr-c-var">app</span> = <span class="wr-c-fn">await</span> prajkit.<span class="wr-c-fn">ship</span>({
+  stack: [<span class="wr-c-str">'next'</span>, <span class="wr-c-str">'ai'</span>, <span class="wr-c-str">'k8s'</span>],
+  target: <span class="wr-c-str">'production'</span>,
+  uptime: <span class="wr-c-num">99.99</span>,
+});
+<span class="wr-c-cmt">// ✔ deployed in 8.4s</span></pre>
+        </div>
+        <div class="wr-float wr-float--metric">
+          <div class="wr-metric-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16l4-4 4 4 6-6"/></svg>
+          </div>
+          <div>
+            <div class="wr-metric-value">+218%</div>
+            <div class="wr-metric-label">avg. conversion uplift</div>
+          </div>
+        </div>
+        <div class="wr-float wr-float--chip">
+          <span class="wr-chip-dot"></span>
+          <div>
+            <div class="wr-chip-title">Nebu DevOps</div>
+            <div class="wr-chip-sub">Zero-downtime pipelines</div>
+          </div>
+        </div>
+        <div class="wr-float wr-float--badge">
+          <div class="wr-badge-num">5.0</div>
+          <div class="wr-badge-body">
+            <span class="wr-badge-stars">★★★★★</span>
+            <span class="wr-badge-label">Clutch · Top IT Firm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#services" class="wr-scroll-hint" aria-label="Scroll to services">
+      <span>Scroll</span>
+      <span class="wr-scroll-line" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <!-- Tech Marquee -->
+  <section class="wr-marquee-section" aria-label="Technologies we work with">
+    <div class="container">
+      <div class="wr-marquee-label">Our battle-tested stack</div>
+    </div>
+    <div class="wr-marquee" aria-hidden="true">
+      <div class="wr-marquee-track">
+        <span class="wr-marquee-item">⚛︎ React</span>
+        <span class="wr-marquee-item">▲ Next.js</span>
+        <span class="wr-marquee-item">🟢 Node.js</span>
+        <span class="wr-marquee-item">🐍 Python</span>
+        <span class="wr-marquee-item">🤖 OpenAI</span>
+        <span class="wr-marquee-item">🐳 Docker</span>
+        <span class="wr-marquee-item">☸ Kubernetes</span>
+        <span class="wr-marquee-item">☁ AWS</span>
+        <span class="wr-marquee-item">🔷 TypeScript</span>
+        <span class="wr-marquee-item">🎨 Tailwind</span>
+        <span class="wr-marquee-item">⚡ Vite</span>
+        <span class="wr-marquee-item">🔥 Firebase</span>
+        <span class="wr-marquee-item">🗄 PostgreSQL</span>
+        <span class="wr-marquee-item">🦄 Stripe</span>
+        <span class="wr-marquee-item">🧠 LangChain</span>
+        <!-- Duplicate set for seamless loop -->
+        <span class="wr-marquee-item" aria-hidden="true">⚛︎ React</span>
+        <span class="wr-marquee-item" aria-hidden="true">▲ Next.js</span>
+        <span class="wr-marquee-item" aria-hidden="true">🟢 Node.js</span>
+        <span class="wr-marquee-item" aria-hidden="true">🐍 Python</span>
+        <span class="wr-marquee-item" aria-hidden="true">🤖 OpenAI</span>
+        <span class="wr-marquee-item" aria-hidden="true">🐳 Docker</span>
+        <span class="wr-marquee-item" aria-hidden="true">☸ Kubernetes</span>
+        <span class="wr-marquee-item" aria-hidden="true">☁ AWS</span>
+        <span class="wr-marquee-item" aria-hidden="true">🔷 TypeScript</span>
+        <span class="wr-marquee-item" aria-hidden="true">🎨 Tailwind</span>
+        <span class="wr-marquee-item" aria-hidden="true">⚡ Vite</span>
+        <span class="wr-marquee-item" aria-hidden="true">🔥 Firebase</span>
+        <span class="wr-marquee-item" aria-hidden="true">🗄 PostgreSQL</span>
+        <span class="wr-marquee-item" aria-hidden="true">🦄 Stripe</span>
+        <span class="wr-marquee-item" aria-hidden="true">🧠 LangChain</span>
       </div>
     </div>
   </section>
 
   <!-- Stats Section -->
-  <section class="stats" aria-label="Company statistics">
-    <div class="container stats-grid">
-      <div class="stat-item">
+  <section class="stats wr-stats" aria-label="Company statistics">
+    <div class="container stats-grid wr-stats-grid">
+      <div class="stat-item wr-stat-item">
+        <div class="wr-stat-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
         <span class="stat-number" data-target="150" aria-label="150 projects completed">0</span>
         <span class="stat-label">Projects Delivered</span>
+        <svg class="wr-stat-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 L20 18 L35 22 L55 8 L75 12 L100 2" fill="none" stroke="url(#wr-grad)" stroke-width="2"/><defs><linearGradient id="wr-grad" x1="0" x2="1"><stop offset="0" stop-color="#ff6600"/><stop offset="1" stop-color="#ffa366"/></linearGradient></defs></svg>
       </div>
-      <div class="stat-item">
+      <div class="stat-item wr-stat-item">
+        <div class="wr-stat-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
         <span class="stat-number" data-target="98" aria-label="98 percent client satisfaction">0</span>
-        <span class="stat-label">Client Satisfaction</span>
+        <span class="stat-label">Client Satisfaction %</span>
+        <svg class="wr-stat-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 L18 14 L38 18 L58 6 L80 10 L100 4" fill="none" stroke="url(#wr-grad)" stroke-width="2"/></svg>
       </div>
-      <div class="stat-item">
+      <div class="stat-item wr-stat-item">
+        <div class="wr-stat-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        </div>
         <span class="stat-number" data-target="12" aria-label="12 global partners">0</span>
         <span class="stat-label">Active Clients</span>
+        <svg class="wr-stat-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28 L22 20 L42 24 L62 12 L82 14 L100 6" fill="none" stroke="url(#wr-grad)" stroke-width="2"/></svg>
       </div>
-      <div class="stat-item">
+      <div class="stat-item wr-stat-item">
+        <div class="wr-stat-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
         <span class="stat-number" data-target="5" aria-label="5 years of innovation">0</span>
         <span class="stat-label">Years in Business</span>
+        <svg class="wr-stat-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26 L20 22 L40 20 L60 14 L80 10 L100 4" fill="none" stroke="url(#wr-grad)" stroke-width="2"/></svg>
       </div>
     </div>
   </section>
@@ -150,55 +291,129 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" aria-labelledby="services-heading">
+  <section id="services" class="wr-services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header">
-        <h2 id="services-heading" class="section-title">What We <span class="text-gradient">Deliver</span></h2>
-        <p class="hero-subtitle">End-to-end solutions that scale with your ambition.</p>
+        <span class="wr-eyebrow">What we deliver</span>
+        <h2 id="services-heading" class="section-title">Solutions that ship <span class="text-gradient">revenue</span></h2>
+        <p class="hero-subtitle">End-to-end engineering, design, and AI — delivered by a senior-only team. Six services, one standard: exceptional.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">✦</div>
+      <div class="services-grid wr-bento">
+        <div class="service-card wr-card wr-card--lg" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="wr-card-tag">Flagship</span>
           <h3>Web Development</h3>
           <p>Lightning-fast React, Next.js, and Vue applications with 99.9% uptime. Built for performance, optimized for conversions.</p>
+          <ul class="wr-card-list">
+            <li>Core Web Vitals 95+</li>
+            <li>Edge-rendered / ISR</li>
+            <li>A/B tested components</li>
+          </ul>
+          <a href="website-pricing.html" class="wr-card-link" aria-label="View website plans">See plans <span aria-hidden="true">→</span></a>
         </div>
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">✸</div>
+        <div class="service-card wr-card" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
           <h3>App Engineering</h3>
-          <p>Native iOS and Android apps that users love. From MVP to App Store in 8 weeks with full backend integration.</p>
+          <p>Native iOS &amp; Android apps from MVP to App Store in 8 weeks with full backend integration.</p>
+          <a href="app-pricing.html" class="wr-card-link" aria-label="View application plans">See plans <span aria-hidden="true">→</span></a>
         </div>
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">✺</div>
+        <div class="service-card wr-card wr-card--accent" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <span class="wr-card-tag">Hot</span>
           <h3>AI Integration</h3>
-          <p>Custom GPT models, intelligent chatbots, and automation workflows that cut operational costs by 40%.</p>
+          <p>Custom GPT agents, RAG pipelines, and automations that cut operational costs by 40%.</p>
+          <a href="ai-pricing.html" class="wr-card-link" aria-label="View AI agent plans">See plans <span aria-hidden="true">→</span></a>
         </div>
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">🛰️</div>
+        <div class="service-card wr-card" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
           <h3>DevOps Excellence</h3>
-          <p>Zero-downtime deployments with our Nebu DevOps framework. CI/CD pipelines, Docker, Kubernetes, AWS/Azure.</p>
+          <p>Zero-downtime deployments with Nebu. CI/CD, Docker, Kubernetes, AWS &amp; Azure.</p>
+          <a href="#contact" class="wr-card-link">Talk to us <span aria-hidden="true">→</span></a>
         </div>
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">⚡</div>
+        <div class="service-card wr-card" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
           <h3>UI/UX Design</h3>
-          <p>Conversion-focused interfaces backed by user research. Every pixel serves your business goals.</p>
+          <p>Conversion-focused interfaces backed by user research. Every pixel serves your goals.</p>
+          <a href="#contact" class="wr-card-link">Talk to us <span aria-hidden="true">→</span></a>
         </div>
-        <div class="service-card" tabindex="0">
-          <div class="service-icon" aria-hidden="true">🛡️</div>
+        <div class="service-card wr-card" tabindex="0">
+          <div class="wr-card-bg" aria-hidden="true"></div>
+          <div class="service-icon wr-card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <h3>Technical Consulting</h3>
-          <p>Architecture reviews, tech stack decisions, and scalability audits. Get expert guidance before you build.</p>
+          <p>Architecture reviews, tech-stack decisions &amp; scalability audits before you build.</p>
+          <a href="#contact" class="wr-card-link">Talk to us <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="wr-process" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="wr-eyebrow">How we work</span>
+        <h2 id="process-heading" class="section-title">From idea to <span class="text-gradient">production</span></h2>
+        <p class="hero-subtitle">A proven 4-step delivery process. Transparent pricing, weekly demos, zero surprises.</p>
+      </div>
+      <div class="wr-process-grid">
+        <div class="wr-process-step reveal">
+          <div class="wr-process-num" aria-hidden="true">01</div>
+          <div class="wr-process-dot" aria-hidden="true"></div>
+          <h3>Discovery</h3>
+          <p>We map your goals, users, and constraints in a 60-minute strategy call. You leave with a written roadmap.</p>
+          <span class="wr-process-duration">2–3 days</span>
+        </div>
+        <div class="wr-process-step reveal">
+          <div class="wr-process-num" aria-hidden="true">02</div>
+          <div class="wr-process-dot" aria-hidden="true"></div>
+          <h3>Design</h3>
+          <p>Wireframes, design system, and a clickable Figma prototype. Tested with real users before a single line of code.</p>
+          <span class="wr-process-duration">1–2 weeks</span>
+        </div>
+        <div class="wr-process-step reveal">
+          <div class="wr-process-num" aria-hidden="true">03</div>
+          <div class="wr-process-dot" aria-hidden="true"></div>
+          <h3>Build</h3>
+          <p>Weekly demos. Clean TypeScript. 90%+ test coverage. Continuous deployment from day one.</p>
+          <span class="wr-process-duration">4–8 weeks</span>
+        </div>
+        <div class="wr-process-step reveal">
+          <div class="wr-process-num" aria-hidden="true">04</div>
+          <div class="wr-process-dot" aria-hidden="true"></div>
+          <h3>Launch &amp; Scale</h3>
+          <p>Zero-downtime go-live, monitoring dashboards, and a dedicated channel for ongoing iteration.</p>
+          <span class="wr-process-duration">Forever</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" aria-labelledby="portfolio-heading">
+  <section id="portfolio" class="wr-portfolio" aria-labelledby="portfolio-heading">
     <div class="container">
       <div class="section-header">
-        <h2 id="portfolio-heading" class="section-title">Featured <span class="text-gradient">Work</span></h2>
-        <p class="hero-subtitle">Real projects, real results. See what we've built for companies like yours.</p>
+        <span class="wr-eyebrow">Featured case studies</span>
+        <h2 id="portfolio-heading" class="section-title">Shipped work, <span class="text-gradient">measurable wins</span></h2>
+        <p class="hero-subtitle">Real projects, real results. A selection of what we've built for founders, schools, and brands.</p>
       </div>
-      <div class="portfolio-grid">
+      <div class="portfolio-grid wr-portfolio-grid" data-wr-tilt>
         <a href="https://www.pratikpaneru.com.np/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
             <img src="assets/portfolio/pratikpaneru.jpg" alt="Pratik Paneru Engineering Journal Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
@@ -392,48 +607,168 @@
     </div>
   </section>
 
-  <section id="pricing" class="pricing-preview" aria-labelledby="pricing-heading">
+  <section id="pricing" class="pricing-preview wr-pricing" aria-labelledby="pricing-heading">
     <div class="container reveal">
-      <div class="glass-box">
-        <h2 id="pricing-heading" class="section-title">Transparent <span class="text-gradient">Pricing</span></h2>
-        <p class="hero-subtitle" style="margin-bottom: 40px;">Fixed-price packages or dedicated teams. No hidden fees, no surprises. Get a custom quote in 24 hours.</p>
-        <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
-          <a href="website-pricing.html" class="btn btn-primary" style="padding: 20px 40px;" aria-label="View website pricing">🌐 Websites</a>
-          <a href="app-pricing.html" class="btn btn-secondary" style="padding: 20px 40px;" aria-label="View application pricing">📱 Applications</a>
-          <a href="ai-pricing.html" class="btn btn-primary" style="padding: 20px 40px;" aria-label="View AI agent pricing">🤖 AI Agents</a>
-        </div>
+      <div class="section-header">
+        <span class="wr-eyebrow">Transparent pricing</span>
+        <h2 id="pricing-heading" class="section-title">Pick a lane, <span class="text-gradient">get a quote in 24h</span></h2>
+        <p class="hero-subtitle">Fixed-price packages or dedicated teams. No hidden fees, no surprises. Every plan comes with free post-launch support.</p>
       </div>
+      <div class="wr-pricing-grid">
+        <a href="website-pricing.html" class="wr-price-card" aria-label="View website pricing plans">
+          <div class="wr-price-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Websites</h3>
+          <p class="wr-price-desc">From marketing sites to e-commerce platforms engineered for conversion.</p>
+          <div class="wr-price-from"><span>From</span> <strong>NPR 15K</strong></div>
+          <ul class="wr-price-feats">
+            <li>12 industry templates</li>
+            <li>SEO + analytics baked in</li>
+            <li>1-year free support</li>
+          </ul>
+          <span class="wr-price-cta">Browse 36 plans <span aria-hidden="true">→</span></span>
+        </a>
+        <a href="app-pricing.html" class="wr-price-card wr-price-card--featured" aria-label="View application pricing plans">
+          <span class="wr-price-ribbon">Most popular</span>
+          <div class="wr-price-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>Applications</h3>
+          <p class="wr-price-desc">Mobile, web, and enterprise apps built to scale past your first million users.</p>
+          <div class="wr-price-from"><span>From</span> <strong>NPR 45K</strong></div>
+          <ul class="wr-price-feats">
+            <li>Native iOS / Android / Web</li>
+            <li>Admin dashboards included</li>
+            <li>Stripe + payment integration</li>
+          </ul>
+          <span class="wr-price-cta">Explore app tiers <span aria-hidden="true">→</span></span>
+        </a>
+        <a href="ai-pricing.html" class="wr-price-card" aria-label="View AI agent pricing plans">
+          <div class="wr-price-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2" ry="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+          </div>
+          <h3>AI Agents</h3>
+          <p class="wr-price-desc">Custom chatbots, RAG agents, and workflow automations trained on your data.</p>
+          <div class="wr-price-from"><span>From</span> <strong>NPR 55K</strong></div>
+          <ul class="wr-price-feats">
+            <li>OpenAI / Claude / local LLMs</li>
+            <li>Private knowledge base</li>
+            <li>24/7 monitoring</li>
+          </ul>
+          <span class="wr-price-cta">Design my agent <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <a href="pricing-details.html" class="wr-pricing-all">See all 120+ packages <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
-  <section id="about" aria-labelledby="about-heading">
+  <section id="about" class="wr-about" aria-labelledby="about-heading">
     <div class="container reveal">
-      <div class="about-flex">
+      <div class="about-flex wr-about-flex">
         <div class="about-text">
-          <span class="hero-tag">Who We Are</span>
+          <span class="wr-eyebrow">Who we are</span>
           <h2 id="about-heading" class="section-title">Prajkit <span class="text-gradient">Excellence</span></h2>
-          <p class="hero-subtitle" style="text-align: left; margin: 30px 0;">We are a collective of developers,
-            designers, and strategists dedicated to pushing the boundaries of what's possible in the digital space.
-            Based in Nepal, serving the world.</p>
-          <a href="ankitpariyar.html" class="btn btn-secondary" aria-label="Learn about our lead developer">Our Lead Developer</a>
+          <p class="hero-subtitle wr-about-lead">A senior-only collective of engineers, designers, and AI researchers pushing the boundary of what ships in 30 days. Based in Nepal, serving founders and enterprises worldwide.</p>
+          <ul class="wr-about-feats">
+            <li><span class="wr-check" aria-hidden="true">✓</span> Senior-only team, no offshoring</li>
+            <li><span class="wr-check" aria-hidden="true">✓</span> Fixed-price contracts, weekly demos</li>
+            <li><span class="wr-check" aria-hidden="true">✓</span> Native English &amp; Nepali communication</li>
+            <li><span class="wr-check" aria-hidden="true">✓</span> 60-day post-launch support free</li>
+          </ul>
+          <a href="ankitpariyar.html" class="btn btn-secondary wr-btn-secondary" aria-label="Learn about our lead developer">Meet our lead developer →</a>
         </div>
-        <div class="about-image">
-          <div class="box-placeholder" aria-hidden="true">
-            🚀
+        <div class="about-image wr-about-image">
+          <div class="wr-about-visual" aria-hidden="true">
+            <div class="wr-about-card wr-about-card--1">
+              <div class="wr-about-card-icon">🚀</div>
+              <div>
+                <div class="wr-about-card-title">Ship faster</div>
+                <div class="wr-about-card-sub">MVP in 30 days</div>
+              </div>
+            </div>
+            <div class="wr-about-card wr-about-card--2">
+              <div class="wr-about-card-icon">🧠</div>
+              <div>
+                <div class="wr-about-card-title">Senior brains</div>
+                <div class="wr-about-card-sub">10+ yrs avg.</div>
+              </div>
+            </div>
+            <div class="wr-about-card wr-about-card--3">
+              <div class="wr-about-card-icon">🔒</div>
+              <div>
+                <div class="wr-about-card-title">SOC-ready</div>
+                <div class="wr-about-card-sub">Secure by default</div>
+              </div>
+            </div>
+            <div class="wr-about-glow"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" aria-labelledby="contact-heading">
+  <section id="contact" class="wr-contact" aria-labelledby="contact-heading">
     <div class="container reveal">
       <div class="section-header">
-        <h2 id="contact-heading" class="section-title">Let's Build <span class="text-gradient">Something Great</span></h2>
-        <p class="hero-subtitle">Tell us about your project. We'll respond within 24 hours with a clear plan and timeline.</p>
+        <span class="wr-eyebrow">Let's talk</span>
+        <h2 id="contact-heading" class="section-title">Let's build <span class="text-gradient">something great</span></h2>
+        <p class="hero-subtitle">Tell us about your project. We'll respond within 24 hours with a clear plan and a fixed-price quote.</p>
       </div>
-      <div class="contact-form-wrapper">
-        <form class="contact-form" id="contact-form" novalidate>
+      <div class="wr-contact-layout">
+        <aside class="wr-contact-info" aria-label="Contact information">
+          <div class="wr-contact-badge">
+            <span class="wr-pulse" aria-hidden="true"></span>
+            Typically replies in 3 hours
+          </div>
+          <h3 class="wr-contact-heading">Prefer to skip the form?</h3>
+          <p class="wr-contact-lead">Reach out directly — a senior engineer will personally respond, not a bot.</p>
+          <ul class="wr-contact-list">
+            <li>
+              <span class="wr-contact-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <div>
+                <div class="wr-contact-label">Email</div>
+                <a href="mailto:hello@prajkit.com" class="wr-contact-value">hello@prajkit.com</a>
+              </div>
+            </li>
+            <li>
+              <span class="wr-contact-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div>
+                <div class="wr-contact-label">Phone / WhatsApp</div>
+                <a href="tel:+9779800000000" class="wr-contact-value">+977 980-000-0000</a>
+              </div>
+            </li>
+            <li>
+              <span class="wr-contact-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <div class="wr-contact-label">Based in</div>
+                <div class="wr-contact-value">Kathmandu, Nepal</div>
+              </div>
+            </li>
+            <li>
+              <span class="wr-contact-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <div>
+                <div class="wr-contact-label">Working hours</div>
+                <div class="wr-contact-value">Mon–Sat · 9AM–7PM NPT</div>
+              </div>
+            </li>
+          </ul>
+          <div class="wr-contact-socials">
+            <a href="https://www.linkedin.com/company/prajkit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.instagram.com/prajkit.official" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/prajkit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </aside>
+        <div class="contact-form-wrapper wr-contact-form-wrapper">
+          <form class="contact-form" id="contact-form" novalidate>
           <div class="form-group-row">
             <div class="form-group">
               <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required aria-label="Your name" aria-required="true">
@@ -614,45 +949,99 @@
             <span>Message sent successfully! We'll get back to you soon.</span>
           </div>
         </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer" role="contentinfo">
+  <!-- CTA Banner -->
+  <section class="wr-cta" aria-label="Call to action">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#home" class="logo" style="margin-bottom: 20px; display: inline-block;">Prajkit<span
-              class="logo-accent">.</span></a>
-          <p style="color: var(--text-muted);">Building the future of digital products with cutting-edge technology and expert craftsmanship.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#contact" class="nav-link">Connect</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#services" class="nav-link">Web Dev</a></li>
-            <li><a href="#services" class="nav-link">AI Agents</a></li>
-            <li><a href="#services" class="nav-link">Consulting</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Social</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/company/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/prajkit.official" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a></li>
-            <li><a href="https://www.facebook.com/prajkit" target="_blank" rel="noopener noreferrer" class="nav-link">Facebook</a></li>
-          </ul>
+      <div class="wr-cta-card">
+        <div class="wr-cta-aurora" aria-hidden="true"></div>
+        <div class="wr-cta-content">
+          <span class="wr-eyebrow">Ready when you are</span>
+          <h2 class="section-title">Your next launch, <span class="text-gradient">shipped in 30 days</span></h2>
+          <p class="hero-subtitle">Book a free 30-minute strategy call. Walk away with a roadmap, a price, and a timeline — whether you hire us or not.</p>
+          <div class="hero-btns wr-cta-btns">
+            <a href="#contact" class="btn btn-primary wr-btn-primary"><span>Book a free call</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="pricing-details.html" class="btn btn-secondary wr-btn-secondary">View full pricing</a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
+    </div>
+  </section>
+
+  <footer class="footer wr-footer" role="contentinfo">
+    <div class="container">
+      <div class="wr-footer-top">
+        <div class="wr-footer-brand">
+          <a href="#home" class="logo" style="margin-bottom: 20px; display: inline-flex;">
+            <img src="logo.png" alt="Prajkit Logo">
+            Prajkit<span class="logo-accent">.</span>
+          </a>
+          <p class="wr-footer-tagline">Architecting the future of digital products with cutting-edge technology, senior craftsmanship, and zero-downtime DevOps.</p>
+          <form class="wr-footer-newsletter" onsubmit="event.preventDefault();this.querySelector('.wr-nl-msg').hidden=false;this.querySelector('input').value='';">
+            <label for="wr-nl-email" class="wr-footer-subheading">Get the monthly build log</label>
+            <div class="wr-footer-nl-row">
+              <input id="wr-nl-email" type="email" placeholder="you@company.com" aria-label="Email address" required>
+              <button type="submit" aria-label="Subscribe">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+            <span class="wr-nl-msg" hidden>Thanks — you're on the list.</span>
+          </form>
+        </div>
+        <div class="wr-footer-cols">
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#home" class="nav-link">Home</a></li>
+              <li><a href="#services" class="nav-link">Services</a></li>
+              <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+              <li><a href="ankitpariyar.html" class="nav-link">Team</a></li>
+              <li><a href="#contact" class="nav-link">Connect</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="website-pricing.html" class="nav-link">Web Development</a></li>
+              <li><a href="app-pricing.html" class="nav-link">App Engineering</a></li>
+              <li><a href="ai-pricing.html" class="nav-link">AI Agents</a></li>
+              <li><a href="#services" class="nav-link">DevOps</a></li>
+              <li><a href="#services" class="nav-link">Consulting</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Pricing</h4>
+            <ul>
+              <li><a href="pricing-details.html" class="nav-link">All packages</a></li>
+              <li><a href="website-pricing.html" class="nav-link">Websites</a></li>
+              <li><a href="app-pricing.html" class="nav-link">Applications</a></li>
+              <li><a href="ai-pricing.html" class="nav-link">AI Agents</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+              <li><a href="termsandcondition.html" class="nav-link">Terms &amp; Conditions</a></li>
+            </ul>
+            <h4 style="margin-top:24px;">Social</h4>
+            <div class="wr-footer-socials">
+              <a href="https://www.linkedin.com/company/prajkit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="https://www.instagram.com/prajkit.official" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+              <a href="https://www.facebook.com/prajkit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom wr-footer-bottom">
         <p>&copy; 2026 Prajkit. All rights reserved. Crafted with precision in Nepal.</p>
+        <p class="wr-footer-meta">Made with <span class="wr-heart" aria-hidden="true">◆</span> in Kathmandu · v3.0 · <span style="color: var(--primary);">●</span> All systems operational</p>
       </div>
     </div>
   </footer>
