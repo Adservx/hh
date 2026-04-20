@@ -558,7 +558,7 @@ function initScramble() {
                         char = this.randomChar();
                         this.queue[i].char = char;
                     }
-                    output += `<span class="dud-char" style="color:#FF6600">${char}</span>`;
+                    output += `<span class="dud-char" style="color:#29A8DE">${char}</span>`;
                 } else {
                     output += from;
                 }
