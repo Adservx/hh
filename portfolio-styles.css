@@ -1,28 +1,42 @@
-/* Portfolio Section Styles */
+/* Portfolio Section Styles — Asymmetric Masonry-Lite Grid */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     margin-top: 60px;
 }
 
+.portfolio-grid .portfolio-card:nth-child(1) {
+    grid-column: span 2;
+}
+
+.portfolio-grid .portfolio-card:nth-child(4) {
+    grid-column: span 2;
+}
+
+.portfolio-grid .portfolio-card:nth-child(7) {
+    grid-column: span 2;
+}
+
 .portfolio-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    background: rgba(26, 26, 26, 0.3);
+    border: 0.5px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
     overflow: hidden;
     transition: var(--transition);
     cursor: pointer;
     text-decoration: none;
     display: block;
     color: inherit;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
 }
 
 .portfolio-card:hover,
 .portfolio-card:focus-within {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(255, 102, 0, 0.2);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 102, 0, 0.06);
 }
 
 .portfolio-card:focus-visible {
@@ -75,7 +89,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 102, 0, 0.9);
+    background: rgba(13, 13, 13, 0.7);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,12 +105,12 @@
 .portfolio-view {
     color: white;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 12px 24px;
-    border: 2px solid white;
-    border-radius: 8px;
+    letter-spacing: 0.14em;
+    padding: 12px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
     transition: var(--transition);
 }
 
@@ -128,15 +143,15 @@
 
 .tech-tag {
     display: inline-block;
-    padding: 6px 14px;
-    background: rgba(255, 102, 0, 0.1);
-    border: 1px solid rgba(255, 102, 0, 0.2);
-    border-radius: 6px;
+    padding: 5px 12px;
+    background: rgba(255, 102, 0, 0.06);
+    border: 0.5px solid rgba(255, 102, 0, 0.15);
+    border-radius: 100px;
     color: var(--primary);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     transition: var(--transition);
 }
 
@@ -148,8 +163,14 @@
 /* Responsive Portfolio */
 @media (max-width: 968px) {
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .portfolio-grid .portfolio-card:nth-child(1),
+    .portfolio-grid .portfolio-card:nth-child(4),
+    .portfolio-grid .portfolio-card:nth-child(7) {
+        grid-column: span 2;
     }
 
     .portfolio-content {
@@ -160,7 +181,13 @@
 @media (max-width: 640px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
+    }
+
+    .portfolio-grid .portfolio-card:nth-child(1),
+    .portfolio-grid .portfolio-card:nth-child(4),
+    .portfolio-grid .portfolio-card:nth-child(7) {
+        grid-column: span 1;
     }
 
     .portfolio-content h3 {

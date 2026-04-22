@@ -584,7 +584,7 @@ function initScramble() {
     }
 }
 
-// 3. Reveal Animations
+// 3. Reveal Animations with staggered IntersectionObserver
 function initReveals() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -597,6 +597,30 @@ function initReveals() {
     document.querySelectorAll('.reveal, .service-card, .stat-item').forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
+    });
+
+    const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const children = entry.target.children;
+                Array.from(children).forEach((child, i) => {
+                    child.style.opacity = '0';
+                    child.style.transform = 'translateY(30px)';
+                    child.style.transition = `opacity 0.6s cubic-bezier(0.23,1,0.32,1) ${i * 0.08}s, transform 0.6s cubic-bezier(0.23,1,0.32,1) ${i * 0.08}s`;
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        });
+                    });
+                });
+                staggerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-stagger').forEach(el => {
+        staggerObserver.observe(el);
     });
 }
 
@@ -630,14 +654,33 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// 5. Sticky Navbar
+// 5. Navbar — scroll-up reveal, scroll-down hide (floating pill)
 function initNavbar() {
     const nav = document.querySelector('.navbar');
+    let lastScroll = 0;
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll > 80) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+
+                if (currentScroll > lastScroll && currentScroll > 300) {
+                    nav.classList.add('nav-hidden');
+                } else {
+                    nav.classList.remove('nav-hidden');
+                }
+
+                lastScroll = currentScroll;
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 }
