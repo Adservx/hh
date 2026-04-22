@@ -41,14 +41,15 @@
 
 <body>
   <!-- Cinematic Space Background is handled by script.js -->
+  <div id="scanline-overlay"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <div class="nav-wrapper">
         <a href="#home" class="logo">
-          <img src="logo.png" alt="Prajkit Logo">
-          Prajkit<span class="logo-accent">.</span>
+          <img src="logo.png" alt="Prajkit Logo" style="filter: grayscale(1) brightness(1.2); opacity: 0.85;">
+          Prajkit<span class="logo-accent" style="color: var(--primary);">.</span>
         </a>
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link">Home</a></li>
@@ -111,7 +112,7 @@
         <h2 id="testimonials-heading" class="section-title">Trusted by <span class="text-gradient">Forward-Thinking Teams</span></h2>
         <p class="hero-subtitle">Real feedback from real clients who chose to build with us.</p>
       </div>
-      <div class="testimonials-grid">
+      <div class="testimonials-grid reveal-stagger">
         <article class="testimonial-card reveal">
           <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
           <p class="testimonial-text">"Prajkit delivered our e-commerce platform 2 weeks ahead of schedule. The attention to detail and technical expertise exceeded our expectations. Revenue is up 40% since launch."</p>
@@ -156,7 +157,7 @@
         <h2 id="services-heading" class="section-title">What We <span class="text-gradient">Deliver</span></h2>
         <p class="hero-subtitle">End-to-end solutions that scale with your ambition.</p>
       </div>
-      <div class="services-grid">
+      <div class="services-grid reveal-stagger">
         <div class="service-card" tabindex="0">
           <div class="service-icon" aria-hidden="true">✦</div>
           <h3>Web Development</h3>
@@ -198,7 +199,7 @@
         <h2 id="portfolio-heading" class="section-title">Featured <span class="text-gradient">Work</span></h2>
         <p class="hero-subtitle">Real projects, real results. See what we've built for companies like yours.</p>
       </div>
-      <div class="portfolio-grid">
+      <div class="portfolio-grid reveal-stagger">
         <a href="https://www.pratikpaneru.com.np/" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" tabindex="0">
           <div class="portfolio-image">
             <img src="assets/portfolio/pratikpaneru.jpg" alt="Pratik Paneru Engineering Journal Screenshot" loading="lazy" class="portfolio-screenshot" width="800" height="500">
