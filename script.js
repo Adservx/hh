@@ -32,7 +32,37 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initContactForm();
     initPricingButtons();
+    initScanlineOverlay();
+    initSmoothAnchorScroll();
 });
+
+/**
+ * Add scanline overlay for micro-texture depth
+ */
+function initScanlineOverlay() {
+    const scanline = document.createElement('div');
+    scanline.id = 'scanline-overlay';
+    document.body.appendChild(scanline);
+}
+
+/**
+ * Smooth scroll for all anchor links with offset for floating navbar
+ */
+function initSmoothAnchorScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const yOffset = -100;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        });
+    });
+}
 
 /**
  * Detect device performance quality
@@ -630,14 +660,35 @@ function animateValue(obj, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// 5. Sticky Navbar
+// 5. Floating Pill Navbar — hide on scroll-down, reappear on scroll-up
 function initNavbar() {
     const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    let lastScrollY = 0;
+    let ticking = false;
+
+    function updateNavbar() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
+        }
+
+        if (currentScrollY > lastScrollY && currentScrollY > 120) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
         }
     });
 }

@@ -1,28 +1,38 @@
-/* Portfolio Section Styles */
+/* Portfolio Section Styles — asymmetrical masonry-lite grid */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 24px;
     margin-top: 60px;
 }
 
+.portfolio-card:nth-child(1) {
+    grid-column: span 2;
+}
+
+.portfolio-card:nth-child(4) {
+    grid-column: span 2;
+}
+
 .portfolio-card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
     overflow: hidden;
-    transition: var(--transition);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     text-decoration: none;
     display: block;
     color: inherit;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .portfolio-card:hover,
 .portfolio-card:focus-within {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(255, 102, 0, 0.2);
+    transform: translateY(-6px);
+    border-color: rgba(255, 102, 0, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 80px rgba(255, 102, 0, 0.06);
 }
 
 .portfolio-card:focus-visible {
@@ -75,12 +85,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 102, 0, 0.9);
+    background: rgba(13, 13, 13, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: var(--transition);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portfolio-card:hover .portfolio-overlay {
@@ -90,13 +100,18 @@
 .portfolio-view {
     color: white;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 12px 24px;
-    border: 2px solid white;
-    border-radius: 8px;
-    transition: var(--transition);
+    letter-spacing: 0.14em;
+    padding: 12px 28px;
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-view:hover {
+    background: var(--primary);
+    border-color: var(--primary);
 }
 
 .portfolio-card:hover .portfolio-view {
@@ -104,20 +119,21 @@
 }
 
 .portfolio-content {
-    padding: 30px;
+    padding: 28px;
 }
 
 .portfolio-content h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: clamp(18px, 1.5vw, 22px);
+    margin-bottom: 10px;
     color: var(--text);
+    letter-spacing: -0.02em;
 }
 
 .portfolio-content p {
     color: var(--text-muted);
     line-height: 1.7;
-    margin-bottom: 20px;
-    font-size: 15px;
+    margin-bottom: 18px;
+    font-size: clamp(13px, 1.1vw, 15px);
 }
 
 .portfolio-tech {
@@ -128,43 +144,48 @@
 
 .tech-tag {
     display: inline-block;
-    padding: 6px 14px;
-    background: rgba(255, 102, 0, 0.1);
-    border: 1px solid rgba(255, 102, 0, 0.2);
-    border-radius: 6px;
+    padding: 5px 12px;
+    background: rgba(255, 102, 0, 0.06);
+    border: 0.5px solid rgba(255, 102, 0, 0.15);
+    border-radius: 100px;
     color: var(--primary);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: var(--transition);
+    letter-spacing: 0.08em;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portfolio-card:hover .tech-tag {
-    background: rgba(255, 102, 0, 0.15);
-    border-color: var(--primary);
+    background: rgba(255, 102, 0, 0.1);
+    border-color: rgba(255, 102, 0, 0.3);
 }
 
 /* Responsive Portfolio */
 @media (max-width: 968px) {
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .portfolio-card:nth-child(1),
+    .portfolio-card:nth-child(4) {
+        grid-column: span 1;
     }
 
     .portfolio-content {
-        padding: 24px;
+        padding: 22px;
     }
 }
 
 @media (max-width: 640px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .portfolio-content h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .portfolio-content p {
