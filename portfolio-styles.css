@@ -1,28 +1,39 @@
-/* Portfolio Section Styles */
+/* Portfolio Section — Asymmetric Masonry-Lite Grid */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 24px;
+    margin-top: 80px;
+}
+
+/* Asymmetric sizing — first and last cards span 2 columns */
+.portfolio-card:nth-child(1) {
+    grid-column: span 2;
+}
+
+.portfolio-card:nth-child(5) {
+    grid-column: span 2;
 }
 
 .portfolio-card {
     background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border: 0.5px solid var(--glass-border);
+    border-radius: 20px;
     overflow: hidden;
     transition: var(--transition);
     cursor: pointer;
     text-decoration: none;
     display: block;
     color: inherit;
+    box-shadow: var(--shadow-ambient);
 }
 
 .portfolio-card:hover,
 .portfolio-card:focus-within {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(255, 102, 0, 0.2);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-lift);
 }
 
 .portfolio-card:focus-visible {
@@ -34,7 +45,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, rgba(255, 102, 0, 0.02) 100%);
+    background: linear-gradient(135deg, rgba(255, 102, 0, 0.03) 0%, rgba(255, 102, 0, 0.01) 100%);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -50,7 +61,7 @@
 }
 
 .portfolio-card:hover .portfolio-screenshot {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .portfolio-placeholder {
@@ -75,7 +86,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 102, 0, 0.9);
+    background: rgba(13, 13, 13, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,34 +101,36 @@
 .portfolio-view {
     color: white;
     font-weight: 600;
-    font-size: 16px;
+    font-size: clamp(13px, 1.2vw, 15px);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 12px 24px;
-    border: 2px solid white;
-    border-radius: 8px;
+    letter-spacing: 0.15em;
+    padding: 12px 28px;
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
     transition: var(--transition);
 }
 
 .portfolio-card:hover .portfolio-view {
-    transform: scale(1.05);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .portfolio-content {
-    padding: 30px;
+    padding: 28px;
 }
 
 .portfolio-content h3 {
-    font-size: 22px;
+    font-size: clamp(18px, 1.6vw, 22px);
     margin-bottom: 12px;
     color: var(--text);
+    letter-spacing: -0.01em;
 }
 
 .portfolio-content p {
     color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: clamp(13px, 1.1vw, 15px);
 }
 
 .portfolio-tech {
@@ -128,28 +141,34 @@
 
 .tech-tag {
     display: inline-block;
-    padding: 6px 14px;
-    background: rgba(255, 102, 0, 0.1);
-    border: 1px solid rgba(255, 102, 0, 0.2);
-    border-radius: 6px;
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 600;
+    padding: 5px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    color: var(--text-dim, #888888);
+    font-size: clamp(10px, 0.9vw, 12px);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.12em;
     transition: var(--transition);
 }
 
 .portfolio-card:hover .tech-tag {
-    background: rgba(255, 102, 0, 0.15);
-    border-color: var(--primary);
+    background: rgba(255, 102, 0, 0.06);
+    border-color: rgba(255, 102, 0, 0.15);
+    color: var(--primary);
 }
 
 /* Responsive Portfolio */
 @media (max-width: 968px) {
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .portfolio-card:nth-child(1),
+    .portfolio-card:nth-child(5) {
+        grid-column: span 1;
     }
 
     .portfolio-content {
