@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Angry Birds Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <header id="hud">
+      <div class="hud-left">
+        <span class="hud-label">Level</span>
+        <span id="hud-level">1</span>
+      </div>
+      <div class="hud-center">
+        <span class="hud-label">Score</span>
+        <span id="hud-score">0</span>
+      </div>
+      <div class="hud-right">
+        <span class="hud-label">Birds</span>
+        <span id="hud-birds">0</span>
+      </div>
+    </header>
+
+    <div id="canvas-wrap">
+      <canvas id="game"></canvas>
+      <div id="overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h1 id="overlay-title">Level Complete!</h1>
+          <p id="overlay-text">Nice shot.</p>
+          <div class="overlay-buttons">
+            <button id="btn-next" class="primary">Next Level</button>
+            <button id="btn-restart">Restart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="controls">
+      <div class="control-hint">
+        <strong>Drag</strong> the bird back on the slingshot, then <strong>release</strong> to launch.
+      </div>
+      <div class="control-buttons">
+        <button id="btn-reset">Reset Level</button>
+        <button id="btn-mute" aria-pressed="false">🔊 Sound</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="vendor/matter.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
