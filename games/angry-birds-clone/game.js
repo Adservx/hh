@@ -284,24 +284,41 @@
   // force for predictable behavior.
   const LAUNCH_VELOCITY_GAIN = 0.55;
 
-  let dragging = false;
+  // Drag is driven by a pointer (mouse or touch). We support both PointerEvent
+  // and the older MouseEvent/TouchEvent APIs for maximum compatibility, and we
+  // attach move/up listeners on the document (always-on) rather than wiring
+  // them up at down-time so we can never miss the up event.
+  const drag = { active: false, lastX: 0, lastY: 0 };
 
-  function onPointerDown(e) {
-    if (!state.activeBird || state.activeBird.launched) return;
-    e.preventDefault();
-    const p = toWorld(e.clientX, e.clientY);
-    const d = Math.hypot(p.x - SLING_X, p.y - SLING_Y);
-    if (d > 240) return;
-    dragging = true;
-    state.aiming = true;
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointercancel', onPointerUp);
+  function clientPos(e) {
+    if (e.touches && e.touches[0])      return { x: e.touches[0].clientX,      y: e.touches[0].clientY };
+    if (e.changedTouches && e.changedTouches[0]) return { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
+    return { x: e.clientX, y: e.clientY };
   }
 
-  function onPointerMove(e) {
-    if (!dragging || !state.activeBird || state.activeBird.launched) return;
-    const p = toWorld(e.clientX, e.clientY);
+  function startDrag(e) {
+    if (!state.activeBird || state.activeBird.launched) return;
+    const cp = clientPos(e);
+    const p = toWorld(cp.x, cp.y);
+    const d = Math.hypot(p.x - SLING_X, p.y - SLING_Y);
+    if (d > 260) return;
+    if (e.cancelable) e.preventDefault();
+    drag.active = true;
+    drag.lastX = cp.x;
+    drag.lastY = cp.y;
+    state.aiming = true;
+    // Snap bird to the cursor so the drag feels grounded immediately even if
+    // the user clicked slightly off-bird.
+    moveDrag(e);
+  }
+
+  function moveDrag(e) {
+    if (!drag.active || !state.activeBird || state.activeBird.launched) return;
+    if (e.cancelable) e.preventDefault();
+    const cp = clientPos(e);
+    drag.lastX = cp.x;
+    drag.lastY = cp.y;
+    const p = toWorld(cp.x, cp.y);
     const dx = p.x - SLING_X;
     const dy = p.y - SLING_Y;
     const dist = Math.hypot(dx, dy);
@@ -318,18 +335,16 @@
     Body.setVelocity(state.activeBird, { x: 0, y: 0 });
   }
 
-  function onPointerUp() {
-    if (!dragging) return;
-    dragging = false;
+  function endDrag(e) {
+    if (!drag.active) return;
+    drag.active = false;
     state.aiming = false;
-    window.removeEventListener('pointermove', onPointerMove);
-    window.removeEventListener('pointerup', onPointerUp);
-    window.removeEventListener('pointercancel', onPointerUp);
+    if (e && e.cancelable) e.preventDefault();
     if (!state.activeBird || state.activeBird.launched) return;
     const dx = SLING_X - state.activeBird.position.x;
     const dy = SLING_Y - state.activeBird.position.y;
     const dist = Math.hypot(dx, dy);
-    if (dist < 25) {
+    if (dist < 20) {
       // tiny pull → snap back, don't waste a bird
       Body.setPosition(state.activeBird, { x: SLING_X, y: SLING_Y });
       Body.setVelocity(state.activeBird, { x: 0, y: 0 });
@@ -338,7 +353,20 @@
     launchBird(dx * LAUNCH_VELOCITY_GAIN, dy * LAUNCH_VELOCITY_GAIN);
   }
 
-  canvas.addEventListener('pointerdown', onPointerDown);
+  // Pointer Events (modern browsers, mouse + touch + pen).
+  canvas.addEventListener('pointerdown', startDrag);
+  document.addEventListener('pointermove', moveDrag);
+  document.addEventListener('pointerup', endDrag);
+  document.addEventListener('pointercancel', endDrag);
+  // Mouse Events fallback (some headless / synthesized inputs only emit these).
+  canvas.addEventListener('mousedown', startDrag);
+  document.addEventListener('mousemove', moveDrag);
+  document.addEventListener('mouseup', endDrag);
+  // Touch Events fallback (older mobile browsers without Pointer Events).
+  canvas.addEventListener('touchstart', startDrag, { passive: false });
+  document.addEventListener('touchmove', moveDrag, { passive: false });
+  document.addEventListener('touchend', endDrag);
+  document.addEventListener('touchcancel', endDrag);
   canvas.addEventListener('contextmenu', e => e.preventDefault());
 
   // ---------- Collision damage ----------
